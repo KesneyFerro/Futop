@@ -44,7 +44,7 @@ const Home: NextPage = () => {
               placeholder="Pesquise Aqui..."
               className=" border-0 outline-none focus:outline-none bg-transparent text-sm w-full"
             ></input>
-            <div className="filterBox rounded-[12px] border-[2px] border-[#5d6075] w-[35px] min-w-[35px] h-[35px] mr-3 flex justify-center items-center">
+            <div className="filterBox rounded-[12px] cursor-pointer border-[2px] border-[#5d6075] w-[35px] min-w-[35px] h-[35px] mr-3 flex justify-center items-center">
               <i className="bx bx-filter-alt text-xl text-[#8A8A8A]"></i>
             </div>
           </div>

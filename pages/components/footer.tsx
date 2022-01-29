@@ -12,7 +12,7 @@ const Footer = () => {
             Ut enim ad minim veniam, quis nostrud equip ex ea commodo
             consequat...{" "}
             <span className="text-black font-semibold cursor-pointer">
-              Read More
+              Leia Mais
             </span>
           </h3>
           <div
@@ -38,16 +38,20 @@ const Footer = () => {
         </div>
         <div className="w-full flex-col mt-16">
           <div className="flex justify-between">
-            <h4 className="text-[#9A9EA6] cursor-pointer">About us</h4>
-            <h4 className="text-[#9A9EA6] cursor-pointer">Jobs</h4>
-            <h4 className="text-[#9A9EA6] cursor-pointer">Press</h4>
+            <h4 className="text-[#9A9EA6] cursor-pointer">Sobre nós</h4>
+            <h4 className="text-[#9A9EA6] cursor-pointer">Outros trabalhos</h4>
+            <h4 className="text-[#9A9EA6] cursor-pointer">Conferências</h4>
             <h4 className="text-[#9A9EA6] cursor-pointer">Blog</h4>
             <h4 className="text-[#9A9EA6] cursor-pointer">FAQ</h4>
-            <h4 className="text-[#9A9EA6] cursor-pointer">Careers</h4>
-            <h4 className="text-[#9A9EA6] cursor-pointer">Contact</h4>
-            <h4 className="text-[#9A9EA6] cursor-pointer">Privacy policy</h4>
-            <h4 className="text-[#9A9EA6] cursor-pointer">Sitemap</h4>
-            <h4 className="text-[#9A9EA6] cursor-pointer">Terms of Use</h4>
+            <h4 className="text-[#9A9EA6] cursor-pointer">Carreiras</h4>
+            <h4 className="text-[#9A9EA6] cursor-pointer">Contatos</h4>
+            <h4 className="text-[#9A9EA6] cursor-pointer">
+              Política de privacidade
+            </h4>
+            <h4 className="text-[#9A9EA6] cursor-pointer">
+              Mapeamento do site
+            </h4>
+            <h4 className="text-[#9A9EA6] cursor-pointer">Termos de serviço</h4>
           </div>
           <div className="flex justify-between mt-10 items-center mb-10">
             <div className="flex">
@@ -56,7 +60,9 @@ const Footer = () => {
                   <i className="bx bx-phone-call text-2xl text-[#50545E]"></i>
                 </div>
                 <div className="flex-col justify-between">
-                  <h5 className=" text-[#9A9EA6] text-sm ">Have a question?</h5>
+                  <h5 className=" text-[#9A9EA6] text-sm ">
+                    Tem uma Pergunta?
+                  </h5>
                   <h5 className="font-bold text-[#50545E]">301-437-2766</h5>
                 </div>
               </div>
@@ -65,7 +71,9 @@ const Footer = () => {
                   <i className="bx bx-mail-send text-2xl text-[#50545E]"></i>
                 </div>
                 <div className="flex-col justify-between">
-                  <h5 className=" text-[#9A9EA6] text-sm ">Contact us at</h5>
+                  <h5 className=" text-[#9A9EA6] text-sm ">
+                    Entre em contato em:
+                  </h5>
                   <h5 className="font-bold text-[#50545E]">
                     unreal@outlook.com
                   </h5>
@@ -73,7 +81,7 @@ const Footer = () => {
               </div>
             </div>
             <h5 className="text-[#9A9EA6] text-sm">
-              &copy; 2021, All Rights Reserved
+              &copy; 2021, Todos os direitos reservados
             </h5>
           </div>
         </div>
