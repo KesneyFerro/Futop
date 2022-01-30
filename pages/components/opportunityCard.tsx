@@ -1,13 +1,39 @@
+/* eslint-disable prefer-rest-params */
+/* eslint-disable prefer-const */
+/* eslint-disable camelcase */
 import React, { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { motion } from "framer-motion";
 import { prominent } from "color.js";
 
 const OpportunityCard = (props: any) => {
+  () => {
+    let cors_api_host = "cors-anywhere.herokuapp.com";
+    let cors_api_url = "https://" + cors_api_host + "/";
+    const slice = [].slice;
+    const origin = window.location.protocol + "//" + window.location.host;
+    const open = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function () {
+      const args: any = slice.call(arguments);
+      const targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
+      if (
+        targetOrigin &&
+        targetOrigin[0].toLowerCase() !== origin &&
+        targetOrigin[1] !== cors_api_host
+      ) {
+        args[1] = cors_api_url + args[1];
+      }
+      return open.apply(this, args);
+    };
+  };
+
   const [colorr, setColor] = useState("");
+
   if (typeof window === "object") {
-    prominent(props.image, { amount: 1 }).then((color) => {
-      setColor(color.toString());
+    prominent(`https://cors-anywhere.herokuapp.com/${props.image}`, {
+      amount: 4,
+    }).then((color) => {
+      setColor(color[3].toString());
     });
   }
 
@@ -73,8 +99,8 @@ const OpportunityCardStyle = styled.div<CardInterface>`
   height: 300px; */
   background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.4)),
     linear-gradient(
-      rgba(${(props) => props.theme.main}, 0.29),
-      rgba(${(props) => props.theme.main}, 0.29)
+      rgba(${(props) => props.theme.main}, 0.59),
+      rgba(${(props) => props.theme.main}, 0.59)
     ),
     url(${(props) => props.theme.image});
   background-size: cover;

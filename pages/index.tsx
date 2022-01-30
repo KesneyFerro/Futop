@@ -49,13 +49,13 @@ const Home: NextPage = () => {
               <i className="bx bx-filter-alt text-xl text-[#8A8A8A]"></i>
             </div>
           </div>
-          <div className="mainOpportunities w-full min-h-[500px] h-auto mt-16 mb-24">
+          <div className="mainOpportunities w-full min-h-[500px] h-auto mt-16 mb-12">
             <OpportunityCard
               first={true}
               title="Oportunidade Ismart"
               tags={["Instituição", "Ensino médio"]}
               image={
-                "https://st2.depositphotos.com/3591429/8172/i/600/depositphotos_81721390-stock-photo-people-studying-students-on-campus.jpg"
+                "https://blogs.opovo.com.br/docedu/wp-content/uploads/sites/96/2020/05/Eduardo-Braga-da-Costa-projeto-Ismart-Online-S%C3%A3o-Paulo-740x415.jpg"
               }
             />
             <OpportunityCard
@@ -67,7 +67,7 @@ const Home: NextPage = () => {
               title="Oportunidade 2"
               tags={["Instituição", "Kesney"]}
               image={
-                "https://blog.influx.com.br/storage/app/media/uploaded-files/hub/1415475/file-3420873942-jpg/blog-files/coisas-que-as-pessoas-felizes-fazem-noticias.jpg"
+                "" || "https://hypescience.com/wp-content/uploads/2014/01/1.jpg"
               }
             />
             <OpportunityCard
@@ -85,7 +85,7 @@ const Home: NextPage = () => {
               }
             />
           </div>
-          <div className="seeMoreButtonDisplay w-full flex justify-center">
+          <div className="seeMoreButtonDisplay w-full flex justify-center mb-6">
             <button className="SeeMoreBtn bg-[#25092D] text-white text-base rounded-full px-5 py-3 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg">
               Veja Mais
             </button>

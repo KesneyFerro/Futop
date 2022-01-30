@@ -31,29 +31,38 @@ const Suggestions: NextPage = () => {
               alt="Pessoa segurando uma lanterna na qual a iluminação contém um balão de dúvida"
             />
           </div>
-          <div className="helpUsToImproveRight flex flex-col items-end mr-[10vw]">
-            <div className="helpUsToImproveTitle">
-              <h2 className="text-[#25092D] text-justify font-extrabold text-5xl max-w-auto">
-                Alguma{"  "}
-                <span className="inline-block">
-                  <span className="underline-rounded">sugestão</span>
-                </span>
-                ?
-              </h2>
+          <div className="helpUsToImproveRight flex flex-col items-center justify-center relative h-full ">
+            <div className="helpUsToImproveImageBlob absolute right-0 bottom-0">
+              <img
+                className=""
+                src="/helpUsToImproveBlob.svg"
+                alt="Pessoa segurando uma lanterna na qual a iluminação contém um balão de dúvida"
+              />
             </div>
-            <div className="helpUsToImproveDescription">
-              <h5 className="helpUsToImproveDescriptionAlt mt-12 font-medium text-base text-justify text-[#a7a7a7] max-w-[445px]">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Scelerisque nulla pretium vel rutrum lacinia. Tellus est
-                ultricies purus dignissim. Nec, odio blandit at sed. Mauris
-                ornare quis ac elit quam mollis vel enim. Purus euismod quam
-                mauris nunc integer neque. Nunc morbi bibendum laoreet mattis
-                nisl, sed elit.
-              </h5>
+            <div className="mr-[10vw] flex flex-col items-end">
+              <div className="helpUsToImproveTitle ">
+                <h2 className="text-[#25092D] text-justify font-extrabold text-5xl max-w-auto">
+                  Alguma{"  "}
+                  <span className="inline-block">
+                    <span className="underline-rounded">sugestão</span>
+                  </span>
+                  ?
+                </h2>
+              </div>
+              <div className="helpUsToImproveDescription">
+                <h5 className="helpUsToImproveDescriptionAlt mt-12 font-medium text-base text-justify text-[#a7a7a7] max-w-[445px]">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Scelerisque nulla pretium vel rutrum lacinia. Tellus est
+                  ultricies purus dignissim. Nec, odio blandit at sed. Mauris
+                  ornare quis ac elit quam mollis vel enim. Purus euismod quam
+                  mauris nunc integer neque. Nunc morbi bibendum laoreet mattis
+                  nisl, sed elit.
+                </h5>
+              </div>
+              <button className="helpUsToImproveButton bg-[#25092D] text-white text-base rounded-full px-5 py-3 mt-10 flex justify-center w-[260px] items-center drop-shadow-lg">
+                Contribua conosco
+              </button>
             </div>
-            <button className="helpUsToImproveButton bg-[#25092D] text-white text-base rounded-full px-5 py-3 mt-10 flex justify-center w-[260px] items-center drop-shadow-lg">
-              Contribua conosco
-            </button>
           </div>
         </div>
         <div className="aboutUsmain w-[80%]">
@@ -101,10 +110,10 @@ const Suggestions: NextPage = () => {
               </p>
             </div>
           </div>
-          <hr className="mt-10 mb-10 border-[1px] border-[#c6c6c6] w-full" />
+          <hr className="mt-10 mb-20 border-[1px] border-[#c6c6c6] w-full" />
           <div className="projectMotivations">
             <div className="flex items-center">
-              <div className="icon1">
+              <div className="icon1 mr-5">
                 <img
                   src="/socialInequality.svg"
                   alt="Pessoa segurando uma lanterna na qual a iluminação contém um balão de dúvida"
@@ -125,8 +134,8 @@ const Suggestions: NextPage = () => {
                 </div>
               </div>
             </div>
-            <div className="my-[40px] flex">
-              <div className="icon2">
+            <div className="my-[40px] flex items-center">
+              <div className="icon2 mr-5">
                 <img
                   src="/educationalImprovement.svg"
                   alt="Pessoa segurando uma lanterna na qual a iluminação contém um balão de dúvida"
@@ -147,8 +156,8 @@ const Suggestions: NextPage = () => {
                 </div>
               </div>
             </div>
-            <div className="my-[40px] flex ">
-              <div className="icon3">
+            <div className="my-[40px] flex items-center">
+              <div className="icon3 mr-5">
                 <img
                   src="/giveEveryoneAChance.svg"
                   alt="Pessoa segurando uma lanterna na qual a iluminação contém um balão de dúvida"

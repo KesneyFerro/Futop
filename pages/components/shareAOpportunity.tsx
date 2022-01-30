@@ -4,16 +4,16 @@ import Image from "next/image";
 const ShareAOpportunity = () => {
   return (
     <div className="shareAOpportunity flex-col bg-[#fdfcf2] w-full min-h-[425px] flex items-center">
-      <div className="shareAOpportunityContent w-[90%] flex justify-between h-full items-center">
-        <div className="shareAOpportunityLeft ">
-          <div className="shareAOpportunityTitle font-semibold text-[27px]">
-            <h3>
+      <div className="shareAOpportunityContent w-[90%] flex flex-col justify-center lg:flex-row lg:justify-between h-full items-center">
+        <div className="shareAOpportunityLeft mt-10 ">
+          <div className="shareAOpportunityTitle font-semibold text-[27px] flex flex-col items-center lg:flex-col lg:items-start">
+            <h3 className="text-center lg:text-left ">
               Conhece uma{" "}
               <span className=" inline-block">
                 <span className=" underline-rounded ">Oportunidade?</span>
               </span>
             </h3>
-            <h4 className=" font-medium text-base max-w-[600px] text-justify mt-5 text-black/50">
+            <h4 className=" font-medium text-base max-w-[600px] text-center lg:text-justify mt-5 text-black/50">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique
               at rhoncus amet, etiam felis, viverra pharetra tincidunt
               fermentum. Eget venenatis lacus, vestibulum id molestie. Cras orci
@@ -31,7 +31,7 @@ const ShareAOpportunity = () => {
             <div className="shareAOpportunityButtonArrow"></div>
           </button>
         </div>
-        <div className="shareAOpportunityRight">
+        <div className="shareAOpportunityRight ml-10">
           <Image
             src="/shareAOpportunity.svg"
             width={400}
