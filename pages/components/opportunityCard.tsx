@@ -30,7 +30,7 @@ const OpportunityCard = (props: any) => {
   const [colorr, setColor] = useState("");
 
   if (typeof window === "object") {
-    prominent(`https://cors-anywhere.herokuapp.com/${props.image}`, {
+    prominent(`${props.image}`, {
       amount: 4,
     }).then((color) => {
       setColor(color[3].toString());
