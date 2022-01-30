@@ -72,14 +72,16 @@ const OpportunityCard = (props: any) => {
                 {props.title}
               </h3>
               <div id="CardTags" className="flex items-center mt-2 font-medium">
-                {props.tags.map((tag: any) => (
-                  <div
-                    key={tag}
-                    className="bg-[#F5F5F5] px-3 py-2 rounded-full mr-2 text-sm"
-                  >
-                    {tag}
-                  </div>
-                ))}
+                {props.tags
+                  ? props.tags.map((tag: any) => (
+                      <div
+                        key={tag}
+                        className="bg-[#F5F5F5] px-3 py-2 rounded-full mr-2 text-sm"
+                      >
+                        {tag}
+                      </div>
+                    ))
+                  : ""}
               </div>
             </div>
           </div>
