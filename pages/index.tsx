@@ -5,6 +5,7 @@ import React from "react";
 import { HomeCointainer } from "../styles/components/home";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
+import OpportunityCard from "./components/opportunityCard";
 import ShareAOpportunity from "./components/shareAOpportunity";
 
 const Home: NextPage = () => {
@@ -48,8 +49,47 @@ const Home: NextPage = () => {
               <i className="bx bx-filter-alt text-xl text-[#8A8A8A]"></i>
             </div>
           </div>
-          <div className="mainOpportunities"></div>
-          <button className="SeeMoreBtn"></button>
+          <div className="mainOpportunities w-full min-h-[500px] h-auto mt-16 mb-24">
+            <OpportunityCard
+              first={true}
+              title="Oportunidade Ismart"
+              tags={["Instituição", "Ensino médio"]}
+              image={
+                "https://st2.depositphotos.com/3591429/8172/i/600/depositphotos_81721390-stock-photo-people-studying-students-on-campus.jpg"
+              }
+            />
+            <OpportunityCard
+              title="Oportunidade 2"
+              tags={["Instituição", "Kesney"]}
+              image={"https://hypescience.com/wp-content/uploads/2014/01/1.jpg"}
+            />
+            <OpportunityCard
+              title="Oportunidade 2"
+              tags={["Instituição", "Kesney"]}
+              image={
+                "https://blog.influx.com.br/storage/app/media/uploaded-files/hub/1415475/file-3420873942-jpg/blog-files/coisas-que-as-pessoas-felizes-fazem-noticias.jpg"
+              }
+            />
+            <OpportunityCard
+              title="Oportunidade 2"
+              tags={["Instituição", "Kesney"]}
+              image={
+                "https://st2.depositphotos.com/3591429/8172/i/600/depositphotos_81721390-stock-photo-people-studying-students-on-campus.jpg"
+              }
+            />
+            <OpportunityCard
+              title="Oportunidade 2"
+              tags={["Instituição", "Kesney"]}
+              image={
+                "https://st2.depositphotos.com/3591429/8172/i/600/depositphotos_81721390-stock-photo-people-studying-students-on-campus.jpg"
+              }
+            />
+          </div>
+          <div className="seeMoreButtonDisplay w-full flex justify-center">
+            <button className="SeeMoreBtn bg-[#25092D] text-white text-base rounded-full px-5 py-3 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg">
+              Veja Mais
+            </button>
+          </div>
         </div>
         <ShareAOpportunity />
         <Footer />
