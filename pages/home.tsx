@@ -59,7 +59,7 @@ const LandingPage: NextPage = () => {
         </div>
         <div className="mainHome w-full flex items-center flex-col">
           <div className="mainHomeDecoration"></div>
-          <div className="mainHomeMotivations w-[90vw] flex items-center flex-col">
+          <div className="mainHomeMotivations w-[90vw] flex items-center flex-col mt-40">
             <div className="mainHomeMotivationsTitle">
               <h2 className="font-extrabold text-[#303031] text-4xl">
                 Nossas Motivações
@@ -71,21 +71,54 @@ const LandingPage: NextPage = () => {
                 Sun Tzu
               </h3>
             </div>
-            <div className="mainHomeMotivationsBoxes flex justify-between w-full">
-              <div className="motivationBox1 w-[210px] h-[170px]  bg-[#F8F8F8] px-5 py-2 rounded-xl drop-shadow-xl mr-3">
-                <div className="motivationBox1icon"></div>
-                <div className="motivationBox1Title"></div>
-                <div className="motivationBox1description"></div>
+            <div className="mainHomeMotivationsBoxes flex justify-between w-full mt-10">
+              <div className="motivationBox1 w-full h-auto mr-3 bg-[#FFFFFF] px-5 py-5 rounded-xl drop-shadow-xl flex items-center flex-col">
+                <div className="motivationBox1icon mt-10">
+                  <img src="/binocularIcon.svg" alt="" />
+                </div>
+                <div className="motivationBox1Title my-5">
+                  <h3 className="font-semibold text-lg text-justify">
+                    Informar sobre oportunidades
+                  </h3>
+                </div>
+                <div className="motivationBox1description mb-5">
+                  <h4 className="font-medium text-base text-center text-[#303031]">
+                    Lörem ipsum beprefere exosal vartad. Reament kaktig
+                    desaheten bebel. Tretähigt ultrana. Du kan vara drabbad.{" "}
+                  </h4>
+                </div>
               </div>
-              <div className="motivationBox2 w-[210px] h-[170px] ax-w-[445px]  bg-[#F8F8F8] px-5 py-2 rounded-xl drop-shadow-xl mr-3">
-                <div className="motivationBox2icon"></div>
-                <div className="motivationBox2Title"></div>
-                <div className="motivationBox2description"></div>
+              <div className="motivationBox2 w-full h-auto mr-3 bg-[#FFFFFF] px-5 py-5 rounded-xl drop-shadow-xl flex items-center flex-col">
+                <div className="motivationBox2icon mt-10">
+                  <img src="/lampIcon.svg" alt="" />
+                </div>
+                <div className="motivationBox2Title my-5">
+                  <h3 className="font-semibold text-lg text-justify">
+                    Ajudar jovens brilhantes
+                  </h3>
+                </div>
+                <div className="motivationBox2description mb-5">
+                  <h4 className="font-medium text-base text-center text-[#303031]">
+                    Lörem ipsum beprefere exosal vartad. Reament kaktig
+                    desaheten bebel. Tretähigt ultrana. Du kan vara drabbad.{" "}
+                  </h4>
+                </div>
               </div>
-              <div className="motivationBox3 w-[210px] h-[170px] ax-w-[445px]  bg-[#F8F8F8] px-5 py-2 rounded-xl drop-shadow-xl mr-3">
-                <div className="motivationBox3icon"></div>
-                <div className="motivationBox3Title"></div>
-                <div className="motivationBox3description"></div>
+              <div className="motivationBox3 w-full h-auto bg-[#FFFFFF] px-5 py-5 rounded-xl drop-shadow-xl flex items-center flex-col">
+                <div className="motivationBox3icon mt-10">
+                  <img src="/BalanceIcon.svg" alt="" />
+                </div>
+                <div className="motivationBox3Title my-5">
+                  <h3 className="font-semibold text-lg text-justify">
+                    Promover igualdade social
+                  </h3>
+                </div>
+                <div className="motivationBox3description mb-5">
+                  <h4 className="font-medium text-base text-center text-[#303031]">
+                    Lörem ipsum beprefere exosal vartad. Reament kaktig
+                    desaheten bebel. Tretähigt ultrana. Du kan vara drabbad.{" "}
+                  </h4>
+                </div>
               </div>
             </div>
           </div>

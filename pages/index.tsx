@@ -15,32 +15,51 @@ import ShareAOpportunity from "./components/shareAOpportunity";
 
 const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
+const chunkArray = (myArray: any, chunkSize: number) => {
+  let index = 0;
+  const arrayLength = myArray.length;
+  const tempArray = [];
+
+  for (index = 0; index < arrayLength; index += chunkSize) {
+    const myChunk = myArray.slice(index, index + chunkSize);
+    tempArray.push(myChunk);
+  }
+
+  return tempArray;
+};
+
 function Posts() {
-  const { data, error } = useSWR("/api/posts", fetcher);
+  const { data, error } = useSWR("http://localhost:3000/api/getposts", fetcher);
 
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
 
   // render data
-  return <div>hello {data.name}!</div>;
+
+  const postsdata = chunkArray(data.posts, 5);
+  return postsdata.map((post: any, index: any) => (
+    <div
+      key={post[index].id}
+      className="mainOpportunities w-full min-h-[500px] h-auto mt-0 mb-12"
+    >
+      {post.map((posts: any, index: any) => (
+        <OpportunityCard
+          first={index === 0 ? true : false}
+          key={posts.id}
+          title={posts.title}
+          tags={posts.tags}
+          image={posts.image}
+        />
+      ))}
+    </div>
+  ));
 }
 
 const Home: NextPage = ({ posts }: any) => {
   // Create a function that will get a array of objects and divide in arrays of 5 elements
-  const chunkArray = (myArray: any, chunkSize: number) => {
-    let index = 0;
-    const arrayLength = myArray.length;
-    const tempArray = [];
 
-    for (index = 0; index < arrayLength; index += chunkSize) {
-      const myChunk = myArray.slice(index, index + chunkSize);
-      tempArray.push(myChunk);
-    }
-
-    return tempArray;
-  };
   // console.log(posts);
-  console.log(chunkArray(posts, 5));
+  // console.log(chunkArray(posts, 5));
 
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
@@ -74,7 +93,7 @@ const Home: NextPage = ({ posts }: any) => {
               </p>
             </div>
           </div>
-          <div className="mt-16 searchbar bg-[#FDFDFE] w-full h-auto drop-shadow-md rounded-[15px] flex-col px-4">
+          <div className="mt-16 searchbar bg-[#FDFDFE] w-full mb-16 h-auto drop-shadow-md rounded-[15px] flex-col px-4">
             <div className="flex items-center w-full my-[10.5px]">
               <i className="bx bx-search text-[#8A8A8A] text-[25px] mr-3"></i>
               <input
@@ -113,15 +132,16 @@ const Home: NextPage = ({ posts }: any) => {
                   id="cars"
                   className=" border-2 border-black/30 drop-shadow-sm text-[15px] rounded-2xl text-black/70 font-semibold appearance-none text-center px-2 bg-white text-black w-full py-[10px]"
                 >
-                  <option value="audi">Faixa etária</option>
-                  <option value="volvo">Ensino Fundamental</option>
-                  <option value="saab">Ensino Médio</option>
+                  <option value="audi">Níveis de Escolaridade</option>
+                  <option value="volvo">Ensino Fundamental I</option>
+                  <option value="saab">Ensino Fundamental II</option>
+                  <option value="opel">Ensino Médio</option>
                 </select>
               </div>
             )}
           </div>
 
-          <div className="mainOpportunities w-full min-h-[500px] h-auto mt-16 mb-12">
+          <div className="mainOpportunities w-full min-h-[500px] h-auto mb-12">
             <OpportunityCard
               first={true}
               title="Oportunidade 2"
@@ -160,7 +180,7 @@ const Home: NextPage = ({ posts }: any) => {
               }
             />
           </div>
-
+          <Posts />
           <div className="seeMoreButtonDisplay w-full flex justify-center mb-6">
             <button className="SeeMoreBtn bg-[#25092D] text-white text-base rounded-full px-5 py-4 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg">
               Veja Mais

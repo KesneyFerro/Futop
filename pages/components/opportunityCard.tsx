@@ -7,37 +7,7 @@ import { motion } from "framer-motion";
 import { prominent } from "color.js";
 
 const OpportunityCard = (props: any) => {
-  () => {
-    let cors_api_host = "cors-anywhere.herokuapp.com";
-    let cors_api_url = "https://" + cors_api_host + "/";
-    const slice = [].slice;
-    const origin = window.location.protocol + "//" + window.location.host;
-    const open = XMLHttpRequest.prototype.open;
-    XMLHttpRequest.prototype.open = function () {
-      const args: any = slice.call(arguments);
-      const targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
-      if (
-        targetOrigin &&
-        targetOrigin[0].toLowerCase() !== origin &&
-        targetOrigin[1] !== cors_api_host
-      ) {
-        args[1] = cors_api_url + args[1];
-      }
-      return open.apply(this, args);
-    };
-  };
-
   const [colorr, setColor] = useState("");
-
-  // ColorThief.getColor(img);
-
-  // img.addEventListener("load", function () {
-  // });
-
-  // img.crossOrigin = "Anonymous";
-  // img.src = "https://aws.com/s3/image.jpeg";
-  // let googleProxyURL =
-  //   "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=2592000&url=";
 
   if (typeof window === "object") {
     prominent(`https://cors.jg-limamarinho202.workers.dev/?${props.image}`, {
