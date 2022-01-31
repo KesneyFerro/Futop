@@ -180,7 +180,7 @@ const Home: NextPage = ({ posts }: any) => {
               }
             />
           </div>
-          <Posts />
+          <Posts key={Math.random()} />
           <div className="seeMoreButtonDisplay w-full flex justify-center mb-6">
             <button className="SeeMoreBtn bg-[#25092D] text-white text-base rounded-full px-5 py-4 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg">
               Veja Mais
