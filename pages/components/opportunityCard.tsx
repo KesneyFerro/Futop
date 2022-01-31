@@ -55,9 +55,12 @@ const OpportunityCard = (props: any) => {
   // props.finalcolor = colorr;
   return (
     <motion.div
+      // style={{ originY: 0, originX: 0.5 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.9 }}
       transition={{ duration: 0.25 }}
+      initial={{ opacity: 0.8 }}
+      animate={{ opacity: 1 }}
       className="w-auto h-auto cursor-pointer"
     >
       <ThemeProvider theme={theme}>
@@ -87,7 +90,7 @@ const OpportunityCard = (props: any) => {
                   ? props.tags.map((tag: any) => (
                       <div
                         key={tag}
-                        className="bg-[#F5F5F5] px-3 py-2 rounded-full mr-2 text-sm"
+                        className="bg-[#F5F5F5] px-3 py-2 rounded-full text-center mr-2 text-sm"
                       >
                         {tag}
                       </div>
@@ -110,25 +113,40 @@ interface CardInterface {
 const OpportunityCardStyle = styled.div<CardInterface>`
   /* width: 450px;
   height: 300px; */
-  background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.4)),
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
     linear-gradient(
-      rgba(${(props) => props.theme.main}, 0.3),
-      rgba(${(props) => props.theme.main}, 0.8)
+      rgba(${(props) => props.theme.main}, 0.5),
+      rgba(${(props) => props.theme.main}, 0.5)
     ),
     url(${(props) => props.theme.image});
   background-size: cover;
 
-  #CardTitle {
-    font-size: ${(props) => (props.first ? "1.875rem" : "")};
-    line-height: ${(props) => (props.first ? "2.25rem" : "")};
+  #CardButtons {
+    opacity: 0;
+    transition: all 0.25s;
   }
-  #CardTags {
-    margin-top: ${(props) => (props.first ? "20px" : "")};
-    margin-bottom: ${(props) => (props.first ? "20px" : "")};
+  @media (min-width: 1079px) {
+    #CardTitle {
+      font-size: ${(props) => (props.first ? "1.875rem" : "")};
+      line-height: ${(props) => (props.first ? "2.25rem" : "")};
+    }
+    #CardTags {
+      margin-top: ${(props) => (props.first ? "20px" : "")};
+      margin-bottom: ${(props) => (props.first ? "20px" : "")};
+    }
+    #CardButtons div {
+      width: ${(props) => (props.first ? "2.5rem" : "")};
+      height: ${(props) => (props.first ? "2.5rem" : "")};
+    }
   }
-  #CardButtons div {
-    width: ${(props) => (props.first ? "2.5rem" : "")};
-    height: ${(props) => (props.first ? "2.5rem" : "")};
+
+  box-shadow: 0;
+  transition: all 0.25s;
+  &:hover {
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4);
+    #CardButtons {
+      opacity: 1;
+    }
   }
 `;
 

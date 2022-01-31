@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const Navbar = () => {
   return (
-    <div className="bg-white drop-shadow-md w-full min-h-[5rem] h-20 flex justify-center ">
+    <div className="bg-white drop-shadow-md w-full min-h-[5rem] h-20 fixed z-30 flex justify-center ">
       <div className="flex justify-between h-full items-center w-[80%]">
         <div className="text-black font-bold text-2xl w-[128px]">
           <a href="../home">LOGO</a>

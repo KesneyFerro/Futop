@@ -22,7 +22,7 @@ const Suggestions: NextPage = () => {
       </Head>
       <main className="flex items-center flex-col">
         <Navbar />
-        <div className="helpUsToImprove flex justify-between items-center bg-[#F3F0EA] w-full h-[700px] min-h-[700px]">
+        <div className="helpUsToImprove flex justify-between mt-[80px] items-center bg-[#F3F0EA] w-full h-[700px] min-h-[700px]">
           <div className="helpUsToImproveLeft h-full flex items-end">
             <Image
               src="/helpUsToImproveImage.svg"
