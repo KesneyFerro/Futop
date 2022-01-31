@@ -167,7 +167,7 @@ const Home: NextPage = () => {
   );
 };
 export async function getServerSideProps() {
-  const res = await axios.get("/api/getposts");
+  const res = await axios.get("https://frames-two.vercel.app/api/getposts");
   const posts = res.data.posts;
   return {
     props: { posts: posts }, // will be passed to the page component as props
