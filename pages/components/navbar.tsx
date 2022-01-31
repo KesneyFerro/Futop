@@ -11,17 +11,17 @@ const Navbar = () => {
         <div className=" mx-24 w-full max-w-[600px] hidden lg:flex">
           <ul className="flex justify-between w-full">
             <li className="text-sm">
-              <Link href="../home">
+              <Link href="/home">
                 <a>Home</a>
               </Link>
             </li>
             <li className="text-sm">
-              <Link href="../">
+              <Link href="/">
                 <a>Oportunidades</a>
               </Link>
             </li>
             <li className="text-sm">
-              <Link href="../suggestions">
+              <Link href="/suggestions">
                 <a>Fale Conosco</a>
               </Link>
             </li>
