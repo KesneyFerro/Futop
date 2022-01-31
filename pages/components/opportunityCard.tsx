@@ -29,11 +29,22 @@ const OpportunityCard = (props: any) => {
 
   const [colorr, setColor] = useState("");
 
+  // ColorThief.getColor(img);
+
+  // img.addEventListener("load", function () {
+  // });
+
+  // img.crossOrigin = "Anonymous";
+  // img.src = "https://aws.com/s3/image.jpeg";
+  // let googleProxyURL =
+  //   "https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&refresh=2592000&url=";
+
   if (typeof window === "object") {
-    prominent(`${props.image}`, {
-      amount: 4,
-    }).then((color) => {
+    prominent(`https://cors.jg-limamarinho202.workers.dev/?${props.image}`, {
+      amount: 7,
+    }).then((color: any) => {
       setColor(color[3].toString());
+      // console.log(color[3].toString());
     });
   }
 
@@ -54,7 +65,7 @@ const OpportunityCard = (props: any) => {
           first={props.first}
           className={`${
             props.main ? "mainGrid" : ""
-          } rounded-[15px] flex w-full h-full flex-col justify-between items-start px-[16px] py-[12px]`}
+          } rounded-[15px] flex w-full h-full flex-col justify-between items-start px-[16px] py-[12px] relative`}
         >
           <div
             id="CardButtons"
@@ -101,8 +112,8 @@ const OpportunityCardStyle = styled.div<CardInterface>`
   height: 300px; */
   background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.4)),
     linear-gradient(
-      rgba(${(props) => props.theme.main}, 0.59),
-      rgba(${(props) => props.theme.main}, 0.59)
+      rgba(${(props) => props.theme.main}, 0.3),
+      rgba(${(props) => props.theme.main}, 0.8)
     ),
     url(${(props) => props.theme.image});
   background-size: cover;

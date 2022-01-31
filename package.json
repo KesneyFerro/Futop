@@ -11,6 +11,7 @@
   "dependencies": {
     "color-thief-react": "^2.1.0",
     "color.js": "^1.2.0",
+    "colorthief": "^2.3.2",
     "framer-motion": "^6.2.3",
     "http-proxy-middleware": "^2.0.2",
     "mongodb": "^4.3.1",

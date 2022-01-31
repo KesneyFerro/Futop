@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-undef */
+import { AnimatePresence, motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
-import React from "react";
+import React, { useState } from "react";
 import { HomeCointainer } from "../styles/components/home";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
@@ -9,6 +10,24 @@ import OpportunityCard from "./components/opportunityCard";
 import ShareAOpportunity from "./components/shareAOpportunity";
 
 const Home: NextPage = () => {
+  // Create a function that will get a array of objects and divide in arrays of 5 elements
+  const chunkArray = (myArray: any, chunkSize: number) => {
+    let index = 0;
+    const arrayLength = myArray.length;
+    const tempArray = [];
+
+    for (index = 0; index < arrayLength; index += chunkSize) {
+      const myChunk = myArray.slice(index, index + chunkSize);
+      // Do something if you want with the group
+      tempArray.push(myChunk);
+    }
+
+    return tempArray;
+  };
+  chunkArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5);
+
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
+
   return (
     <HomeCointainer>
       <Head>
@@ -39,16 +58,61 @@ const Home: NextPage = () => {
               </p>
             </div>
           </div>
-          <div className="mt-16 searchbar bg-[#FDFDFE] w-full h-14 drop-shadow-md rounded-[15px] flex items-center">
-            <i className="bx bx-search text-[#8A8A8A] text-[25px] mr-3 ml-4"></i>
-            <input
-              placeholder="Pesquise Aqui..."
-              className=" border-0 outline-none focus:outline-none bg-transparent text-sm w-full"
-            ></input>
-            <div className="filterBox rounded-[12px] cursor-pointer border-[2px] border-[#5d6075] w-[35px] min-w-[35px] h-[35px] mr-3 flex justify-center items-center">
-              <i className="bx bx-filter-alt text-xl text-[#8A8A8A]"></i>
+          <div className="mt-16 searchbar bg-[#FDFDFE] w-full h-auto drop-shadow-md rounded-[15px] flex-col px-4">
+            <div className="flex items-center w-full my-[10.5px]">
+              <i className="bx bx-search text-[#8A8A8A] text-[25px] mr-3"></i>
+              <input
+                placeholder="Pesquise Aqui..."
+                className=" border-0 outline-none focus:outline-none bg-transparent text-sm w-full"
+              ></input>
+              <button
+                onClick={() => setIsFilterOpen(!isFilterOpen)}
+                className={`ml-5 filterBox rounded-[12px] cursor-pointer border-[2px] ${
+                  isFilterOpen ? "border-[#747474] " : "border-[#5d6075] "
+                } w-[35px] min-w-[35px] h-[35px] flex justify-center  items-center ${
+                  isFilterOpen ? "bg-black/80" : "bg-transparent"
+                }`}
+              >
+                <i
+                  className={`bx bx-filter-alt text-xl  ${
+                    isFilterOpen ? "text-[#ffffff]" : "text-[#8A8A8A]"
+                  }`}
+                ></i>
+              </button>
             </div>
+            <AnimatePresence initial={false}>
+              {isFilterOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.2 }}
+                  className="w-full h-14 flex items-center mb-4"
+                >
+                  <select
+                    name="cars"
+                    id="cars"
+                    className=" border-2 mr-7 border-black/30 text-[15px] drop-shadow-sm appearance-none text-center rounded-2xl px-2 bg-white text-black w-full py-[10px]"
+                  >
+                    <option value="audi">Tipo de Oportunidade</option>
+                    <option value="volvo">Instituição</option>
+                    <option value="saab">Bolsa</option>
+                    <option value="opel">Curso</option>
+                  </select>
+                  <select
+                    name="cars"
+                    id="cars"
+                    className=" border-2 border-black/30 drop-shadow-sm text-[15px] rounded-2xl appearance-none text-center px-2 bg-white text-black w-full py-[10px]"
+                  >
+                    <option value="audi">Faixa etária</option>
+                    <option value="volvo">Ensino Fundamental</option>
+                    <option value="saab">Ensino Médio</option>
+                  </select>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
+
           <div className="mainOpportunities w-full min-h-[500px] h-auto mt-16 mb-12">
             <OpportunityCard
               first={true}
@@ -60,8 +124,10 @@ const Home: NextPage = () => {
             />
             <OpportunityCard
               title="Oportunidade 2"
-              tags={["Instituição", "Kesney"]}
-              image={"https://hypescience.com/wp-content/uploads/2014/01/1.jpg"}
+              tags={["Instituição", "Ensino Fundamental"]}
+              image={
+                "https://jornaldeboasnoticias.com.br/wp-content/uploads/capa_7676.jpg"
+              }
             />
             <OpportunityCard
               title="Oportunidade 2"
