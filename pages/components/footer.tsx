@@ -93,7 +93,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <h5 className="text-[#9A9EA6] text-sm">
+            <h5 className="text-[#9A9EA6] text-sm text-center">
               &copy; 2021, Todos os direitos reservados
             </h5>
           </div>

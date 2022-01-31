@@ -9,6 +9,7 @@
     "prettier": "prettier"
   },
   "dependencies": {
+    "axios": "^0.25.0",
     "color-thief-react": "^2.1.0",
     "color.js": "^1.2.0",
     "colorthief": "^2.3.2",

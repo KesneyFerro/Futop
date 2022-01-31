@@ -22,7 +22,7 @@ const LandingPage: NextPage = () => {
       </Head>
       <main className="flex items-center flex-col">
         <Navbar />
-        <div className="getToKnowOurOpportunities flex justify-between items-center bg-[#f8f5f5] w-full h-[700px] min-h-[700px]">
+        <div className="mt-[80px] getToKnowOurOpportunities flex justify-between items-center bg-[#f8f5f5] w-full h-[700px] min-h-[700px]">
           <div className="getToKnowOurOpportunitiesLeft flex flex-col items-start justify-center relative h-full ml-[10vw]">
             <div className="getToKnowOurOpportunitiesLeftTitle">
               <h2 className="text-[#25092D] text-justify font-extrabold text-5xl max-w-auto">
