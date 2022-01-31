@@ -23,7 +23,6 @@ export default async function handler(req, res) {
   if (req.method === "GET") {
     const posts = await db.collection("posts").find({}).toArray();
     if (posts) {
-      // console.log(user);
       if (posts === undefined) {
         return res.status(200).send({
           status: "Posts not found",

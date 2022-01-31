@@ -1,17 +1,31 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable require-jsdoc */
 /* eslint-disable react/jsx-no-undef */
 import axios from "axios";
-import { AnimatePresence, motion } from "framer-motion";
+// import { AnimatePresence, motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
 import React, { useState } from "react";
+import useSWR from "swr";
 import { HomeCointainer } from "../styles/components/home";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import OpportunityCard from "./components/opportunityCard";
 import ShareAOpportunity from "./components/shareAOpportunity";
 
-const Home: NextPage = () => {
+const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+
+function Posts() {
+  const { data, error } = useSWR("/api/posts", fetcher);
+
+  if (error) return <div>failed to load</div>;
+  if (!data) return <div>loading...</div>;
+
+  // render data
+  return <div>hello {data.name}!</div>;
+}
+
+const Home: NextPage = ({ posts }: any) => {
   // Create a function that will get a array of objects and divide in arrays of 5 elements
   const chunkArray = (myArray: any, chunkSize: number) => {
     let index = 0;
@@ -25,7 +39,8 @@ const Home: NextPage = () => {
 
     return tempArray;
   };
-  chunkArray([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 5);
+  // console.log(posts);
+  console.log(chunkArray(posts, 5));
 
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
@@ -81,37 +96,29 @@ const Home: NextPage = () => {
                 ></i>
               </button>
             </div>
-            <AnimatePresence initial={false}>
-              {isFilterOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className="w-full h-14 flex items-center mb-[10.5px]"
+            {isFilterOpen && (
+              <div className="w-full h-14 flex items-center mb-[10.5px]">
+                <select
+                  name="cars"
+                  id="cars"
+                  className=" border-2 mr-7 border-black/30 text-[15px] text-black/70 font-semibold drop-shadow-sm appearance-none text-center rounded-2xl px-2 bg-white text-black w-full py-[10px]"
                 >
-                  <select
-                    name="cars"
-                    id="cars"
-                    className=" border-2 mr-7 border-black/30 text-[15px] text-black/70 font-semibold drop-shadow-sm appearance-none text-center rounded-2xl px-2 bg-white text-black w-full py-[10px]"
-                  >
-                    <option value="audi">Tipo de Oportunidade</option>
-                    <option value="volvo">Instituição</option>
-                    <option value="saab">Bolsa</option>
-                    <option value="opel">Curso</option>
-                  </select>
-                  <select
-                    name="cars"
-                    id="cars"
-                    className=" border-2 border-black/30 drop-shadow-sm text-[15px] rounded-2xl text-black/70 font-semibold appearance-none text-center px-2 bg-white text-black w-full py-[10px]"
-                  >
-                    <option value="audi">Faixa etária</option>
-                    <option value="volvo">Ensino Fundamental</option>
-                    <option value="saab">Ensino Médio</option>
-                  </select>
-                </motion.div>
-              )}
-            </AnimatePresence>
+                  <option value="audi">Tipo de Oportunidade</option>
+                  <option value="volvo">Instituição</option>
+                  <option value="saab">Bolsa</option>
+                  <option value="opel">Curso</option>
+                </select>
+                <select
+                  name="cars"
+                  id="cars"
+                  className=" border-2 border-black/30 drop-shadow-sm text-[15px] rounded-2xl text-black/70 font-semibold appearance-none text-center px-2 bg-white text-black w-full py-[10px]"
+                >
+                  <option value="audi">Faixa etária</option>
+                  <option value="volvo">Ensino Fundamental</option>
+                  <option value="saab">Ensino Médio</option>
+                </select>
+              </div>
+            )}
           </div>
 
           <div className="mainOpportunities w-full min-h-[500px] h-auto mt-16 mb-12">
@@ -167,10 +174,10 @@ const Home: NextPage = () => {
   );
 };
 export async function getServerSideProps() {
-  const res = await axios.get("https://frames-two.vercel.app/api/getposts");
+  const res = await axios.get("http://localhost:3000/api/getposts");
   const posts = res.data.posts;
   return {
-    props: { posts: posts }, // will be passed to the page component as props
+    props: { posts }, // will be passed to the page component as props
   };
 }
 
