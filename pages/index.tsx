@@ -28,7 +28,7 @@ const chunkArray = (myArray: any, chunkSize: number) => {
   return tempArray;
 };
 function test() {
-  return "http://frames-two.vercel.app/api/getposts";
+  return "https://frames-two.vercel.app/api/getposts";
 }
 // console.log("a");
 function Posts(): JSX.Element {
