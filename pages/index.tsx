@@ -40,7 +40,9 @@ function Posts({ posts }: any): JSX.Element {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get("http://localhost:3000/api/getposts");
+        const response = await axios.get(
+          "https://frames-kesneyferro.vercel.app/api/getposts"
+        );
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
