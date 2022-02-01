@@ -27,41 +27,73 @@ const chunkArray = (myArray: any, chunkSize: number) => {
 
   return tempArray;
 };
+function test() {
+  return "http://frames-two.vercel.app/api/getposts";
+}
+// console.log("a");
+function Posts(): JSX.Element {
+  const { data, error } = useSWR(test(), fetcher, {});
+  console.log("Fetching");
 
-function Posts() {
-  const { data, error } = useSWR("http://localhost:3000/api/getposts", fetcher);
-
-  if (error) return <div>failed to load</div>;
-  if (!data) return <div>loading...</div>;
+  if (error)
+    return (
+      <>
+        <div className="mainOpportunities w-full min-h-[500px] h-auto mt-0 mb-12">
+          <div className="rounded-[15px] bg-red-500 "></div>
+          <div className="rounded-[15px] bg-red-500 "></div>
+          <div className="rounded-[15px] bg-red-500 "></div>
+          <div className="rounded-[15px] bg-red-500 "></div>
+          <div className="rounded-[15px] bg-red-500 "></div>
+        </div>
+      </>
+    );
+  if (!data)
+    return (
+      <>
+        <div className="mainOpportunities w-full min-h-[500px] h-auto mt-0 mb-12">
+          <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
+          <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
+          <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
+          <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
+          <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
+        </div>
+      </>
+    );
 
   // render data
 
   const postsdata = chunkArray(data.posts, 5);
-  return postsdata.map((post: any, index: any) => (
-    <div
-      key={post[index].id}
-      className="mainOpportunities w-full min-h-[500px] h-auto mt-0 mb-12"
-    >
-      {post.map((posts: any, index: any) => (
-        <OpportunityCard
-          first={index === 0 ? true : false}
-          key={posts.id}
-          title={posts.title}
-          tags={posts.tags}
-          image={posts.image}
-        />
+  // console.log(postsdata);
+  return (
+    <>
+      {postsdata.map((post: any, index: any) => (
+        <div
+          key={Math.random()}
+          className={`mainOpportunities w-full min-h-[500px] h-auto mt-0 mb-[25px] ${
+            index % 2 === 1 ? "rightGrid" : ""
+          } Grid${post.length}`}
+        >
+          {post.map((posts: any, index: any) => (
+            <OpportunityCard
+              first={index === 0 ? true : false}
+              key={posts.id}
+              title={posts.title}
+              tags={posts.tags}
+              image={posts.image}
+            />
+          ))}
+        </div>
       ))}
-    </div>
-  ));
+    </>
+  );
 }
 
 const Home: NextPage = ({ posts }: any) => {
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   // Create a function that will get a array of objects and divide in arrays of 5 elements
 
   // console.log(posts);
   // console.log(chunkArray(posts, 5));
-
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   return (
     <HomeCointainer>
@@ -141,7 +173,7 @@ const Home: NextPage = ({ posts }: any) => {
             )}
           </div>
 
-          <div className="mainOpportunities w-full min-h-[500px] h-auto mb-12">
+          {/* <div className="mainOpportunities w-full min-h-[500px] h-auto mb-[25px]">
             <OpportunityCard
               first={true}
               title="Oportunidade 2"
@@ -179,7 +211,7 @@ const Home: NextPage = ({ posts }: any) => {
                 "https://cdn.dribbble.com/users/759083/screenshots/17196153/media/a437d241c694189e6738c54dcdf9cfd6.jpg?compress=1&resize=800x600&vertical=top"
               }
             />
-          </div>
+          </div> */}
           <Posts key={Math.random()} />
           <div className="seeMoreButtonDisplay w-full flex justify-center mb-6">
             <button className="SeeMoreBtn bg-[#25092D] text-white text-base rounded-full px-5 py-4 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg">
@@ -193,12 +225,12 @@ const Home: NextPage = ({ posts }: any) => {
     </HomeCointainer>
   );
 };
-export async function getServerSideProps() {
-  const res = await axios.get("http://localhost:3000/api/getposts");
-  const posts = res.data.posts;
-  return {
-    props: { posts }, // will be passed to the page component as props
-  };
-}
+// export async function getServerSideProps() {
+//   const res = await axios.get("http://localhost:3000/api/getposts");
+//   const posts = res.data.posts;
+//   return {
+//     props: { posts }, // will be passed to the page component as props
+//   };
+// }
 
 export default Home;
