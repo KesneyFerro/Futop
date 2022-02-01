@@ -23,6 +23,7 @@ const OpportunityCard = (props: any) => {
     image: props.image,
   };
   // props.finalcolor = colorr;
+
   return (
     <motion.div
       // style={{ originY: 0, originX: 0.5 }}
@@ -90,6 +91,7 @@ const OpportunityCardStyle = styled.div<CardInterface>`
     ),
     url(${(props) => props.theme.image});
   background-size: cover;
+  background-position: center;
 
   #CardButtons {
     opacity: 0;

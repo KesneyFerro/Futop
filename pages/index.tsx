@@ -5,15 +5,15 @@ import axios from "axios";
 // import { AnimatePresence, motion } from "framer-motion";
 import type { NextPage } from "next";
 import Head from "next/head";
-import React, { useState } from "react";
-import useSWR from "swr";
+import React, { useEffect, useState } from "react";
+// import useSWRImmutable from "swr/immutable";
 import { HomeCointainer } from "../styles/components/home";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import OpportunityCard from "./components/opportunityCard";
 import ShareAOpportunity from "./components/shareAOpportunity";
 
-const fetcher = (url: string) => axios.get(url).then((res) => res.data);
+// const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 const chunkArray = (myArray: any, chunkSize: number) => {
   let index = 0;
@@ -27,46 +27,89 @@ const chunkArray = (myArray: any, chunkSize: number) => {
 
   return tempArray;
 };
-function test() {
-  return "https://frames-two.vercel.app/api/getposts";
-}
+
 // console.log("a");
-function Posts(): JSX.Element {
-  const { data, error } = useSWR(test(), fetcher, {});
-  console.log("Fetching");
+
+function Posts({ posts }: any): JSX.Element {
+  console.log("Fetching posts 😡");
+  // console.log(posts);
+  const [isLoading, setIsLoading] = useState(true);
+  const [data, setData]: any = useState(null);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get("http://localhost:3000/api/getposts");
+        setData(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        setError(true);
+        setIsLoading(false);
+      }
+    }
+    fetchData();
+  }, []);
+
+  const [counter, setCounter] = useState(1);
+  const [button, setButton] = useState(false);
 
   if (error)
     return (
       <>
-        <div className="mainOpportunities w-full min-h-[500px] h-auto mt-0 mb-12">
-          <div className="rounded-[15px] bg-red-500 "></div>
-          <div className="rounded-[15px] bg-red-500 "></div>
-          <div className="rounded-[15px] bg-red-500 "></div>
-          <div className="rounded-[15px] bg-red-500 "></div>
-          <div className="rounded-[15px] bg-red-500 "></div>
+        <div className="Error w-full h-auto mt-0 mb-12">
+          <div className="flex flex-col w-full h-full justify-center items-center">
+            <i className="bx bx-error text-[70px] text-red-500"></i>
+            <h4 className="text-2xl mt-5 font-semibold">Erro ao obter dados</h4>
+            <h1 className="text-base mt-1 font-medium">Código: 500</h1>
+          </div>
+        </div>
+        <div className="seeMoreButtonDisplay w-full flex justify-center mb-6">
+          <button
+            disabled={true}
+            className="SeeMoreBtn  bg-[#25092D] disabled:cursor-not-allowed disabled:bg-[#979797] text-white text-base rounded-full px-5 py-4 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg"
+          >
+            Veja Mais
+          </button>
         </div>
       </>
     );
-  if (!data)
+  if (isLoading)
     return (
       <>
-        <div className="mainOpportunities w-full min-h-[500px] h-auto mt-0 mb-12">
+        <div className="mainOpportunities w-full min-h-[500px] h-auto mt-0 mb-[25px]">
           <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
           <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
           <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
           <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
           <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
+        </div>
+        <div className="seeMoreButtonDisplay w-full flex justify-center mb-6">
+          <button
+            disabled={true}
+            className="SeeMoreBtn bg-[#25092D] disabled:cursor-not-allowed disabled:bg-[#979797] text-white text-base rounded-full px-5 py-4 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg"
+          >
+            Veja Mais
+          </button>
         </div>
       </>
     );
 
   // render data
 
-  const postsdata = chunkArray(data.posts, 5);
+  const postsdata = chunkArray(data?.posts, 5);
+  function handleSeeMore(e: any) {
+    e.preventDefault();
+    setButton(true);
+    delay(600).then(() => {
+      setCounter(counter + 1);
+      setButton(false);
+    });
+  }
   // console.log(postsdata);
   return (
     <>
-      {postsdata.map((post: any, index: any) => (
+      {postsdata.slice(0, counter).map((post: any, index: any) => (
         <div
           key={Math.random()}
           className={`mainOpportunities w-full min-h-[500px] h-auto mt-0 mb-[25px] ${
@@ -84,15 +127,25 @@ function Posts(): JSX.Element {
           ))}
         </div>
       ))}
+      <div className="seeMoreButtonDisplay w-full flex justify-center mb-6">
+        <button
+          disabled={button}
+          onClick={(e) => handleSeeMore(e)}
+          className="SeeMoreBtn bg-[#25092D] disabled:cursor-not-allowed disabled:bg-[#979797] text-white text-base rounded-full px-5 py-4 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg"
+        >
+          Veja Mais
+        </button>
+      </div>
     </>
   );
 }
 
 const Home: NextPage = ({ posts }: any) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  // Create a function that will get a array of objects and divide in arrays of 5 elements
+  const [inputvalue, setInputvalue] = useState("");
 
-  // console.log(posts);
+  // Create a function that will get a array of objects and divide in arrays of 5 elements
+  console.log(posts);
   // console.log(chunkArray(posts, 5));
 
   return (
@@ -130,6 +183,8 @@ const Home: NextPage = ({ posts }: any) => {
               <i className="bx bx-search text-[#8A8A8A] text-[25px] mr-3"></i>
               <input
                 placeholder="Pesquise Aqui..."
+                value={inputvalue}
+                onChange={(e) => setInputvalue(e.target.value)}
                 className=" border-0 outline-none focus:outline-none bg-transparent text-sm w-full"
               ></input>
               <button
@@ -173,51 +228,7 @@ const Home: NextPage = ({ posts }: any) => {
             )}
           </div>
 
-          {/* <div className="mainOpportunities w-full min-h-[500px] h-auto mb-[25px]">
-            <OpportunityCard
-              first={true}
-              title="Oportunidade 2"
-              tags={["Instituição", "Ensino Médio"]}
-              image={
-                "" ||
-                "https://cdn.dribbble.com/users/759083/screenshots/15976861/media/f81dd36eaf76432302ebd25950296502.png?compress=1&resize=800x600&vertical=top"
-              }
-            />
-            <OpportunityCard
-              title="Oportunidade Ismart"
-              tags={["Instituição", "Ensino médio"]}
-              image={
-                "https://cdn.dribbble.com/users/1355613/screenshots/15799226/media/942dbcf92162c70a6659dc0117a8cb3f.jpg?compress=1&resize=1200x900&vertical=top"
-              }
-            />
-            <OpportunityCard
-              title="Oportunidade 2"
-              tags={["Instituição", "Ensino Fundamental"]}
-              image={
-                "https://cdn.dribbble.com/users/1304678/screenshots/15063530/media/f5eb865bb809e676e98fea0c7cd803d9.png?compress=1&resize=800x600&vertical=top"
-              }
-            />
-            <OpportunityCard
-              title="Oportunidade 2"
-              tags={["Instituição", "Ensino Médio"]}
-              image={
-                "https://cdn.dribbble.com/users/1090020/screenshots/13813353/media/01ddddf5649e5a5cb569c2478881092d.png?compress=1&resize=1200x900&vertical=top"
-              }
-            />
-            <OpportunityCard
-              title="Oportunidade 2"
-              tags={["Instituição", "Ensino Médio"]}
-              image={
-                "https://cdn.dribbble.com/users/759083/screenshots/17196153/media/a437d241c694189e6738c54dcdf9cfd6.jpg?compress=1&resize=800x600&vertical=top"
-              }
-            />
-          </div> */}
           <Posts key={Math.random()} />
-          <div className="seeMoreButtonDisplay w-full flex justify-center mb-6">
-            <button className="SeeMoreBtn bg-[#25092D] text-white text-base rounded-full px-5 py-4 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg">
-              Veja Mais
-            </button>
-          </div>
         </div>
         <ShareAOpportunity />
         <Footer />
@@ -227,10 +238,12 @@ const Home: NextPage = ({ posts }: any) => {
 };
 // export async function getServerSideProps() {
 //   const res = await axios.get("http://localhost:3000/api/getposts");
-//   const posts = res.data.posts;
+//   const posts = res.data;
+//   console.log(res);
 //   return {
 //     props: { posts }, // will be passed to the page component as props
 //   };
 // }
 
 export default Home;
+const delay = async (ms: number) => new Promise((res) => setTimeout(res, ms));
