@@ -5,6 +5,7 @@ import React from "react";
 import useSWR from "swr";
 import OpportunityCard from "../components/opportunityCard";
 
+//
 const fetcher = async (url: any) =>
   await axios.get(url).then(async (res) => {
     return res.data;
@@ -81,7 +82,7 @@ function Posts({
 
   const [disable, setDisable] = React.useState(false);
   const { data, error } = useSWR(
-    "https://frames-two.vercel.app/api/getposts",
+    "http://26.160.109.105:3000/api/getposts",
     fetcher
   );
   if (error)
