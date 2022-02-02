@@ -50,6 +50,14 @@ const Home: NextPage = ({ posts }: any) => {
 
   const [counter, setCounter] = useState(1);
 
+  function changeFilter() {
+    setIsFilterOpen(!isFilterOpen);
+    if (isFilterOpen == false) {
+      seteducationLevelSelected("Níveis de Escolaridade");
+      setOpportunitySelected("Tipo de Oportunidade");
+    }
+  }
+
   return (
     <HomeCointainer>
       <Head>
@@ -90,7 +98,7 @@ const Home: NextPage = ({ posts }: any) => {
                 className=" border-0 outline-none focus:outline-none bg-transparent placeholder:text-sm placeholder:font-normal text-[15px] font-medium w-full"
               ></input>
               <button
-                onClick={() => setIsFilterOpen(!isFilterOpen)}
+                onClick={() => changeFilter()}
                 className={`ml-5 filterBox rounded-[12px] cursor-pointer border-[2px] ${
                   isFilterOpen ? "border-[#747474] " : "border-[#5d6075] "
                 } w-[35px] min-w-[35px] h-[35px] flex justify-center  items-center ${
