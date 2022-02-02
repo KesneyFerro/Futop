@@ -28,7 +28,7 @@ const OpportunityCard = (props: any) => {
     <motion.div
       // style={{ originY: 0, originX: 0.5 }}
       whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.8 }}
+      whileTap={{ scale: 0.9 }}
       transition={{ duration: 0.25 }}
       initial={{ opacity: 0.8 }}
       animate={{ opacity: 1 }}
