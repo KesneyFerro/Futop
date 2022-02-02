@@ -1,28 +1,54 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable require-jsdoc */
 /* eslint-disable react/jsx-no-undef */
-// import axios from "axios";
 // import { AnimatePresence, motion } from "framer-motion";
+// import axios from "axios";
 import type { NextPage } from "next";
 import Head from "next/head";
 import React, { useState } from "react";
-// import useSWRImmutable from "swr/immutable";
 import { HomeCointainer } from "../styles/components/home";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import Posts from "./components/opportunitysLoad";
-
 import ShareAOpportunity from "./components/shareAOpportunity";
-
-// const fetcher = (url: string) => axios.get(url).then((res) => res.data);
 
 const Home: NextPage = ({ posts }: any) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [inputvalue, setInputvalue] = useState("");
 
-  // Create a function that will get a array of objects and divide in arrays of 5 elements
-  console.log(posts);
-  // console.log(chunkArray(posts, 5));
+  const [opportunitySelected, setOpportunitySelected] = useState(
+    "Tipo de Oportunidade"
+  );
+  const [opportunityType] = useState([
+    "Tipo de Oportunidade",
+    "Instituição",
+    "Bolsa",
+    "Curso",
+  ]);
+  const opportunityAdd = opportunityType.map(
+    (opportunityAdd) => opportunityAdd
+  );
+  const handleOpportunityChange = (e: any) => {
+    setOpportunitySelected(opportunityType[e.target.value]);
+  };
+
+  const [educationLevelSelected, seteducationLevelSelected] = useState(
+    "Níveis de Escolaridade"
+  );
+  const [educationLevelType] = useState([
+    "Níveis de Escolaridade",
+    "Ensino Fundamental I",
+    "Ensino Fundamental II",
+    "Ensino médio",
+  ]);
+  const educationLevelAdd = educationLevelType.map(
+    (educationLevelAdd) => educationLevelAdd
+  );
+  const handleEducationLevelChange = (e: any) => {
+    seteducationLevelSelected(educationLevelType[e.target.value]);
+  };
+
+  const [counter, setCounter] = useState(1);
 
   return (
     <HomeCointainer>
@@ -61,7 +87,7 @@ const Home: NextPage = ({ posts }: any) => {
                 placeholder="Pesquise Aqui..."
                 value={inputvalue}
                 onChange={(e) => setInputvalue(e.target.value)}
-                className=" border-0 outline-none focus:outline-none bg-transparent text-sm w-full"
+                className=" border-0 outline-none focus:outline-none bg-transparent placeholder:text-sm placeholder:font-normal text-[15px] font-medium w-full"
               ></input>
               <button
                 onClick={() => setIsFilterOpen(!isFilterOpen)}
@@ -81,30 +107,35 @@ const Home: NextPage = ({ posts }: any) => {
             {isFilterOpen && (
               <div className="w-full h-14 flex items-center mb-[10.5px]">
                 <select
-                  name="cars"
-                  id="cars"
+                  onChange={(e) => handleOpportunityChange(e)}
                   className=" border-2 mr-7 border-black/30 text-[15px] text-black/70 font-semibold drop-shadow-sm appearance-none text-center rounded-2xl px-2 bg-white text-black w-full py-[10px]"
                 >
-                  <option value="audi">Tipo de Oportunidade</option>
-                  <option value="volvo">Instituição</option>
-                  <option value="saab">Bolsa</option>
-                  <option value="opel">Curso</option>
+                  {opportunityAdd.map((type, key) => (
+                    <option key={key} value={key}>
+                      {type}
+                    </option>
+                  ))}
                 </select>
                 <select
-                  name="cars"
-                  id="cars"
-                  className=" border-2 border-black/30 drop-shadow-sm text-[15px] rounded-2xl text-black/70 font-semibold appearance-none text-center px-2 bg-white text-black w-full py-[10px]"
+                  onChange={(e) => handleEducationLevelChange(e)}
+                  className=" border-2 border-black/30 text-[15px] text-black/70 font-semibold drop-shadow-sm appearance-none text-center rounded-2xl px-2 bg-white text-black w-full py-[10px]"
                 >
-                  <option value="audi">Níveis de Escolaridade</option>
-                  <option value="volvo">Ensino Fundamental I</option>
-                  <option value="saab">Ensino Fundamental II</option>
-                  <option value="opel">Ensino Médio</option>
+                  {educationLevelAdd.map((type, key) => (
+                    <option key={key} value={key}>
+                      {type}
+                    </option>
+                  ))}
                 </select>
               </div>
             )}
           </div>
-
-          <Posts key={Math.random()} />
+          <Posts
+            counter={counter}
+            setCounter={setCounter}
+            inputValue={inputvalue}
+            oportunitySelected={opportunitySelected}
+            educationLevelSelected={educationLevelSelected}
+          />
         </div>
         <ShareAOpportunity />
         <Footer />
@@ -112,13 +143,5 @@ const Home: NextPage = ({ posts }: any) => {
     </HomeCointainer>
   );
 };
-// export async function getServerSideProps() {
-//   const res = await axios.get("http://localhost:3000/api/getposts");
-//   const posts = res.data;
-//   console.log(res);
-//   return {
-//     props: { posts }, // will be passed to the page component as props
-//   };
-// }
 
 export default Home;
