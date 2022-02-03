@@ -83,7 +83,7 @@ function Posts({
   const [disable, setDisable] = React.useState(false);
 
   const { data, error } = useSWR(
-    "http://26.252.21.247:3000/api/getposts",
+    "https://frames-two.vercel.app/api/getposts",
     fetcher
   );
 
