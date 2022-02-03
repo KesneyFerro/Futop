@@ -22,7 +22,7 @@ const ShareAOpportunity = () => {
               sed neque euismod. Dolor augue quam metus, gravida quis maecenas
               amet.
             </h4>
-            <button className="bg-[#25092D] text-white text-base rounded-full px-5 py-3 mt-5 flex justify-between w-[80vw] max-w-[310px] items-center drop-shadow-lg">
+            <button className="bg-[#25092D] text-white text-base rounded-full px-5 py-3 mt-5 flex justify-center lg:justify-between w-[80vw] max-w-[310px] items-center drop-shadow-lg">
               {t("shareus")} <i className="bx bx-right-arrow-alt text-2xl"></i>
             </button>
           </div>
