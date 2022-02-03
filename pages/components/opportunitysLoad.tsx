@@ -81,10 +81,12 @@ function Posts({
   };
 
   const [disable, setDisable] = React.useState(false);
+
   const { data, error } = useSWR(
-    "http://26.160.109.105:3000/api/getposts",
+    "http://26.252.21.247:3000/api/getposts",
     fetcher
   );
+
   if (error)
     return (
       <>

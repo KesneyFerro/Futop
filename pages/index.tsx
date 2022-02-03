@@ -5,7 +5,7 @@
 // import axios from "axios";
 import type { NextPage } from "next";
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { HomeCointainer } from "../styles/components/home";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
@@ -49,6 +49,9 @@ const Home: NextPage = ({ posts }: any) => {
   };
 
   const [counter, setCounter] = useState(1);
+  useEffect(() => {
+    setCounter(1);
+  }, [opportunitySelected, educationLevelSelected]);
 
   function changeFilter() {
     setIsFilterOpen(!isFilterOpen);

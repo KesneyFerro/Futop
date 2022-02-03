@@ -18,7 +18,7 @@ const Footer = () => {
           </h3>
           <div
             id="SocialMedias"
-            className="mt-5 flex justify-center items-center"
+            className="mt-5 flex justify-center items-center flex-wrap"
           >
             <div className="rounded-full w-12 h-12 mr-3 flex justify-center items-center cursor-pointer bg-[#FAEEC5]">
               <i className="bx bxl-twitter text-2xl text-[#50545E]"></i>
