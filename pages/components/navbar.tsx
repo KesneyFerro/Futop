@@ -59,7 +59,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="hidden justify-center items-center lg:flex">
-            <MyDropdown isIcon={true} setIsOpen={setIsOpen} />
+            <MyDropdown isIcon={true} />
             <i className="bx bxs-sun text-2xl text-[#cccccc] mr-5 "></i>
             <button className="w-10 h-10 bg-[#f5f6f5] rounded-full"></button>
           </div>
@@ -79,17 +79,20 @@ const Navbar = () => {
         {isOpen && (
           <>
             <motion.div
-              // initial={{ opacity: 0 }}
-              // animate={{ opacity: 1 }}
-              // exit={{ opacity: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               onClick={() => setIsOpen(false)}
               className="bg-black/30 fixed w-[100vw] h-[100vh] top-0 left-0 z-[28] flex lg:hidden "
             ></motion.div>
             <motion.div
-              initial={{ x: 280 }}
-              animate={{ x: 0 }}
-              exit={{ x: 280 }}
+              // initial={{ scaleX: 0, originX: 1 }}
+              // animate={{ scaleX: 1, originX: 1 }}
+              // exit={{ scaleX: 0, originX: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
               className={`z-[29] overflow-auto flex lg:hidden w-[280px] fixed bg-white bottom-0 top-0 right-0 h-[100vh] max-h-[100%] drop-shadow-md flex-col justify-start items-center pt-[80px]`}
             >
@@ -135,7 +138,7 @@ const Navbar = () => {
                   <MyDropdown isIcon={false} />
                   <div className="cursor-pointer bg-white w-full h-20 flex justify-between px-4 items-center transition-all hover:bg-slate-500/10">
                     <div className="flex items-center h-auto ">
-                      <button className="animate-pulse w-10 h-10 bg-gray-100 rounded-full drop-shadow-sm"></button>
+                      <button className=" w-10 h-10 bg-gray-100 rounded-full drop-shadow-sm"></button>
                       <div>
                         <h4 className="text-xs ml-3 ">
                           {t("singup1")} <br />
