@@ -11,8 +11,10 @@ import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import Posts from "./components/opportunitysLoad";
 import ShareAOpportunity from "./components/shareAOpportunity";
+import { useTranslations } from "next-intl";
 
 const Home: NextPage = ({ posts }: any) => {
+  const t = useTranslations("index");
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [inputvalue, setInputvalue] = useState("");
 
@@ -79,8 +81,8 @@ const Home: NextPage = ({ posts }: any) => {
           <div className="mt-24 mainContentTitle flex-col text-center">
             <div className="titleOpportunities">
               <h2 className=" font-extrabold text-[38px] text-[#090D2D] mb-3">
-                Encontre a sua{" "}
-                <span className=" text-[#FFC700]">opotunidade</span>
+                {t("welcome")}{" "}
+                <span className=" text-[#FFC700]">{t("opportunity")}</span>
               </h2>
             </div>
             <div className="descriptionOpportunities mt-2">
@@ -95,7 +97,7 @@ const Home: NextPage = ({ posts }: any) => {
             <div className="flex items-center w-full my-[10.5px]">
               <i className="bx bx-search text-[#8A8A8A] text-[25px] mr-3"></i>
               <input
-                placeholder="Pesquise Aqui..."
+                placeholder={t("search")}
                 value={inputvalue}
                 onChange={(e) => setInputvalue(e.target.value)}
                 className=" border-0 outline-none focus:outline-none bg-transparent placeholder:text-sm placeholder:font-normal text-[15px] font-medium w-full"
@@ -155,4 +157,11 @@ const Home: NextPage = ({ posts }: any) => {
   );
 };
 
+export const getServerSideProps = ({ locale, locales }: any) => {
+  return {
+    props: {
+      messages: require(`../locales/${locale}.json`),
+    },
+  };
+};
 export default Home;

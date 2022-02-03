@@ -4,8 +4,10 @@ import axios from "axios";
 import React from "react";
 import useSWR from "swr";
 import OpportunityCard from "../components/opportunityCard";
+import { useTranslations } from "next-intl";
 
 //
+
 const fetcher = async (url: any) =>
   await axios.get(url).then(async (res) => {
     return res.data;
@@ -72,6 +74,7 @@ function Posts({
   oportunitySelected,
   educationLevelSelected,
 }: any) {
+  const t = useTranslations("posts");
   const doLoadMore = async (evt: any) => {
     evt.preventDefault();
     setDisable(true);
@@ -102,7 +105,7 @@ function Posts({
             disabled={true}
             className="SeeMoreBtn  bg-[#25092D] disabled:cursor-not-allowed disabled:bg-[#979797] text-white text-base rounded-full px-5 py-4 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg"
           >
-            Veja Mais
+            {t("seeMore")}
           </button>
         </div>
       </>
@@ -123,7 +126,7 @@ function Posts({
             disabled={true}
             className="SeeMoreBtn bg-[#25092D] disabled:cursor-not-allowed disabled:bg-[#979797] text-white text-base rounded-full px-5 py-4 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg"
           >
-            Veja Mais
+            {t("seeMore")}
           </button>
         </div>
       </>
@@ -151,7 +154,7 @@ function Posts({
             disabled={true}
             className="SeeMoreBtn bg-[#25092D] disabled:cursor-not-allowed disabled:bg-[#979797] text-white text-base rounded-full px-5 py-4 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg"
           >
-            Veja Mais
+            {t("seeMore")}
           </button>
         </div>
       </>
@@ -190,7 +193,7 @@ function Posts({
           {disable ? (
             <i className="bx bx-loader-alt color-white animate-spin text-lg"></i>
           ) : (
-            "Veja Mais"
+            t("seeMore")
           )}
         </button>
       </div>

@@ -1,16 +1,18 @@
 import React from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const ShareAOpportunity = () => {
+  const t = useTranslations("shareAOpportunity");
   return (
     <div className="shareAOpportunity flex-col bg-[#fdfcf2] w-full min-h-[425px] flex items-center">
       <div className="shareAOpportunityContent w-[90%] flex flex-col justify-center lg:flex-row lg:justify-between h-full items-center">
         <div className="shareAOpportunityLeft mt-10 ">
           <div className="shareAOpportunityTitle font-semibold text-[27px] flex flex-col items-center lg:flex-col lg:items-start">
             <h3 className="text-center lg:text-left ">
-              Conhece uma{" "}
+              {t("doyouknow")}{" "}
               <span className=" inline-block">
-                <span className=" underline-rounded ">Oportunidade?</span>
+                <span className=" underline-rounded ">{t("opportunity")}?</span>
               </span>
             </h3>
             <h4 className=" font-medium text-base max-w-[600px] text-center lg:text-justify mt-5 text-black/50">
@@ -21,8 +23,7 @@ const ShareAOpportunity = () => {
               amet.
             </h4>
             <button className="bg-[#25092D] text-white text-base rounded-full px-5 py-3 mt-5 flex justify-between w-[80vw] max-w-[310px] items-center drop-shadow-lg">
-              Compartilhe Conosco{" "}
-              <i className="bx bx-right-arrow-alt text-2xl"></i>
+              {t("shareus")} <i className="bx bx-right-arrow-alt text-2xl"></i>
             </button>
           </div>
           <div className="shareAOpportunityDescription"></div>
