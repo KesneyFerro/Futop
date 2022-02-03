@@ -19,5 +19,21 @@
   },
   "posts": {
     "seeMore": "Veja mais"
+  },
+  "footer": {
+    "readMore": "Leia Mais",
+    "aboutUs": "Sobre nós",
+    "otherProjects": "Outros trabalhos",
+    "press": "Conferências",
+    "blog": "Blog",
+    "FAQ": "FAQ",
+    "careers": "Carreiras",
+    "contacts": "Contatos",
+    "privacypolicy": "Política de privacidade",
+    "sitemap": "Mapa do site",
+    "useterms": "Termos de serviço",
+    "copyright": "Todos os direitos reservados",
+    "havequestions": "Tem uma pergunta?",
+    "contactUs": "Entre em contato em:"
   }
 }

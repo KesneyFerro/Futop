@@ -7,7 +7,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 
-export default function MyDropdown({ isIcon }: any) {
+export default function MyDropdown({ isIcon, setIsOpen }: any) {
   const t = useTranslations("navbar");
   const { locales, locale, pathname, query, asPath } = useRouter();
   const otherLocales = locales?.filter((l) => l !== locale);
@@ -48,21 +48,23 @@ export default function MyDropdown({ isIcon }: any) {
                 <div className="px-1 py-1 " key={locale}>
                   <Menu.Item key={locale}>
                     {({ active }) => (
-                      <Link
-                        key={locale}
-                        href={{ pathname, query }}
-                        as={asPath}
-                        locale={locale}
-                        // onClick={setIsOpen(false)}
+                      <button
+                        className={`hover:bg-[#ffc700] hover:font-semibold text-gray-900 group flex rounded-md items-center w-full text-sm ${
+                          !isIcon && "justify-center"
+                        }`}
                       >
-                        <button
-                          className={`hover:bg-[#ffc700] hover:font-semibold text-gray-900 group flex rounded-md items-center w-full px-2 py-2 text-sm ${
-                            !isIcon && "justify-center"
-                          }`}
+                        <Link
+                          key={locale}
+                          href={{ pathname, query }}
+                          as={asPath}
+                          scroll={false}
+                          locale={locale}
+
+                          //
                         >
-                          <a>{locale}</a>
-                        </button>
-                      </Link>
+                          <a className="w-full h-full py-2">{locale}</a>
+                        </Link>
+                      </button>
                     )}
                   </Menu.Item>
                 </div>

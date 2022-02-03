@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
+import { useTranslations } from "next-intl";
 
 const Footer = () => {
+  const t = useTranslations("footer");
   return (
     <ShareAOpportunity className="bg-white w-full flex justify-center items-center ">
       <div className="w-[80%] flex-col justify-center items-center">
@@ -13,7 +15,7 @@ const Footer = () => {
             Ut enim ad minim veniam, quis nostrud equip ex ea commodo
             consequat...{" "}
             <span className="text-black font-semibold cursor-pointer">
-              Leia Mais
+              {t("readMore")}
             </span>
           </h3>
           <div
@@ -40,28 +42,34 @@ const Footer = () => {
         <div className="w-full flex-col mt-16">
           <div className="justify-between hidden sm:flex">
             <h4 className="hidden sm:block text-[#9A9EA6] cursor-pointer">
-              Sobre nós
+              {t("aboutUs")}
             </h4>
             <h4 className="hidden sm:block text-[#9A9EA6] cursor-pointer">
-              Outros trabalhos
+              {t("otherProjects")}
             </h4>
             <h4 className="desktop text-[#9A9EA6] cursor-pointer">
-              Conferências
-            </h4>
-            <h4 className="desktop text-[#9A9EA6] cursor-pointer">Blog</h4>
-            <h4 className="desktop text-[#9A9EA6] cursor-pointer">FAQ</h4>
-            <h4 className="desktop text-[#9A9EA6] cursor-pointer">Carreiras</h4>
-            <h4 className="text-[#9A9EA6] cursor-pointer hidden sm:block">
-              Contatos
+              {t("press")}
             </h4>
             <h4 className="desktop text-[#9A9EA6] cursor-pointer">
-              Política de privacidade
+              {t("blog")}
             </h4>
             <h4 className="desktop text-[#9A9EA6] cursor-pointer">
-              Mapeamento do site
+              {t("FAQ")}
+            </h4>
+            <h4 className="desktop text-[#9A9EA6] cursor-pointer">
+              {t("careers")}
             </h4>
             <h4 className="text-[#9A9EA6] cursor-pointer hidden sm:block">
-              Termos de serviço
+              {t("contacts")}
+            </h4>
+            <h4 className="desktop text-[#9A9EA6] cursor-pointer">
+              {t("privacypolicy")}
+            </h4>
+            <h4 className="desktop text-[#9A9EA6] cursor-pointer">
+              {t("sitemap")}
+            </h4>
+            <h4 className="text-[#9A9EA6] cursor-pointer hidden sm:block">
+              {t("useterms")}
             </h4>
           </div>
           <div className="flex flex-col justify-center xl:flex-row xl:justify-between mt-10 items-center mb-10">
@@ -73,7 +81,7 @@ const Footer = () => {
                   </div>
                   <div className="flex-col justify-between">
                     <h5 className=" text-[#9A9EA6] text-sm ">
-                      Tem uma Pergunta?
+                      {t("havequestions")}
                     </h5>
                     <h5 className="font-bold text-[#50545E]">301-437-2766</h5>
                   </div>
@@ -84,7 +92,7 @@ const Footer = () => {
                   </div>
                   <div className="flex-col justify-between">
                     <h5 className=" text-[#9A9EA6] text-sm ">
-                      Entre em contato em:
+                      {t("contactUs")}
                     </h5>
                     <h5 className="font-bold text-[#50545E]">
                       unreal@outlook.com
@@ -94,7 +102,7 @@ const Footer = () => {
               </div>
             </div>
             <h5 className="text-[#9A9EA6] text-sm text-center">
-              &copy; 2021, Todos os direitos reservados
+              &copy; 2021, {t("copyright")}
             </h5>
           </div>
         </div>

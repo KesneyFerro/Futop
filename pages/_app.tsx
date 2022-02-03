@@ -11,7 +11,7 @@ import { AppProps } from "next/app";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <NextIntlProvider messages={pageProps.messages}>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </NextIntlProvider>
   );
 }

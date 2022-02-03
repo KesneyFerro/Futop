@@ -15,7 +15,7 @@ const ShareAOpportunity = () => {
                 <span className=" underline-rounded ">{t("opportunity")}?</span>
               </span>
             </h3>
-            <h4 className=" font-medium text-base max-w-[600px] text-center lg:text-justify mt-5 text-black/50">
+            <h4 className=" font-medium text-base max-w-[600px] text-center lg:text-justify mt-10 mb-5 lg:mb-0 lg:mt-5 text-black/50">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique
               at rhoncus amet, etiam felis, viverra pharetra tincidunt
               fermentum. Eget venenatis lacus, vestibulum id molestie. Cras orci
