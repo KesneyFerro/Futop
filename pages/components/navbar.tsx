@@ -79,21 +79,21 @@ const Navbar = () => {
         {isOpen && (
           <>
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              // initial={{ opacity: 0 }}
+              // animate={{ opacity: 1 }}
+              // exit={{ opacity: 0 }}
+              // transition={{ duration: 0.2 }}
               onClick={() => setIsOpen(false)}
               className="bg-black/30 fixed w-[100vw] h-[100vh] top-0 left-0 z-[28] flex lg:hidden "
             ></motion.div>
             <motion.div
-              // initial={{ scaleX: 0, originX: 1 }}
-              // animate={{ scaleX: 1, originX: 1 }}
-              // exit={{ scaleX: 0, originX: 1 }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
+              initial={{ scaleX: 0, originX: 1 }}
+              animate={{ scaleX: 1, originX: 1 }}
+              exit={{ scaleX: 0, originX: 1 }}
+              // initial={{ opacity: 0 }}
+              // animate={{ opacity: 1 }}
+              // exit={{ opacity: 0 }}
+              // transition={{ duration: 0.2 }}
               className={`z-[29] overflow-auto flex lg:hidden w-[280px] fixed bg-white bottom-0 top-0 right-0 h-[100vh] max-h-[100%] drop-shadow-md flex-col justify-start items-center pt-[80px]`}
             >
               <div className="flex w-full h-full flex-col justify-between items-center">
