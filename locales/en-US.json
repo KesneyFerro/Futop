@@ -1,0 +1,23 @@
+{
+  "index": {
+    "welcome": "Find your",
+    "opportunity": "opportunity",
+    "search": "Search here..."
+  },
+  "navbar": {
+    "home": "Home",
+    "opportunity": "Opportunity",
+    "contact": "Contact us",
+    "singup1": "You are not",
+    "singup2": "connected",
+    "language": "Language"
+  },
+  "shareAOpportunity": {
+    "shareus": "Share with us",
+    "opportunity": "Opportunity",
+    "doyouknow": "Know an"
+  },
+  "posts": {
+    "seeMore": "See more"
+  }
+}
