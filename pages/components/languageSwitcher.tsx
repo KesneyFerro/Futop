@@ -10,7 +10,7 @@ import { useTranslations } from "next-intl";
 export default function MyDropdown({ isIcon, setIsOpen }: any) {
   const t = useTranslations("navbar");
   const { locales, locale, pathname, query, asPath } = useRouter();
-  const otherLocales = locales?.filter((l) => l !== locale);
+  const otherLocales = locales;
   return (
     <div className={`${!isIcon ? "w-full h-auto" : ""}`}>
       <Menu as="div" className={`relative inline-block ${!isIcon && "w-full"}`}>
