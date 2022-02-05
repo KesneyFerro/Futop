@@ -145,4 +145,10 @@ export const HomeCointainer = styled.div`
       min-height: 226px;
     }
   }
+
+  @media (max-width: 387px) {
+    .titletext {
+      font-size: 12vw;
+    }
+  }
 `;

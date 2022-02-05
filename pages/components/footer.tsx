@@ -80,9 +80,9 @@ const Footer = () => {
                     <i className="bx bx-phone-call text-2xl text-[#50545E]"></i>
                   </div>
                   <div className="flex-col justify-between">
-                    <h5 className=" text-[#9A9EA6] text-sm ">
+                    <h4 className=" text-[#9A9EA6] text-sm ">
                       {t("havequestions")}
-                    </h5>
+                    </h4>
                     <h5 className="font-bold text-[#50545E]">301-437-2766</h5>
                   </div>
                 </div>
@@ -91,9 +91,9 @@ const Footer = () => {
                     <i className="bx bx-mail-send text-2xl text-[#50545E]"></i>
                   </div>
                   <div className="flex-col justify-between">
-                    <h5 className=" text-[#9A9EA6] text-sm ">
+                    <h4 className=" text-[#9A9EA6] text-sm ">
                       {t("contactUs")}
-                    </h5>
+                    </h4>
                     <h5 className="font-bold text-[#50545E]">
                       unreal@outlook.com
                     </h5>

@@ -18,7 +18,19 @@
     "doyouknow": "Conhece uma"
   },
   "posts": {
-    "seeMore": "Veja mais"
+    "seeMore": "Veja mais",
+    "notfound": "Não há resultados para sua pesquisa",
+    "error": "Erro ao carregar posts",
+    "code": "Code",
+    "Níveis de Escolaridade": "Níveis de Escolaridade",
+    "Ensino Fundamental I": "Ensino Fundamental I",
+    "Ensino Fundamental II": "Ensino Fundamental II",
+    "Ensino médio": "Ensino Médio",
+
+    "Tipo de Oportunidade": "Tipo de Oportunidade",
+    "Instituição": "Instituição",
+    "Bolsa": "Bolsa",
+    "Curso": "Cursos"
   },
   "footer": {
     "readMore": "Leia Mais",

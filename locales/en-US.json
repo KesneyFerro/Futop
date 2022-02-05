@@ -18,7 +18,19 @@
     "doyouknow": "Know an"
   },
   "posts": {
-    "seeMore": "See more"
+    "seeMore": "See more",
+    "notfound": "There are no results for your search.",
+    "error": "Error loading posts",
+    "code": "Code",
+    "Níveis de Escolaridade": "Education Levels",
+    "Ensino Fundamental I": "Elementary School I",
+    "Ensino Fundamental II": "Elementary School II",
+    "Ensino médio": "High school",
+
+    "Tipo de Oportunidade": "Opportunity Type",
+    "Instituição": "Institution",
+    "Bolsa": "Scholarship",
+    "Curso": "Courses"
   },
   "footer": {
     "readMore": "Read more",

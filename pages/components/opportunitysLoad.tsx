@@ -90,14 +90,16 @@ function Posts({
     fetcher
   );
 
-  if (error)
+  if (error) {
     return (
       <>
         <div className="Error w-full h-auto mt-0 mb-12">
           <div className="flex flex-col w-full h-full justify-center items-center">
             <i className="bx bx-error text-[70px] text-red-500"></i>
-            <h4 className="text-2xl mt-5 font-semibold">Erro ao obter dados</h4>
-            <h1 className="text-base mt-1 font-medium">Código: 500</h1>
+            <h4 className="text-2xl mt-5 font-semibold">{t("error")}</h4>
+            <h1 className="text-base mt-1 font-medium">
+              {t("code")}: {error.message}
+            </h1>
           </div>
         </div>
         <div className="seeMoreButtonDisplay w-full flex justify-center mb-6">
@@ -110,7 +112,7 @@ function Posts({
         </div>
       </>
     );
-
+  }
   if (!data)
     return (
       <>
@@ -146,7 +148,7 @@ function Posts({
         <div className="w-full h-auto flex flex-col justify-center items-center mb-[25px]">
           <i className="bx bx-error-circle text-center text-[70px] text-red-500 mb-3"></i>
           <h1 className="text-2xl font-semibold text-center">
-            Não há resultados para sua pesquisa
+            {t("notfound")}
           </h1>
         </div>
         <div className="seeMoreButtonDisplay w-full flex justify-center mb-6">
