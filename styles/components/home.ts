@@ -10,6 +10,9 @@ export const HomeCointainer = styled.div`
     max-width: 100%;
     background-color: #fdfcfb;
   }
+  .dark main {
+    background-color: #1f1f1f;
+  }
 
   .underline-rounded::after {
     content: "";

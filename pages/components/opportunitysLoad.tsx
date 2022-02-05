@@ -188,7 +188,7 @@ function Posts({
         <button
           disabled={disable}
           onClick={(e) => doLoadMore(e)}
-          className={`SeeMoreBtn bg-[#25092D] disabled:cursor-not-allowed disabled:bg-[#979797] text-white text-base rounded-full px-5 ${
+          className={`SeeMoreBtn bg-[#25092D] dark:bg-[#f8f8f8] dark:font-medium dark:text-black disabled:cursor-not-allowed disabled:bg-[#979797] text-white text-base rounded-full px-5 ${
             disable ? "py-[14px]" : "py-4"
           } mt-5 flex justify-center w-[310px] items-center drop-shadow-lg`}
         >

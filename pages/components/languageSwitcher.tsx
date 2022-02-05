@@ -18,7 +18,7 @@ export default function MyDropdown({ isIcon, setIsOpen }: any) {
           <Menu.Button
             className={`${
               !isIcon
-                ? "bg-white w-full h-20 inline-flex justify-center items-center transition-all hover:bg-slate-500/10"
+                ? "bg-white w-full h-20 inline-flex justify-center items-center transition-all hover:bg-slate-500/10 dark:bg-[#1e2022] dark:text-white"
                 : "inline-flex justify-center w-full"
             } `}
           >
@@ -41,7 +41,7 @@ export default function MyDropdown({ isIcon, setIsOpen }: any) {
           <Menu.Items
             className={`absolute right-0 ${
               isIcon ? "w-32 " : "bottom-[4.4rem] right-[14px] w-[90%]"
-            } z-[5] mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+            } dark:bg-[#1e2022] z-[5] mt-2 origin-top-right bg-white divide-y dark:divide-white/10 divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
           >
             {otherLocales?.map((locale) => {
               return (
@@ -62,7 +62,9 @@ export default function MyDropdown({ isIcon, setIsOpen }: any) {
 
                           //
                         >
-                          <a className="w-full h-full py-2">{locale}</a>
+                          <a className="w-full h-full py-2 dark:text-white">
+                            {locale}
+                          </a>
                         </Link>
                       </button>
                     )}
