@@ -6,8 +6,10 @@ import { HomeCointainer } from "../styles/components/home";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import ShareAOpportunity from "./components/shareAOpportunity";
+// import { useTranslations } from "next-intl";
 
 const LandingPage: NextPage = () => {
+  // const t = useTranslations("home");
   return (
     <HomeCointainer>
       <Head>
@@ -22,83 +24,86 @@ const LandingPage: NextPage = () => {
       </Head>
       <main className="flex items-center flex-col">
         <Navbar />
-        <div className="mt-[80px] getToKnowOurOpportunities flex justify-between items-center bg-[#f8f5f5] w-full h-[700px] min-h-[700px]">
-          <div className="getToKnowOurOpportunitiesLeft flex flex-col items-start justify-center relative h-full ml-[10vw]">
-            <div className="getToKnowOurOpportunitiesLeftTitle">
-              <h2 className="text-[#25092D] text-justify font-extrabold text-5xl max-w-auto">
-                As <span className="text-[#FECE31]">oportunidades</span> <br />{" "}
-                certas
-                <span className="text-[#AF5BC6]"> para todos</span>
-              </h2>
+        <div className="mt-[80px] getToKnowOurOpportunities  bg-[#f8f5f5] w-full flex justify-center md:block">
+          <div className="md:w-full w-[80vh] flex flex-col md:flex-row justify-between items-center h-auto md:h-[700px] md:min-h-[700px]">
+            <div className="getToKnowOurOpportunitiesLeft mt-16 md:mt-0 flex flex-col items-center justify-center relative h-full mx-[5vw] sm:ml-[5vw] sm:mr-0 xl:ml-[10vw] md:items-start">
+              <div className="getToKnowOurOpportunitiesLeftTitle">
+                <h2 className="text-[#25092D] text-center titletext md:text-left font-extrabold text-5xl max-w-[500px]">
+                  As <span className="text-[#FECE31]">oportunidades</span>{" "}
+                  certas
+                  <span className="text-[#AF5BC6]"> para todos</span>
+                </h2>
+              </div>
+              <div className="getToKnowOurOpportunitiesLeftDescription">
+                <h3 className="mt-12 font-medium text-base md:text-justify text-[#a7a7a7] max-w-[425px] text-center">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Scelerisque nulla pretium vel rutrum lacinia. Tellus est
+                  ultricies purus dignissim. Nec, odio blandit at sed. Mauris
+                  ornare quis ac elit quam mollis vel enim. Purus euismod quam
+                  mauris nunc integer neque. Nunc morbi bibendum laoreet mattis
+                  nisl, sed elit. Duis maecenas viverra ut nisi. Amet neque
+                  malesuada elit vitae orci et nibh. Lectus eget duis
+                  pellentesque etiam pellentesque porta lectus volutpat sed.
+                  (colocar o que ofertamos aqui)
+                </h3>
+              </div>
+              <button className="getToKnowOurOpportunitiesLeftButton bg-[#25092D] text-white text-[14px] rounded-full px-7 py-4 mt-10 flex justify-center w-auto items-center drop-shadow-lg">
+                Conheça nossas oportunidades
+              </button>
             </div>
-            <div className="getToKnowOurOpportunitiesLeftDescription">
-              <h3 className="mt-12 font-medium text-base text-justify text-[#a7a7a7] max-w-[425px]">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Scelerisque nulla pretium vel rutrum lacinia. Tellus est
-                ultricies purus dignissim. Nec, odio blandit at sed. Mauris
-                ornare quis ac elit quam mollis vel enim. Purus euismod quam
-                mauris nunc integer neque. Nunc morbi bibendum laoreet mattis
-                nisl, sed elit. Duis maecenas viverra ut nisi. Amet neque
-                malesuada elit vitae orci et nibh. Lectus eget duis pellentesque
-                etiam pellentesque porta lectus volutpat sed. (colocar o que
-                ofertamos aqui)
-              </h3>
-            </div>
-            <button className="getToKnowOurOpportunitiesLeftButton bg-[#25092D] text-white text-[14px] rounded-full px-7 py-4 mt-10 flex justify-center w-auto items-center drop-shadow-lg">
-              Conheça nossas oportunidades
-            </button>
-          </div>
-          <div className="getToKnowOurOpportunitiesRight">
-            <div className="getToKnowOurOpportunitiesRightImage">
-              <img
-                src="/getToKnowOurOpportunitiesImage.svg"
-                alt="Pessoa segurando uma lanterna na qual a iluminação contém um balão de dúvida"
-              />
+            <div className="getToKnowOurOpportunitiesRight h-full">
+              <div className="getToKnowOurOpportunitiesRightImage h-full lg:ml-0 ml-16">
+                <img
+                  className="h-full "
+                  src="/getToKnowOurOpportunitiesImage.svg"
+                  alt="Pessoa segurando uma lanterna na qual a iluminação contém um balão de dúvida"
+                />
+              </div>
             </div>
           </div>
         </div>
-        <div className="mainHome w-full flex items-center flex-col">
+        <div className="mainHome w-full flex items-center flex-col mb-16">
           <div className="mainHomeDecoration"></div>
-          <div className="mainHomeMotivations w-[90vw] flex items-center flex-col mt-40">
+          <div className="mainHomeMotivations w-[85vw] sm:w-[90vw] flex items-center flex-col mt-24 lg:mt-40">
             <div className="mainHomeMotivationsTitle">
-              <h2 className="font-extrabold text-[#303031] text-4xl">
+              <h2 className="font-extrabold text-[#303031] text-4xl text-center">
                 Nossas Motivações
               </h2>
             </div>
             <div className="mainHomeMotivationsQuote">
-              <h3 className="text-[#000000]/50">
+              <h3 className="text-[#000000]/50 text-center mt-2">
                 “As oportunidades multiplicam-se à medida que são agarradas” -
                 Sun Tzu
               </h3>
             </div>
-            <div className="mainHomeMotivationsBoxes flex justify-between w-full mt-10">
-              <div className="motivationBox1 w-full h-auto mr-3 bg-[#FFFFFF] px-5 py-5 rounded-xl drop-shadow-xl flex items-center flex-col">
+            <div className="mainHomeMotivationsBoxes flex flex-col lg:flex-row justify-between w-full mt-16 lg:mt-10">
+              <div className="motivationBox1 w-full h-auto mr-3 bg-[#FFFFFF] px-5 py-5 rounded-xl drop-shadow-xl flex items-center flex-col mb-10 lg:mb-0">
                 <div className="motivationBox1icon mt-10">
                   <img src="/binocularIcon.svg" alt="" />
                 </div>
                 <div className="motivationBox1Title my-5">
-                  <h3 className="font-semibold text-lg text-justify">
+                  <h3 className="font-semibold text-lg text-center">
                     Informar sobre oportunidades
                   </h3>
                 </div>
                 <div className="motivationBox1description mb-5">
-                  <h4 className="font-medium text-base text-center text-[#303031]">
+                  <h4 className="font-normal text-base text-center text-[#303031]/80">
                     Lörem ipsum beprefere exosal vartad. Reament kaktig
                     desaheten bebel. Tretähigt ultrana. Du kan vara drabbad.{" "}
                   </h4>
                 </div>
               </div>
-              <div className="motivationBox2 w-full h-auto mr-3 bg-[#FFFFFF] px-5 py-5 rounded-xl drop-shadow-xl flex items-center flex-col">
+              <div className="mb-10 lg:mb-0 motivationBox2 w-full h-auto mr-3 bg-[#FFFFFF] px-5 py-5 rounded-xl drop-shadow-xl flex items-center flex-col">
                 <div className="motivationBox2icon mt-10">
                   <img src="/lampIcon.svg" alt="" />
                 </div>
                 <div className="motivationBox2Title my-5">
-                  <h3 className="font-semibold text-lg text-justify">
+                  <h3 className="font-semibold text-lg text-center">
                     Ajudar jovens brilhantes
                   </h3>
                 </div>
                 <div className="motivationBox2description mb-5">
-                  <h4 className="font-medium text-base text-center text-[#303031]">
+                  <h4 className="font-normal text-base text-center text-[#303031]/80">
                     Lörem ipsum beprefere exosal vartad. Reament kaktig
                     desaheten bebel. Tretähigt ultrana. Du kan vara drabbad.{" "}
                   </h4>
@@ -109,12 +114,12 @@ const LandingPage: NextPage = () => {
                   <img src="/BalanceIcon.svg" alt="" />
                 </div>
                 <div className="motivationBox3Title my-5">
-                  <h3 className="font-semibold text-lg text-justify">
+                  <h3 className="font-semibold text-lg text-center">
                     Promover igualdade social
                   </h3>
                 </div>
                 <div className="motivationBox3description mb-5">
-                  <h4 className="font-medium text-base text-center text-[#303031]">
+                  <h4 className="font-normal text-base text-center text-[#303031]/80">
                     Lörem ipsum beprefere exosal vartad. Reament kaktig
                     desaheten bebel. Tretähigt ultrana. Du kan vara drabbad.{" "}
                   </h4>
@@ -153,5 +158,11 @@ const LandingPage: NextPage = () => {
     </HomeCointainer>
   );
 };
-
+export const getServerSideProps = ({ locale, locales }: any) => {
+  return {
+    props: {
+      messages: require(`../locales/${locale}.json`),
+    },
+  };
+};
 export default LandingPage;

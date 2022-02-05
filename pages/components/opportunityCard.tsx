@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { motion } from "framer-motion";
 import { prominent } from "color.js";
+import { useTranslations } from "next-intl";
 
 const OpportunityCard = (props: any) => {
   const [colorr, setColor] = useState("");
@@ -22,6 +23,7 @@ const OpportunityCard = (props: any) => {
     main: colorr,
     image: props.image,
   };
+  const t = useTranslations("posts");
   // props.finalcolor = colorr;
 
   return (
@@ -63,7 +65,7 @@ const OpportunityCard = (props: any) => {
                         key={tag}
                         className="bg-[#F5F5F5] px-3 py-2 rounded-full text-center mr-2 text-sm"
                       >
-                        {tag}
+                        {t(`${tag.trim()}`)}
                       </div>
                     ))
                   : ""}

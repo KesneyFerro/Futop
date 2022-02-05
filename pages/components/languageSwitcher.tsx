@@ -40,8 +40,8 @@ export default function MyDropdown({ isIcon, setIsOpen }: any) {
         >
           <Menu.Items
             className={`absolute right-0 ${
-              isIcon ? "" : "bottom-[3.25rem] right-[70px] "
-            } w-32 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+              isIcon ? "w-32 " : "bottom-[4.4rem] right-[14px] w-[90%]"
+            } z-[5] mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
           >
             {otherLocales?.map((locale) => {
               return (
