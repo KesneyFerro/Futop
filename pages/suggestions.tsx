@@ -75,7 +75,7 @@ const Suggestions: NextPage = () => {
                 <span className="text-[#AF5BC6] text-5xl">Nome</span>
               </p>
             </div>
-            <div className="introductionAboutUsDescription w-auto max-w-[445px] h-auto bg-[#F8F8F8] px-6 py-5 rounded-xl drop-shadow-xl xl:mr-3 dark:bg-[#1e2022] transition duration-300 ">
+            <div className="introductionAboutUsDescription w-auto max-w-[545px] h-auto bg-[#F8F8F8] px-6 py-5 rounded-xl drop-shadow-xl xl:mr-3 dark:bg-[#1e2022] transition duration-300 ">
               <p className="font-medium text-justify text-[#4a4a4a] dark:text-[#F3F0EA]/80">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Scelerisque nulla pretium vel rutrum lacinia. Tellus est
@@ -99,7 +99,7 @@ const Suggestions: NextPage = () => {
                 A ideia inicial
               </p>
             </div>
-            <div className="firstIdeaDescription w-auto max-w-[445px] h-auto bg-[#F8F8F8] px-6 py-5 rounded-xl drop-shadow-xl xl:mr-3 dark:bg-[#1e2022] transition duration-300">
+            <div className="firstIdeaDescription w-auto max-w-[545px] h-auto bg-[#F8F8F8] px-6 py-5 rounded-xl drop-shadow-xl xl:mr-3 dark:bg-[#1e2022] transition duration-300">
               <p className="font-medium text-justify text-[#4a4a4a] dark:text-[#F3F0EA]/80">
                 Lörem ipsum tetralig diadat ett stenotanas respektive såre.
                 Blixad semiling ditåren ogodenera. Kons. Euroska nyng. Garad
@@ -128,7 +128,7 @@ const Suggestions: NextPage = () => {
                   </h4>
                 </div>
                 <div className="projectMotivationsDescription">
-                  <h5 className="font-medium xl:text-justify text-center text-[#4a4a4a]  dark:text-[#d4d2cd]">
+                  <h5 className="font-normal opacity-80  max-w-[750px] xl:text-justify text-center text-[#4a4a4a]  dark:text-[#d4d2cd]">
                     Lörem ipsum tetralig diadat ett stenotanas respektive såre.
                     Blixad semiling ditåren ogodenera. Kons. Euroska nyng. Garad
                     mibelt sågen.
@@ -151,7 +151,7 @@ const Suggestions: NextPage = () => {
                   </h4>
                 </div>
                 <div className="projectMotivationsDescription">
-                  <h5 className="font-medium xl:text-justify text-center  text-[#4a4a4a]  dark:text-[#d4d2cd]">
+                  <h5 className="font-normal xl:text-justify text-center   max-w-[750px] text-[#4a4a4a]  opacity-80  dark:text-[#d4d2cd]">
                     Lörem ipsum tetralig diadat ett stenotanas respektive såre.
                     Blixad semiling ditåren ogodenera. Kons. Euroska nyng. Garad
                     mibelt sågen.
@@ -174,7 +174,7 @@ const Suggestions: NextPage = () => {
                   </h4>
                 </div>
                 <div className="projectMotivationsDescription">
-                  <h5 className="font-medium xl:text-justify text-center  text-[#4a4a4a]  dark:text-[#d4d2cd]">
+                  <h5 className="font-normal xl:text-justify text-center max-w-[750px]  text-[#4a4a4a]  opacity-80  dark:text-[#d4d2cd]">
                     Lörem ipsum tetralig diadat ett stenotanas respektive såre.
                     Blixad semiling ditåren ogodenera. Kons. Euroska nyng. Garad
                     mibelt sågen.

@@ -84,7 +84,9 @@ const Navbar = () => {
             <MyDropdown isIcon={true} />
             <i
               onClick={() => handleThemeChange()}
-              className="bx bxs-sun cursor-pointer text-2xl text-[#cccccc] mr-5 "
+              className={`bx bxs-${
+                isDark == "dark" ? "sun" : "moon"
+              } cursor-pointer text-2xl text-[#cccccc] mr-5 `}
             ></i>
             <button className="w-10 h-10 bg-[#f5f6f5] rounded-full"></button>
           </div>
@@ -119,7 +121,7 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: 280 }}
               transition={{ duration: 0.2 }}
-              className={`will-change-contents z-[29] overflow-auto flex lg:hidden w-[280px] fixed bg-white dark:bg-[#1e2022] transition duration-300 bottom-0 top-0 right-0 h-[100vh] max-h-[100%] drop-shadow-md flex-col justify-start items-center pt-[80px]`}
+              className={`will-change-contents z-[29] overflow-auto flex lg:hidden w-[280px] fixed bg-white dark:bg-[#1e2022] transition-colors duration-300 bottom-0 top-0 right-0 h-[100vh] max-h-[100%] drop-shadow-md flex-col justify-start items-center pt-[80px]`}
             >
               <div className="flex w-full h-full flex-col justify-between items-center">
                 <div className="flex w-full flex-col justify-start items-center divide-y mb-[80px] dark:divide-white/10">
@@ -171,10 +173,12 @@ const Navbar = () => {
                         </h4>
                       </div>
                     </div>
-                    <div className="bg-gray-50/100 cursor-pointer drop-shadow-sm w-10 h-10 flex justify-center items-center rounded-lg">
+                    <div className="bg-gray-50/100 transition duration-300 dark:bg-[#26282B] cursor-pointer drop-shadow-sm w-10 h-10 flex justify-center items-center rounded-lg">
                       <i
                         onClick={() => handleThemeChange()}
-                        className="bx bxs-sun text-2xl text-slate-500"
+                        className={`bx bxs-${
+                          isDark == "dark" ? "sun" : "moon"
+                        } text-2xl text-slate-500 dark:text-white/80`}
                       ></i>
                     </div>
                   </div>
