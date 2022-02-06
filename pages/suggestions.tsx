@@ -111,7 +111,7 @@ const Suggestions: NextPage = () => {
               </p>
             </div>
           </div>
-          <hr className="mt-10 mb-20 border-[1px] border-[#c6c6c6] w-full" />
+          <hr className="mt-10 mb-20 border-[1px] border-[#c6c6c6] dark:opacity-20 w-full" />
           <div className="projectMotivations mb-20">
             <div className="flex flex-col xl:flex-row items-center">
               <div className="icon1 mb-7 xl:mb-0 xl:mr-5">
@@ -147,7 +147,7 @@ const Suggestions: NextPage = () => {
               <div className="projectMotivationsText">
                 <div className="projectMotivationsTitle mb-2">
                   <h4 className="text-[#25092D] xl:text-normal text-lg xl:text-left text-center font-semibold dark:text-[#F3F0EA]">
-                    Para tornar o mundo mais igualitário
+                    Para melhorar a educação
                   </h4>
                 </div>
                 <div className="projectMotivationsDescription">
@@ -170,7 +170,7 @@ const Suggestions: NextPage = () => {
               <div className="projectMotivationsText">
                 <div className="projectMotivationsTitle mb-2">
                   <h4 className="text-[#25092D] xl:text-left xl:text-normal text-lg text-center font-semibold dark:text-[#F3F0EA]">
-                    Para tornar o mundo mais igualitário
+                    Para dar chance a todos
                   </h4>
                 </div>
                 <div className="projectMotivationsDescription">

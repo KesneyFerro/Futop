@@ -138,26 +138,67 @@ const LandingPage: NextPage = () => {
               </div>
             </div>
           </div>
-          <div className="mainHomeRequirements w-[90vw]">
-            <div className="mainHomeRequirementsLeft">
-              <div className="mainHomeRequirementsLeftIcon"></div>
-              <div className="mainHomeRequirementsLeftTitle"></div>
-              <div className="mainHomeRequirementsLeftDescription"></div>
+          <div className="mainHomeRequirements w-[90vw] flex flex-col  justify-center lg:justify-between items-center mt-16 pt-8 h-auto lg:flex-row">
+            <div className="mainHomeRequirementsLeft max-w-[500px] flex flex-col justify-center">
+              <div className="flex flex-col justify-center">
+                <div className="mainHomeRequirementsLeftIcon mb-5 flex justify-center lg:block">
+                  <img
+                    src="/RequirementsIcon.svg"
+                    alt=""
+                    className="h-[60px]"
+                  />
+                </div>
+                <div className="mainHomeRequirementsLeftTitle">
+                  <h3 className="font-extrabold text-[#303031] text-4xl text-center lg:text-left dark:text-white/95 mb-5">
+                    O que é necessário para participar
+                  </h3>
+                </div>
+                <div className="mainHomeRequirementsLeftDescription">
+                  <h4 className="font-medium text-[#303031] text-center lg:text-justify mt-2 dark:text-white/95">
+                    Lörem ipsum säd euror, pinöde. Nösm homongen av pepofara av
+                    vugt. Sesamma mikronas även om epin. Kanal. Multis ynde.
+                    Tempomatisk sepobelt bekisamma arabisk vår vufabel. Tesam
+                    lösk nara ben utom antektig. Jiling spenism och speda.
+                  </h4>
+                </div>
+              </div>
             </div>
-            <div className="mainHomeRequirementsRight">
-              <div className="mainHomeRequirementsRightBox">
-                <div className="mainHomeRequirementsRightBoxTitle"></div>
-                <div className="requirement1">
-                  <div className="requirement1Icon1"></div>
-                  <div className="requirement1Name1"></div>
+            <div className="mainHomeRequirementsRight  mt-10 lg:mt-0 lg:ml-10 w-full max-w-[500px] flex items-center h-auto">
+              <div className="mainHomeRequirementsRightBox w-full h-full bg-[#FFFFFF] px-7 py-7 rounded-xl drop-shadow-xl flex items-left flex-col dark:bg-[#1e2022]">
+                <div className="reiquirementBoxTitle mb-5 lg:block flex justify-center">
+                  <h3 className=" text-xl font-semibold text-[#303031] dark:text-white/95">
+                    Requisitos
+                  </h3>
                 </div>
-                <div className="requirement2">
-                  <div className="requirement2Icon2"></div>
-                  <div className="requirement2Name2"></div>
+                <div className="requirement1 mt-3 mb-2 flex items-center">
+                  <div className="requirementIcon1 mr-3">
+                    <img src="/OneIcon.svg" alt="" className="h-[40px]" />
+                  </div>
+                  <div className="requirementName1">
+                    <h4 className="text-normal text-[#303031] dark:text-[#FFFFFF]">
+                      Vontade de Aprender
+                    </h4>
+                  </div>
                 </div>
-                <div className="requirement3">
-                  <div className="requirement3Icon3"></div>
-                  <div className="requirement3Name3"></div>
+                <div className="requirement2 mt-3 flex items-center mb-2">
+                  <div className="requirementIcon2 mr-3">
+                    <img src="/TwoIcon.svg" alt="" className="h-[40px]" />
+                  </div>
+                  <div className="requirementName2">
+                    <h4 className="text-normal text-[#303031] dark:text-[#FFFFFF]">
+                      Dedicação
+                    </h4>
+                  </div>
+                </div>
+                <div className="requirement3 mt-3 flex items-center ">
+                  <div className="requirementIcon3 mr-3">
+                    <img src="/ThreeIcon.svg" alt="" className="h-[40px]" />
+                  </div>
+                  <div className="requirementName3">
+                    <h4 className="text-normal text-[#303031] dark:text-[#FFFFFF]">
+                      Iniciativa
+                    </h4>
+                  </div>
                 </div>
               </div>
             </div>
