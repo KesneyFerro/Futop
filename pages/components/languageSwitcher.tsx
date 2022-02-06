@@ -18,7 +18,7 @@ export default function MyDropdown({ isIcon, setIsOpen }: any) {
           <Menu.Button
             className={`${
               !isIcon
-                ? "bg-white w-full h-20 inline-flex justify-center items-center transition-all hover:bg-slate-500/10 dark:bg-[#1e2022] dark:text-white"
+                ? "bg-white w-full h-20 inline-flex justify-center items-center transition-colors duration-300 hover:bg-slate-500/10 dark:bg-[#1e2022] dark:text-white"
                 : "inline-flex justify-center w-full"
             } `}
           >

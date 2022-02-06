@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 const ShareAOpportunity = () => {
   const t = useTranslations("shareAOpportunity");
   return (
-    <div className="shareAOpportunity flex-col bg-[#fdfcf2] dark:bg-[#19191a] w-full min-h-[425px] flex items-center">
+    <div className="shareAOpportunity flex-col bg-[#fdfcf2] dark:bg-[#19191a] transition-colors duration-300 w-full min-h-[425px] flex items-center">
       <div className="shareAOpportunityContent w-[90%] mt-10 xl:mt-0 flex flex-col justify-center lg:flex-row lg:justify-between h-full items-center">
         <div className="shareAOpportunityLeft mt-10 ">
           <div className="shareAOpportunityTitle font-semibold text-[27px] flex flex-col items-center lg:flex-col lg:items-start">
@@ -22,7 +22,7 @@ const ShareAOpportunity = () => {
               sed neque euismod. Dolor augue quam metus, gravida quis maecenas
               amet.
             </h4>
-            <button className="bg-[#25092D] dark:bg-[#ffc700] dark:text-black dark:font-medium text-white text-base rounded-full px-5 py-3 mt-5 flex justify-center lg:justify-between w-[80vw] max-w-[310px] items-center drop-shadow-lg">
+            <button className="bg-[#25092D] dark:bg-[#ffc700] dark:text-black  dark:font-medium text-white text-base rounded-full px-5 py-3 mt-5 flex justify-center lg:justify-between w-[80vw] max-w-[310px] items-center drop-shadow-lg">
               {t("shareus")} <i className="bx bx-right-arrow-alt text-2xl"></i>
             </button>
           </div>
