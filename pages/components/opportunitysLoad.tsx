@@ -147,7 +147,7 @@ function Posts({
       <>
         <div className="w-full h-auto flex flex-col justify-center items-center mb-[25px]">
           <i className="bx bx-error-circle text-center text-[70px] text-red-500 mb-3"></i>
-          <h1 className="text-2xl font-semibold text-center">
+          <h1 className="text-2xl font-semibold text-center dark:text-white">
             {t("notfound")}
           </h1>
         </div>

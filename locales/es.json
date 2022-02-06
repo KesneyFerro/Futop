@@ -1,7 +1,7 @@
 {
   "index": {
     "welcome": "Find your",
-    "opportunity": "opportunity",
+    "opportunity": "Janio",
     "search": "Search here..."
   },
   "navbar": {
@@ -18,19 +18,7 @@
     "doyouknow": "Know an"
   },
   "posts": {
-    "seeMore": "See more",
-    "notfound": "There are no results for your search.",
-    "error": "Error loading posts",
-    "code": "Code",
-    "Níveis de Escolaridade": "Education Levels",
-    "Ensino Fundamental I": "Elementary School",
-    "Ensino Fundamental II": "Middle School",
-    "Ensino médio": "High school",
-
-    "Tipo de Oportunidade": "Opportunity Type",
-    "Olimpíadas": "Olympiads",
-    "Bolsa": "Scholarship",
-    "Curso": "Courses"
+    "seeMore": "See more"
   },
   "footer": {
     "readMore": "Read more",
@@ -47,8 +35,5 @@
     "copyright": "All rights reserved",
     "havequestions": "Have questions?",
     "contactUs": "Contact us at:"
-  },
-  "home": {
-    "mainbutton": "Conheça um Janio perto de você"
   }
 }

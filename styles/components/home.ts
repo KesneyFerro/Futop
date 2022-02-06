@@ -23,8 +23,10 @@ export const HomeCointainer = styled.div`
     background-color: #ffc700;
   }
 
-  .helpUsToImproveDescriptionAlt {
-    text-align-last: right;
+  @media (min-width: 1280px) {
+    .helpUsToImproveDescriptionAlt {
+      text-align-last: right;
+    }
   }
   .mainOpportunities {
     display: grid;

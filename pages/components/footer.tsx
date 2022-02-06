@@ -4,38 +4,47 @@ import { useTranslations } from "next-intl";
 
 const Footer = () => {
   const t = useTranslations("footer");
+  if (typeof window === "object") {
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }
+
   return (
-    <ShareAOpportunity className="bg-white w-full flex justify-center items-center ">
+    <ShareAOpportunity className="bg-white dark:bg-[#1e2022] transition duration-300 w-full flex justify-center items-center ">
       <div className="w-[80%] flex-col justify-center items-center">
         <div className="mt-32 flex flex-col items-center">
-          <h2 className="text-3xl font-extrabold">Logo</h2>
-          <h3 className="mt-7 text-center text-black/40 w-full max-w-[900px]">
+          <h2 className="text-3xl font-extrabold dark:text-white">Logo</h2>
+          <h3 className="mt-7 text-center text-black/40 dark:text-white/60 w-full max-w-[900px]">
             We ara a lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud equip ex ea commodo
             consequat...{" "}
-            <span className="text-black font-semibold cursor-pointer">
+            <span className="text-black dark:text-white font-semibold cursor-pointer">
               {t("readMore")}
             </span>
           </h3>
           <div
             id="SocialMedias"
-            className="mt-5 flex justify-center items-center flex-wrap"
+            className="mt-5 flex justify-center items-center flex-wrap gap-[0.75rem]"
           >
-            <div className="rounded-full w-12 h-12 mr-3 flex justify-center items-center cursor-pointer bg-[#FAEEC5]">
-              <i className="bx bxl-twitter text-2xl text-[#50545E]"></i>
+            <div className="rounded-full w-12 h-12 flex justify-center items-center cursor-pointer bg-[#FAEEC5] dark:bg-[#fadb78]">
+              <i className="bx bxl-twitter text-2xl text-[#50545E] dark:text-[#b4b4b45]"></i>
             </div>
-            <div className="rounded-full w-12 h-12 mr-3 cursor-pointer flex justify-center items-center bg-[#FAEEC5]">
-              <i className="bx bxl-discord-alt text-2xl text-[#50545E]"></i>
+            <div className="rounded-full w-12 h-12 cursor-pointer flex justify-center items-center bg-[#FAEEC5] dark:bg-[#fadb78]">
+              <i className="bx bxl-discord-alt text-2xl text-[#50545E] dark:text-[#b4b4b45]"></i>
             </div>
-            <div className="rounded-full w-12 h-12 mr-3 cursor-pointer flex justify-center items-center bg-[#FAEEC5]">
-              <i className="bx bxl-dribbble text-2xl text-[#50545E]"></i>
+            <div className="rounded-full w-12 h-12 cursor-pointer flex justify-center items-center bg-[#FAEEC5] dark:bg-[#fadb78]">
+              <i className="bx bxl-instagram text-2xl text-[#50545E] dark:text-[#b4b4b45]"></i>
             </div>
-            <div className="rounded-full w-12 h-12 mr-3 cursor-pointer flex justify-center items-center bg-[#FAEEC5]">
-              <i className="bx bxl-instagram text-2xl text-[#50545E]"></i>
-            </div>
-            <div className="rounded-full w-12 h-12 cursor-pointer flex justify-center items-center bg-[#FAEEC5]">
-              <i className="bx bxl-whatsapp text-2xl text-[#50545E]"></i>
+            <div className="rounded-full w-12 h-12 cursor-pointer flex justify-center items-center bg-[#FAEEC5] dark:bg-[#fadb78]">
+              <i className="bx bxl-whatsapp text-2xl text-[#50545E] dark:text-[#b4b4b45]"></i>
             </div>
           </div>
         </div>
@@ -76,32 +85,34 @@ const Footer = () => {
             <div className="xl:mb-0 mb-12">
               <div className="flex flex-col sm:flex-row">
                 <div className="flex items-center justify-center">
-                  <div className="rounded-full w-12 h-12 mr-3 cursor-pointer flex justify-center items-center bg-[#FAEEC5]">
+                  <div className="rounded-full w-12 h-12 mr-3 cursor-pointer flex justify-center items-center bg-[#FAEEC5] dark:bg-[#fadb78]">
                     <i className="bx bx-phone-call text-2xl text-[#50545E]"></i>
                   </div>
                   <div className="flex-col justify-between">
                     <h4 className=" text-[#9A9EA6] text-sm ">
                       {t("havequestions")}
                     </h4>
-                    <h5 className="font-bold text-[#50545E]">301-437-2766</h5>
+                    <h5 className="font-bold text-[#50545E] dark:text-gray-300">
+                      301-437-2766
+                    </h5>
                   </div>
                 </div>
                 <div className="flex items-center justify-center ml-0 sm:ml-16 mt-5 sm:mt-0">
-                  <div className="rounded-full w-12 h-12 mr-3 flex justify-center items-center cursor-pointer bg-[#FAEEC5]">
-                    <i className="bx bx-mail-send text-2xl text-[#50545E]"></i>
+                  <div className="rounded-full w-12 h-12 mr-3 flex justify-center items-center cursor-pointer bg-[#FAEEC5] dark:bg-[#fadb78]">
+                    <i className="bx bx-mail-send text-2xl text-[#50545E] "></i>
                   </div>
                   <div className="flex-col justify-between">
                     <h4 className=" text-[#9A9EA6] text-sm ">
                       {t("contactUs")}
                     </h4>
-                    <h5 className="font-bold text-[#50545E]">
+                    <h5 className="font-bold text-[#50545E] dark:text-gray-300">
                       unreal@outlook.com
                     </h5>
                   </div>
                 </div>
               </div>
             </div>
-            <h5 className="text-[#9A9EA6] text-sm text-center">
+            <h5 className="text-[#9A9EA6] text-sm text-center dark:text-white">
               &copy; 2021, {t("copyright")}
             </h5>
           </div>

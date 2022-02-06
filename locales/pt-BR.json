@@ -28,7 +28,7 @@
     "Ensino médio": "Ensino Médio",
 
     "Tipo de Oportunidade": "Tipo de Oportunidade",
-    "Instituição": "Instituição",
+    "Olimpíadas": "Olimpíadas",
     "Bolsa": "Bolsa",
     "Curso": "Cursos"
   },
@@ -47,5 +47,8 @@
     "copyright": "Todos os direitos reservados",
     "havequestions": "Tem uma pergunta?",
     "contactUs": "Entre em contato em:"
+  },
+  "home": {
+    "mainbutton": "Conheça nossas oportunidades"
   }
 }

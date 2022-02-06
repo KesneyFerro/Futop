@@ -5,24 +5,24 @@ import { useTranslations } from "next-intl";
 const ShareAOpportunity = () => {
   const t = useTranslations("shareAOpportunity");
   return (
-    <div className="shareAOpportunity flex-col bg-[#fdfcf2] w-full min-h-[425px] flex items-center">
-      <div className="shareAOpportunityContent w-[90%] flex flex-col justify-center lg:flex-row lg:justify-between h-full items-center">
+    <div className="shareAOpportunity flex-col bg-[#fdfcf2] dark:bg-[#19191a] w-full min-h-[425px] flex items-center">
+      <div className="shareAOpportunityContent w-[90%] mt-10 xl:mt-0 flex flex-col justify-center lg:flex-row lg:justify-between h-full items-center">
         <div className="shareAOpportunityLeft mt-10 ">
           <div className="shareAOpportunityTitle font-semibold text-[27px] flex flex-col items-center lg:flex-col lg:items-start">
-            <h3 className="text-center lg:text-left ">
+            <h3 className="text-center lg:text-left text-black dark:text-white">
               {t("doyouknow")}{" "}
               <span className=" inline-block">
                 <span className=" underline-rounded ">{t("opportunity")}?</span>
               </span>
             </h3>
-            <h4 className=" font-medium text-base max-w-[600px] text-center lg:text-justify mt-10 mb-5 lg:mb-0 lg:mt-5 text-black/50">
+            <h4 className=" font-medium text-base max-w-[600px] text-black dark:text-white/60 text-center lg:text-justify mt-10 mb-5 lg:mb-0 lg:mt-5 text-black/50">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique
               at rhoncus amet, etiam felis, viverra pharetra tincidunt
               fermentum. Eget venenatis lacus, vestibulum id molestie. Cras orci
               sed neque euismod. Dolor augue quam metus, gravida quis maecenas
               amet.
             </h4>
-            <button className="bg-[#25092D] text-white text-base rounded-full px-5 py-3 mt-5 flex justify-center lg:justify-between w-[80vw] max-w-[310px] items-center drop-shadow-lg">
+            <button className="bg-[#25092D] dark:bg-[#ffc700] dark:text-black dark:font-medium text-white text-base rounded-full px-5 py-3 mt-5 flex justify-center lg:justify-between w-[80vw] max-w-[310px] items-center drop-shadow-lg">
               {t("shareus")} <i className="bx bx-right-arrow-alt text-2xl"></i>
             </button>
           </div>
