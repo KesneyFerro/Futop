@@ -126,7 +126,10 @@ const Navbar = () => {
               <div className="flex w-full h-full flex-col justify-between items-center">
                 <div className="flex w-full flex-col justify-start items-center divide-y mb-[80px] dark:divide-white/10">
                   <Link href="/home">
-                    <div className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-center items-center transition-all duration-300 hover:bg-slate-500/10">
+                    <div
+                      onClick={() => setIsOpen(false)}
+                      className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-center items-center transition-all duration-300 hover:bg-slate-500/10"
+                    >
                       <h4
                         className={`${router.pathname == "/home" && "font-bold"}
                        text-[15px] text-slate-600 dark:text-gray-300`}
@@ -136,7 +139,10 @@ const Navbar = () => {
                     </div>
                   </Link>
                   <Link href="/">
-                    <div className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-center items-center transition-all duration-300 hover:bg-slate-500/10">
+                    <div
+                      onClick={() => setIsOpen(false)}
+                      className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-center items-center transition-all duration-300 hover:bg-slate-500/10"
+                    >
                       <h4
                         className={`${router.pathname == "/" && "font-bold"}
                       text-[15px] text-slate-600 dark:text-gray-300`}
@@ -146,7 +152,10 @@ const Navbar = () => {
                     </div>
                   </Link>
                   <Link href="/suggestions">
-                    <div className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-center items-center transition-all duration-300 hover:bg-slate-500/10">
+                    <div
+                      onClick={() => setIsOpen(false)}
+                      className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-center items-center transition-all duration-300 hover:bg-slate-500/10"
+                    >
                       <h4
                         className={`${
                           router.pathname == "/suggestions" && "font-bold"
