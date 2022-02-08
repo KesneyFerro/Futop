@@ -6,6 +6,7 @@ import styled, { ThemeProvider } from "styled-components";
 import { motion } from "framer-motion";
 import { prominent } from "color.js";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/router";
 
 const OpportunityCard = (props: any) => {
   const [colorr, setColor] = useState("");
@@ -25,9 +26,10 @@ const OpportunityCard = (props: any) => {
   };
   const t = useTranslations("posts");
   // props.finalcolor = colorr;
-
+  const router = useRouter();
   return (
     <motion.div
+      onClick={() => router.push(`/opportunity/${props.id}`)}
       // style={{ originY: 0, originX: 0.5 }}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.9 }}

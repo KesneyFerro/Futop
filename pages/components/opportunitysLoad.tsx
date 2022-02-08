@@ -119,11 +119,11 @@ function Posts({
     return (
       <>
         <div className="mainOpportunities w-full min-h-[500px] h-auto mt-0 mb-[25px]">
-          <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
-          <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
-          <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
-          <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
-          <div className="rounded-[15px] animate-pulse bg-gray-300 "></div>
+          <div className="rounded-[15px] animate-pulse bg-gray-300 dark:bg-[#1e2022] "></div>
+          <div className="rounded-[15px] animate-pulse bg-gray-300 dark:bg-[#1e2022] "></div>
+          <div className="rounded-[15px] animate-pulse bg-gray-300 dark:bg-[#1e2022]"></div>
+          <div className="rounded-[15px] animate-pulse bg-gray-300 dark:bg-[#1e2022]"></div>
+          <div className="rounded-[15px] animate-pulse bg-gray-300 dark:bg-[#1e2022]"></div>
         </div>
         <div className="seeMoreButtonDisplay w-full flex justify-center mb-6">
           <button
@@ -179,6 +179,7 @@ function Posts({
             <OpportunityCard
               first={index === 0 ? true : false}
               key={posts.id}
+              id={posts.id}
               title={posts.title}
               tags={posts.tags}
               image={posts.image}
@@ -190,7 +191,7 @@ function Posts({
         <button
           disabled={disable}
           onClick={(e) => doLoadMore(e)}
-          className={`SeeMoreBtn bg-[#25092D] dark:bg-[#f8f8f8] dark:font-medium dark:text-black disabled:cursor-not-allowed disabled:bg-[#979797] dark:disabled:bg-[#3c3c3c] disabled:dark:text-[#161819] disabled:dark:font-medium text-white text-base rounded-full px-5 ${
+          className={`SeeMoreBtn bg-[#25092D] dark:bg-[#d8d8d8] dark:font-medium dark:text-black disabled:cursor-not-allowed disabled:bg-[#979797] dark:disabled:bg-[#3c3c3c] disabled:dark:text-[#161819] disabled:dark:font-medium text-white text-base rounded-full px-5 ${
             disable ? "py-[14px]" : "py-4"
           } mt-5 flex justify-center w-[310px] items-center drop-shadow-lg`}
         >
