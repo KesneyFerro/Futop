@@ -18,6 +18,9 @@ const OpportunityCardStyle = styled.div`
   background-size: cover;
   background-position: center;
 `;
+const SocialMediaLogo = styled.i`
+  color: rgba(${(props) => props.theme.main}, 1);
+`;
 
 const OpportunityPage: NextPage = ({ post }: any) => {
   const [colorr, setColor] = useState("");
@@ -59,15 +62,20 @@ const OpportunityPage: NextPage = ({ post }: any) => {
               <div className="w-full flex items-center lg:items-start flex-col">
                 <img
                   loading="lazy"
-                  src={post.posts.logo || null}
-                  className="bg-center bg-no-repeat w-28 h-28 lg:w-32 lg:h-32 bg-white rounded-full"
+                  src={
+                    post.posts.logo ||
+                    `https://avatars.dicebear.com/api/identicon/${post.posts.id}.svg`
+                  }
+                  className={`bg-center bg-cover bg-no-repeat w-28 h-28 lg:w-32 lg:h-32 bg-white ${
+                    !post.posts.logo && "border-2"
+                  } border-white rounded-full`}
                 ></img>
                 <div className="flex flex-col items-center lg:items-start mt-8 mb-7">
                   <h1 className="text-white text-3xl font-extrabold text-center mb-4">
                     {post.posts.title}
                   </h1>
                   <h3 className="text-white/50 text-sm text-center">
-                    Postada por <span className=" underline">Kesney Lucas</span>{" "}
+                    Postada por <span className=" font-bold">Kesney Lucas</span>{" "}
                     às 20:43
                   </h3>
                 </div>
@@ -86,21 +94,26 @@ const OpportunityPage: NextPage = ({ post }: any) => {
           </ThemeProvider>
         </div>
         <div className="flex flex-col mt-10 lg:mt-16 lg:flex-row-reverse items-start w-full px-[7%] lg:px-16 mb-16">
-          <div className="flex lg:flex-col gap-6 mb-10 items-center lg:mb-0 lg:ml-24 flex-wrap justify-center w-full lg:w-auto ">
-            <div className="w-16 h-16 drop-shadow-md bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300"></div>
-            <div className="w-16 h-16 drop-shadow-md bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300"></div>
-            <div className="w-16 h-16 drop-shadow-md bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300"></div>
-            <div className="w-16 h-16 drop-shadow-md bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300"></div>
-            <div className="w-16 h-16 drop-shadow-md bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300"></div>
-          </div>
-          <div className="flex flex-col items-start w-full">
-            <div className="mb-7 flex w-full items-center">
-              <h2 className="font-extrabold text-3xl min-w-[240px] mr-6 dark:text-white">
-                O que fazemos?
-              </h2>
-              <hr className="w-full border-1 dark:border-white/50 border-black/50 max-w-[1260px]" />
+          <ThemeProvider theme={theme}>
+            <div className="flex lg:flex-col gap-6 mb-10 items-center lg:mb-0 lg:ml-24 flex-wrap justify-center w-full lg:w-auto ">
+              <div className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300">
+                <SocialMediaLogo className="bx bxs-bookmark text-3xl" />
+              </div>
+              <div className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300">
+                <SocialMediaLogo className="bx bx-link text-[35px]" />
+              </div>
             </div>
-            {post.posts.texts != undefined &&
+          </ThemeProvider>
+          <div className="flex flex-col items-start w-full">
+            {post.posts.texts != undefined && (
+              <div className="mb-7 flex w-full items-center">
+                <h2 className="font-extrabold text-3xl min-w-[240px] mr-6 dark:text-white">
+                  O que fazemos?
+                </h2>
+                <hr className="w-full border-1 dark:border-white/50 border-black/50 max-w-[1260px]" />
+              </div>
+            )}
+            {post.posts.texts != undefined ? (
               post.posts.texts.map((description: any, index: number) => (
                 <p
                   key={index}
@@ -108,7 +121,14 @@ const OpportunityPage: NextPage = ({ post }: any) => {
                 >
                   {description}
                 </p>
-              ))}
+              ))
+            ) : (
+              <div className="w-full h-20 dark:text-white flex justify-center items-center rounded-3xl bg-gray-200/[50%] dark:bg-black/20">
+                <h3 className="text-lg font-medium">
+                  Está postagem não possui texto
+                </h3>
+              </div>
+            )}
           </div>
         </div>
         <Footer />
