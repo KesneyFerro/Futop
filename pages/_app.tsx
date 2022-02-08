@@ -2,7 +2,7 @@
 /* eslint-disable require-jsdoc */
 import "../styles/globals.css";
 import { NextIntlProvider } from "next-intl";
-import React, { memo, useEffect, useRef } from "react";
+import React, { memo, useRef } from "react";
 import { AppProps } from "next/app";
 import NextNProgress from "nextjs-progressbar";
 import { useRouter } from "next/router";
@@ -22,29 +22,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       scrollPos: 0,
     };
   }
-
-  // Save the scroll position of current page before leaving
-  const handleRouteChangeStart = (url: any) => {
-    if (isRetainableRoute) {
-      retainedComponents.current[router.asPath].scrollPos = window.scrollY;
-    }
-  };
-
-  // Save scroll position - requires an up-to-date router.asPath
-  useEffect(() => {
-    router.events.on("routeChangeStart", handleRouteChangeStart);
-    return () => {
-      router.events.off("routeChangeStart", handleRouteChangeStart);
-    };
-  }, [router.asPath]);
-
-  // Scroll to the saved position when we load a retained component
-  useEffect(() => {
-    if (isRetainableRoute) {
-      window.scrollTo(0, retainedComponents.current[router.asPath].scrollPos);
-    }
-  }, [Component, pageProps]);
-
   return (
     <>
       <div style={{ display: isRetainableRoute ? "block" : "none" }}>
