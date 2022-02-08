@@ -88,7 +88,7 @@ const Navbar = () => {
                 isDark == "dark" ? "sun" : "moon"
               } cursor-pointer text-2xl text-[#cccccc] mr-5 `}
             ></i>
-            <button className="w-10 h-10 bg-[#f5f6f5] rounded-full"></button>
+            <button className="w-10 h-10 bg-[#f5f6f5] dark:bg-[#161819] rounded-full"></button>
           </div>
           <div
             className="flex justify-center items-center lg:hidden cursor-pointer"
@@ -165,7 +165,7 @@ const Navbar = () => {
                   <MyDropdown isIcon={false} />
                   <div className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-between px-4 items-center transition-all hover:bg-slate-500/10">
                     <div className="flex items-center h-auto ">
-                      <button className=" w-10 h-10 bg-gray-100  rounded-full drop-shadow-sm"></button>
+                      <button className=" w-10 h-10 bg-gray-100 dark:bg-[#161819] rounded-full drop-shadow-sm"></button>
                       <div>
                         <h4 className="text-xs ml-3 dark:text-gray-300">
                           {t("singup1")} <br />
