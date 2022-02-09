@@ -76,7 +76,7 @@ const Suggestions: NextPage = () => {
               </p>
             </div>
             <div className="introductionAboutUsDescription w-auto max-w-[545px] h-auto bg-[#F8F8F8] px-6 py-5 rounded-xl drop-shadow-xl xl:mr-3 dark:bg-[#1e2022] transition duration-300 ">
-              <p className="font-medium text-justify text-[#4a4a4a] dark:text-[#F3F0EA]/80">
+              <p className="font-medium text-center sm:text-justify text-[#4a4a4a] dark:text-[#F3F0EA]/80">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Scelerisque nulla pretium vel rutrum lacinia. Tellus est
                 ultricies purus dignissim. Nec, odio blandit at sed. Mauris
@@ -100,7 +100,7 @@ const Suggestions: NextPage = () => {
               </p>
             </div>
             <div className="firstIdeaDescription w-auto max-w-[545px] h-auto bg-[#F8F8F8] px-6 py-5 rounded-xl drop-shadow-xl xl:mr-3 dark:bg-[#1e2022] transition duration-300">
-              <p className="font-medium text-justify text-[#4a4a4a] dark:text-[#F3F0EA]/80">
+              <p className="font-medium text-center sm:text-justify text-[#4a4a4a] dark:text-[#F3F0EA]/80">
                 Lörem ipsum tetralig diadat ett stenotanas respektive såre.
                 Blixad semiling ditåren ogodenera. Kons. Euroska nyng. Garad
                 mibelt sågen. Porade nende. Alkobom prohet, den dosat. Porad
