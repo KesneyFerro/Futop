@@ -6,7 +6,7 @@ import React, { memo, useRef } from "react";
 import { AppProps } from "next/app";
 import NextNProgress from "nextjs-progressbar";
 import { useRouter } from "next/router";
-const ROUTES_TO_RETAIN = ["/"];
+const ROUTES_TO_RETAIN = ["/", "/en-US"];
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -30,14 +30,14 @@ function MyApp({ Component, pageProps }: AppProps) {
             key={path}
             style={{ display: router.asPath === path ? "block" : "none" }}
           >
-            <NextNProgress color="#ffc700" />
+            <NextNProgress color="#ffc700" options={{ showSpinner: false }} />
             <NextIntlProvider messages={pageProps.messages}>
               {c.component}
             </NextIntlProvider>
           </div>
         ))}
       </div>
-      <NextNProgress color="#ffc700" />
+      <NextNProgress color="#ffc700" options={{ showSpinner: false }} />
       <NextIntlProvider messages={pageProps.messages}>
         {!isRetainableRoute && <Component {...pageProps} />}
       </NextIntlProvider>

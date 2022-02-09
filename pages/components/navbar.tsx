@@ -1,11 +1,31 @@
 /* eslint-disable react/jsx-no-undef */
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import MyDropdown from "./languageSwitcher";
 import { useTranslations } from "next-intl";
+import styled from "styled-components";
 
+const NavbarContainerStyle = styled.div`
+  .containernavbar {
+    overflow: hidden;
+    width: 0px;
+    will-change: transform;
+    /* visibility: hidden; */
+    transition: width 0.3s ease-in-out,
+      background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .active {
+    width: 280px;
+    will-change: transform;
+    /* visibility: visible; */
+    transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out,
+      background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+`;
 const Navbar = () => {
   const t = useTranslations("navbar");
   const router = useRouter();
@@ -102,101 +122,98 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <AnimatePresence>
-        {isOpen && (
-          <>
-            <motion.div
-              // initial={{ opacity: 0 }}
-              // animate={{ opacity: 1 }}
-              // exit={{ opacity: 0 }}
-              // transition={{ duration: 0.2 }}
-              onClick={() => setIsOpen(false)}
-              className="bg-black/30 fixed w-[100vw] h-[100vh] top-0 left-0 z-[28] flex lg:hidden "
-            ></motion.div>
-            <motion.div
-              // initial={{ width: 0, originX: 1 }}
-              // animate={{ width: 280, originX: 1 }}
-              // exit={{ width: 0, originX: 1 }}
-              initial={{ x: 280 }}
-              animate={{ x: 0 }}
-              exit={{ x: 280 }}
-              transition={{ duration: 0.2 }}
-              className={`will-change-contents z-[29] overflow-auto flex lg:hidden w-[280px] fixed bg-white dark:bg-[#1e2022] transition-colors duration-300 bottom-0 top-0 right-0 h-[100vh] max-h-[100%] drop-shadow-md flex-col justify-start items-center pt-[80px]`}
-            >
-              <div className="flex w-full h-full flex-col justify-between items-center">
-                <div className="flex w-full flex-col justify-start items-center divide-y mb-[80px] dark:divide-white/10">
-                  <Link href="/home">
-                    <div
-                      onClick={() => setIsOpen(false)}
-                      className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-center items-center transition-all duration-300 hover:bg-slate-500/10"
-                    >
-                      <h4
-                        className={`${router.pathname == "/home" && "font-bold"}
+      {/* <AnimatePresence> */}
+      {/* {isOpen && ( */}
+      <NavbarContainerStyle className={``}>
+        <motion.div
+          // initial={{ opacity: 0 }}
+          // animate={{ opacity: 1 }}
+          // exit={{ opacity: 0 }}
+          // transition={{ duration: 0.2 }}
+          onClick={() => setIsOpen(false)}
+          className={`${
+            isOpen ? "flex" : "hidden"
+          } bg-black/30 fixed w-[100vw] h-[100vh] top-0 left-0 z-[28] lg:hidden `}
+        ></motion.div>
+        <div
+          className={`z-[29] overflow-auto flex lg:hidden ${
+            isOpen ? "active" : "containernavbar"
+          } fixed bg-white dark:bg-[#1e2022] transition-colors dark:duration-300 bottom-0 top-0 right-0 h-[100vh] max-h-[100%] drop-shadow-md flex-col justify-start items-center pt-[80px]`}
+        >
+          <div className="flex w-full h-full flex-col justify-between items-center">
+            <div className="flex w-full flex-col justify-start items-center divide-y mb-[80px] dark:divide-white/10">
+              <Link href="/home">
+                <div
+                  onClick={() => setIsOpen(false)}
+                  className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-center items-center transition-all duration-300 hover:bg-slate-500/10"
+                >
+                  <h4
+                    className={`${router.pathname == "/home" && "font-bold"}
                        text-[15px] text-slate-600 dark:text-gray-300`}
-                      >
-                        {t("home")}
-                      </h4>
-                    </div>
-                  </Link>
-                  <Link href="/">
-                    <div
-                      onClick={() => setIsOpen(false)}
-                      className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-center items-center transition-all duration-300 hover:bg-slate-500/10"
-                    >
-                      <h4
-                        className={`${router.pathname == "/" && "font-bold"}
-                      text-[15px] text-slate-600 dark:text-gray-300`}
-                      >
-                        {t("opportunity")}
-                      </h4>
-                    </div>
-                  </Link>
-                  <Link href="/suggestions">
-                    <div
-                      onClick={() => setIsOpen(false)}
-                      className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-center items-center transition-all duration-300 hover:bg-slate-500/10"
-                    >
-                      <h4
-                        className={`${
-                          router.pathname == "/suggestions" && "font-bold"
-                        }
-                       text-[15px] text-slate-600 dark:text-gray-300`}
-                      >
-                        {t("contact")}
-                      </h4>
-                    </div>
-                  </Link>
-                  <div className="w-full h-0 transition duration-300"></div>
+                  >
+                    {t("home")}
+                  </h4>
                 </div>
+              </Link>
+              <Link href="/">
+                <div
+                  onClick={() => setIsOpen(false)}
+                  className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-center items-center transition-all duration-300 hover:bg-slate-500/10"
+                >
+                  <h4
+                    className={`${router.pathname == "/" && "font-bold"}
+                      text-[15px] text-slate-600 dark:text-gray-300`}
+                  >
+                    {t("opportunity")}
+                  </h4>
+                </div>
+              </Link>
+              <Link href="/suggestions">
+                <div
+                  onClick={() => setIsOpen(false)}
+                  className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-center items-center transition-all duration-300 hover:bg-slate-500/10"
+                >
+                  <h4
+                    className={`${
+                      router.pathname == "/suggestions" && "font-bold"
+                    }
+                       text-[15px] text-slate-600 dark:text-gray-300`}
+                  >
+                    {t("contact")}
+                  </h4>
+                </div>
+              </Link>
+              <div className="w-full h-0 transition duration-300"></div>
+            </div>
 
-                <div className="cursor-pointer flex w-full flex-col-reverse justify-start items-center divide-y dark:divide-white/10">
-                  <div className="w-full h-0"></div>
-                  <MyDropdown isIcon={false} />
-                  <div className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-between px-4 items-center transition-all hover:bg-slate-500/10">
-                    <div className="flex items-center h-auto ">
-                      <button className=" w-10 h-10 bg-gray-100 dark:bg-[#161819] rounded-full drop-shadow-sm"></button>
-                      <div>
-                        <h4 className="text-xs ml-3 dark:text-gray-300">
-                          {t("singup1")} <br />
-                          {t("singup2")}
-                        </h4>
-                      </div>
-                    </div>
-                    <div className="bg-gray-50/100 transition duration-300 dark:bg-[#26282B] cursor-pointer drop-shadow-sm w-10 h-10 flex justify-center items-center rounded-lg">
-                      <i
-                        onClick={() => handleThemeChange()}
-                        className={`bx bxs-${
-                          isDark == "dark" ? "sun" : "moon"
-                        } text-2xl text-slate-500 dark:text-white/80`}
-                      ></i>
-                    </div>
+            <div className="cursor-pointer flex w-full flex-col-reverse justify-start items-center divide-y dark:divide-white/10">
+              <div className="w-full h-0"></div>
+              <MyDropdown isIcon={false} />
+              <div className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-between px-4 items-center transition-all hover:bg-slate-500/10">
+                <div className="flex items-center h-auto ">
+                  <button className=" w-10 h-10 bg-gray-100 dark:bg-[#161819] rounded-full drop-shadow-sm"></button>
+                  <div>
+                    <h4 className="text-xs ml-3 dark:text-gray-300">
+                      {t("singup1")} <br />
+                      {t("singup2")}
+                    </h4>
                   </div>
                 </div>
+                <div className="bg-gray-50/100 transition duration-300 dark:bg-[#26282B] cursor-pointer drop-shadow-sm w-10 h-10 flex justify-center items-center rounded-lg">
+                  <i
+                    onClick={() => handleThemeChange()}
+                    className={`bx bxs-${
+                      isDark == "dark" ? "sun" : "moon"
+                    } text-2xl text-slate-500 dark:text-white/80`}
+                  ></i>
+                </div>
               </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+            </div>
+          </div>
+        </div>
+      </NavbarContainerStyle>
+      {/* )} */}
+      {/* </AnimatePresence> */}
     </>
   );
 };
