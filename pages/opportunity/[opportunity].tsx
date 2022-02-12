@@ -67,7 +67,6 @@ const OpportunityPage: NextPage = ({ post }: any) => {
     color: checkColor(colorr),
     image: post.posts.image,
   };
-
   return (
     <HomeCointainer>
       <Head>
@@ -166,11 +165,14 @@ const OpportunityPage: NextPage = ({ post }: any) => {
                 </h2>
                 <hr className="w-full border-1 dark:border-white/30 border-black/20 max-w-[1300px]" />
               </div>
+              <div className=" flex justify-start w-full max-w-[1520px]">
+                <SliderMenu
+                  educationLevelSelected={post.posts.tags}
+                  idpost={post.posts.id}
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div className=" flex justify-start w-full overflow-hidden">
-          <SliderMenu />
         </div>
         <Footer />
       </main>

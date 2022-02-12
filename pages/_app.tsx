@@ -6,9 +6,10 @@ import React, { memo, useRef } from "react";
 import { AppProps } from "next/app";
 import NextNProgress from "nextjs-progressbar";
 import { useRouter } from "next/router";
+import { SessionProvider } from "next-auth/react";
 const ROUTES_TO_RETAIN = ["/", "/en-US"];
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   const router = useRouter();
   const retainedComponents: any = useRef({});
 
@@ -30,17 +31,22 @@ function MyApp({ Component, pageProps }: AppProps) {
             key={path}
             style={{ display: router.asPath === path ? "block" : "none" }}
           >
-            <NextNProgress color="#ffc700" options={{ showSpinner: false }} />
-            <NextIntlProvider messages={pageProps.messages}>
-              {c.component}
-            </NextIntlProvider>
+            <SessionProvider session={session}>
+              <NextNProgress color="#ffc700" options={{ showSpinner: false }} />
+
+              <NextIntlProvider messages={pageProps.messages}>
+                {c.component}
+              </NextIntlProvider>
+            </SessionProvider>
           </div>
         ))}
       </div>
-      <NextNProgress color="#ffc700" options={{ showSpinner: false }} />
-      <NextIntlProvider messages={pageProps.messages}>
-        {!isRetainableRoute && <Component {...pageProps} />}
-      </NextIntlProvider>
+      <SessionProvider session={session}>
+        <NextNProgress color="#ffc700" options={{ showSpinner: false }} />
+        <NextIntlProvider messages={pageProps.messages}>
+          {!isRetainableRoute && <Component {...pageProps} />}
+        </NextIntlProvider>
+      </SessionProvider>
     </>
   );
 }
