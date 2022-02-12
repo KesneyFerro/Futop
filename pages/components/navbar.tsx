@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 /* eslint-disable react/jsx-no-undef */
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -6,6 +7,9 @@ import React, { useEffect } from "react";
 import MyDropdown from "./languageSwitcher";
 import { useTranslations } from "next-intl";
 import styled from "styled-components";
+import UserProfile from "./user/userdropdown";
+import { useSession } from "next-auth/react";
+import axios from "axios";
 
 const NavbarContainerStyle = styled.div`
   .containernavbar {
@@ -33,7 +37,16 @@ const Navbar = () => {
   const [isDark, setIsDark]: any = React.useState("light");
 
   useEffect(() => {
-    setIsDark(localStorage.theme);
+    if (
+      localStorage.theme == undefined &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    ) {
+      setIsDark("dark");
+    } else if (localStorage.theme) {
+      setIsDark(localStorage.theme);
+    } else {
+      setIsDark("light");
+    }
   }, []);
 
   const handleThemeChange = () => {
@@ -50,7 +63,22 @@ const Navbar = () => {
     }
   };
 
-  // console.log(router.pathname);
+  const { data: session } = useSession();
+  useEffect(() => {
+    if (session) {
+      axios
+        .post("http://localhost:3000/api/userinfo", {
+          session: session,
+        })
+        .then((res) => {
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [session]);
+
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
@@ -58,7 +86,7 @@ const Navbar = () => {
       <div className="bg-white dark:bg-[#1e2022] transition duration-300 drop-shadow-md dark:border-b-2 dark:border-gray-200/[5%] w-full min-h-[5rem] h-20 fixed z-30 flex justify-center ">
         <div className="flex justify-between h-full items-center w-[90%] lg:px-0 lg:w-[80%]">
           <div className="text-black dark:text-white font-bold text-2xl w-[128px] min-w-[128px]">
-            <a href="../home">LOGO</a>
+            <a href="../home">Futop</a>
           </div>
           <div className=" mx-24 w-full max-w-[600px] hidden lg:flex">
             <ul className="flex justify-between w-full dark:text-white">
@@ -108,7 +136,16 @@ const Navbar = () => {
                 isDark == "dark" ? "sun" : "moon"
               } cursor-pointer text-2xl text-[#cccccc] mr-5 `}
             ></i>
-            <button className="w-10 h-10 bg-[#f5f6f5] dark:bg-[#161819] rounded-full"></button>
+            <UserProfile />
+            {/* <img
+              src={`${
+                session?.user?.image !== undefined
+                  ? session?.user?.image
+                  : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/HD_transparent_picture.png/1200px-HD_transparent_picture.png"
+              }`}
+              className="cursor-pointer w-10 h-10 bg-[#f5f6f5] dark:bg-[#161819] rounded-full"
+              onClick={() => signIn()}
+            ></img> */}
           </div>
           <div
             className="flex justify-center items-center lg:hidden cursor-pointer"

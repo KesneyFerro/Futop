@@ -86,7 +86,6 @@ const Home: NextPage = ({ posts }: any) => {
       setOpportunitySelected("Tipo de Oportunidade");
     }
   }
-
   return (
     <HomeCointainer>
       <Head>
@@ -118,7 +117,10 @@ const Home: NextPage = ({ posts }: any) => {
               </p>
             </div>
           </div>
-          <div className="mt-16 searchbar bg-[#FDFDFE] dark:bg-[#1F2123] transition duration-300 w-full mb-16 h-auto drop-shadow-md rounded-[15px] flex-col px-4">
+          <div
+            id="searchbar"
+            className="mt-16 searchbar bg-[#FDFDFE] dark:bg-[#1F2123] transition duration-300 w-full mb-16 h-auto drop-shadow-md rounded-[15px] flex-col px-4"
+          >
             <div className="flex items-center w-full my-[10.5px]">
               <i className="bx bx-search text-[#8A8A8A] text-[25px] mr-3"></i>
               <input
@@ -188,8 +190,7 @@ const Home: NextPage = ({ posts }: any) => {
     </HomeCointainer>
   );
 };
-
-export const getServerSideProps = ({ locale, locales }: any) => {
+export const getServerSideProps = async ({ locale }: any) => {
   return {
     props: {
       messages: require(`../locales/${locale}.json`),

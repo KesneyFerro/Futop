@@ -14,11 +14,12 @@ const fetcher = async (url: any) =>
   });
 const chunkArray = (myArray: any, chunkSize: number) => {
   let index = 0;
-  const arrayLength = myArray.length;
+  const reversedArray = myArray.reverse();
+  const arrayLength = reversedArray.length;
   const tempArray = [];
 
   for (index = 0; index < arrayLength; index += chunkSize) {
-    const myChunk = myArray.slice(index, index + chunkSize);
+    const myChunk = reversedArray.slice(index, index + chunkSize);
     tempArray.push(myChunk);
   }
 
@@ -80,7 +81,7 @@ function Posts({
     setDisable(true);
     await timeout(600);
     setDisable(false);
-    setCounter(counter + 1);
+    setCounter(counter + 3);
   };
 
   const [disable, setDisable] = React.useState(false);
