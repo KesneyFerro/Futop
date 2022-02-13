@@ -7,6 +7,8 @@ import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import ShareAOpportunity from "./components/shareAOpportunity";
 import { useTranslations } from "next-intl";
+import styled from "styled-components";
+import Link from "next/link";
 
 const LandingPage: NextPage = () => {
   const t = useTranslations("home");
@@ -21,6 +23,7 @@ const LandingPage: NextPage = () => {
       document.documentElement.classList.remove("dark");
     }
   }
+
   return (
     <HomeCointainer>
       <Head>
@@ -58,9 +61,11 @@ const LandingPage: NextPage = () => {
                   (colocar o que ofertamos aqui)
                 </h3>
               </div>
-              <button className="getToKnowOurOpportunitiesLeftButton bg-[#25092D] dark:bg-[#fece31]  dark:text-black dark:font-semibold text-white text-[14px] rounded-full px-7 py-4 mt-10 flex justify-center w-auto items-center drop-shadow-lg">
-                {t("mainbutton")}
-              </button>
+              <Link href={"/"}>
+                <button className="getToKnowOurOpportunitiesLeftButton bg-[#25092D] dark:bg-[#fece31]  dark:text-black dark:font-semibold text-white text-[14px] rounded-full px-7 py-4 mt-10 flex justify-center w-auto items-center drop-shadow-lg">
+                  {t("mainbutton")}
+                </button>
+              </Link>
             </div>
             <div className="getToKnowOurOpportunitiesRight h-full">
               <div className="getToKnowOurOpportunitiesRightImage h-full lg:ml-0 sm:ml-16">
@@ -73,11 +78,36 @@ const LandingPage: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="mainHome w-full flex items-center flex-col mb-16 ">
-          <div className="mainHomeDecoration"></div>
+        <div className="mainHome w-full flex items-center flex-col mb-16">
+          <div className="mainHomeDecoration w-full relative">
+            <div className="mainHomeDecoration1 absolute left-0 top-0">
+              <img
+                className="w-[150px] lg:w-auto dark:hidden block z-[2]"
+                src="/HomeBlob1.svg"
+                alt="Pessoa segurando uma lanterna na qual a iluminação contém um balão de dúvida"
+              />
+              <img
+                className="w-[150px] lg:w-auto dark:block hidden z-[2]"
+                src="/HomeBlob3.svg"
+                alt="Pessoa segurando uma lanterna na qual a iluminação contém um balão de dúvida"
+              />
+            </div>
+            <div className="mainHomeDecoration2 absolute right-0 top-0">
+              <img
+                className="w-[150px] lg:w-auto dark:hidden block"
+                src="/HomeBlob2.svg"
+                alt="Pessoa segurando uma lanterna na qual a iluminação contém um balão de dúvida"
+              />
+              <img
+                className="w-[150px] lg:w-auto dark:block hidden"
+                src="/HomeBlob4.svg"
+                alt="Pessoa segurando uma lanterna na qual a iluminação contém um balão de dúvida"
+              />
+            </div>
+          </div>
           <div className="mainHomeMotivations w-[85vw] sm:w-[90vw] flex items-center flex-col mt-24 lg:mt-40">
             <div className="mainHomeMotivationsTitle">
-              <h2 className="font-extrabold text-[#303031] text-4xl text-center dark:text-white/95">
+              <h2 className="font-extrabold z-[5] text-[#303031] text-4xl text-center dark:text-white/95">
                 Nossas Motivações
               </h2>
             </div>
@@ -88,7 +118,7 @@ const LandingPage: NextPage = () => {
               </h3>
             </div>
             <div className="mainHomeMotivationsBoxes flex flex-col lg:flex-row justify-between w-full mt-16 lg:mt-10">
-              <div className="motivationBox1 w-full h-auto mr-3 bg-[#FFFFFF]  dark:bg-[#1e2022] px-5 py-5 rounded-xl drop-shadow-xl flex items-center flex-col mb-10 lg:mb-0">
+              <div className="motivationBox1 w-full h-auto mr-3 bg-[#FFFFFF]  dark:bg-[#1e2022] px-5 py-5 rounded-xl drop-shadow-xl dark:drop-shadow-md flex items-center flex-col mb-10 lg:mb-0">
                 <div className="motivationBox1icon mt-10">
                   <img src="/binocularIcon.svg" alt="" />
                 </div>
@@ -104,7 +134,7 @@ const LandingPage: NextPage = () => {
                   </h4>
                 </div>
               </div>
-              <div className="mb-10 lg:mb-0 motivationBox2 w-full h-auto mr-3 bg-[#FFFFFF] dark:bg-[#1e2022] px-5 py-5 rounded-xl drop-shadow-xl flex items-center flex-col">
+              <div className="mb-10 lg:mb-0 motivationBox2 w-full h-auto mr-3 bg-[#FFFFFF] dark:bg-[#1e2022] px-5 py-5 rounded-xl drop-shadow-xl dark:drop-shadow-md flex items-center flex-col">
                 <div className="motivationBox2icon mt-10">
                   <img src="/lampIcon.svg" alt="" />
                 </div>
@@ -120,7 +150,7 @@ const LandingPage: NextPage = () => {
                   </h4>
                 </div>
               </div>
-              <div className="motivationBox3 w-full h-auto bg-[#FFFFFF] dark:bg-[#1e2022] px-5 py-5 rounded-xl drop-shadow-xl flex items-center flex-col">
+              <div className="motivationBox3 w-full h-auto bg-[#FFFFFF] dark:bg-[#1e2022] px-5 py-5 rounded-xl drop-shadow-xl dark:drop-shadow-md flex items-center flex-col">
                 <div className="motivationBox3icon mt-10">
                   <img src="/BalanceIcon.svg" alt="" />
                 </div>
@@ -203,6 +233,28 @@ const LandingPage: NextPage = () => {
               </div>
             </div>
           </div>
+          <div className="inviteToRegister w-[90vw] flex justify-center items-center mt-10 mb-4">
+            <InviteToRegister className="px-10 items-center  inviteToRegister w-full rounded-3xl h-[350px] lg:h-[300px] flex justify-between flex-col mt-16 lg:flex-row lg:mt-10 ]">
+              <div className="inviteToRegisterLeft flex flex-col items-start  mt-10 w-auto max-w-[100vw] lg:mt-0 lg:max-w-[380px]">
+                <div className="inviteToRegisterLeftTitle flex w-full justify-center">
+                  <h2 className="font-extrabold text-3xl text-white/95 lg:text-5xl">
+                    Interessado???
+                  </h2>
+                </div>
+                <div className="inviteToRegisterLeftDescription mt-5 text-white/50">
+                  <h3 className="text-sm lg:text-base text-center lg:text-justify">
+                    Lorem ipsum dolor sit amet, cons ect etur adipi <br /> “A
+                    educação não tem preço. Sua falta gera custo”.
+                  </h3>
+                </div>
+              </div>
+              <div className="inviteToRegisterRight mb-10 lg:mb-0">
+                <button className="inviteToRegisterRightButton flex flex-col items-center bg-[#fece31] font-bold lg:font-extrabold text-[#090D2D] text-lg rounded-full px-10 py-4 justify-center w-auto">
+                  Registre-se agora
+                </button>
+              </div>
+            </InviteToRegister>
+          </div>
         </div>
         <ShareAOpportunity />
         <Footer />
@@ -210,6 +262,12 @@ const LandingPage: NextPage = () => {
     </HomeCointainer>
   );
 };
+const InviteToRegister = styled.div`
+  background-image: url("/inviteToRegisterImage.png");
+  background-size: cover;
+  background-position: center;
+`;
+
 export const getServerSideProps = ({ locale, locales }: any) => {
   return {
     props: {

@@ -54,7 +54,13 @@ function filterOpportunities(
 
     return opportunities.filter((opportunity: any) => {
       if (opportunity.tags.some((tag: any) => tag.includes(type1))) {
-        if (opportunity.tags.some((tag: any) => tag.includes(type2))) {
+        if (
+          opportunity.tags.some(
+            (tag: any) =>
+              tag.trim().toLowerCase() == type2.trim().toLowerCase() ||
+              type2 === ""
+          )
+        ) {
           return opportunity.title
             .toLowerCase()
             .includes(inputvalue.toLowerCase());

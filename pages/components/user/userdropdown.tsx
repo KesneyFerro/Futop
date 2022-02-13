@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { signIn, signOut, useSession } from "next-auth/react";
 
-export default function UserProfile() {
+export default function UserProfile({ mobile }: any) {
   const t = useTranslations("navbar");
   const { locales, locale, pathname, query, asPath } = useRouter();
   const otherLocales = locales;
@@ -37,7 +37,15 @@ export default function UserProfile() {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-[-45px] w-[150px] mt-2 origin-top-right bg-white dark:bg-[#1e2022] divide-y divide-gray-100 dark:divide-gray-100/30 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <Menu.Items
+            className={`absolute ${
+              mobile
+                ? !session
+                  ? "top-[-60px] origin-bottom-left "
+                  : "origin-bottom-left top-[-100px]"
+                : "right-[-45px] origin-top-right "
+            }  w-[150px] mt-2 bg-white dark:bg-[#1e2022] divide-y divide-gray-100 dark:divide-gray-100/10 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+          >
             {!session ? (
               <>
                 <div className="px-1 py-1 ">

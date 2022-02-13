@@ -2,8 +2,9 @@
 import axios from "axios";
 import { prominent } from "color.js";
 import type { NextPage } from "next";
+import { useSession } from "next-auth/react";
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { HomeCointainer } from "../../styles/components/home";
 import Footer from "../components/footer";
@@ -31,6 +32,27 @@ const SocialMediaLogo = styled.i`
 `;
 
 const OpportunityPage: NextPage = ({ post }: any) => {
+  const { data: session } = useSession();
+  const [isSaved, setIsSaved] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    axios
+      .post("http://localhost:3000/api/savepost", {
+        session: session,
+        postid: post.posts.id,
+        check: true,
+      })
+      .then((res) => {
+        setIsLoading(false);
+        console.log(res.data);
+        if (res.data.code == "300") {
+          setIsSaved(true);
+        } else {
+          setIsSaved(false);
+        }
+      });
+  });
+
   const [colorr, setColor] = useState("");
 
   if (typeof window === "object") {
@@ -124,7 +146,15 @@ const OpportunityPage: NextPage = ({ post }: any) => {
           <ThemeProvider theme={theme}>
             <div className="flex lg:flex-col gap-6 mb-10 items-center lg:mb-0 lg:ml-24 flex-wrap justify-center w-full lg:w-auto ">
               <div className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300">
-                <SocialMediaLogo className="bx bxs-bookmark text-3xl brightness-75 dark:brightness-130" />
+                {isLoading ? (
+                  <i className="animate-spin text-2xl bx bx-loader-alt text-black dark:text-white/80"></i>
+                ) : (
+                  <SocialMediaLogo
+                    className={`bx ${
+                      isSaved ? "bxs-bookmark" : "bx-bookmark"
+                    } text-3xl brightness-75 dark:brightness-130`}
+                  />
+                )}
               </div>
               <div className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300">
                 <SocialMediaLogo className="bx bx-link text-[35px] brightness-75 dark:brightness-130" />
@@ -151,7 +181,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
                   </p>
                 ))
               ) : (
-                <div className="w-full min-h-20 dark:text-white flex justify-center items-center rounded-3xl bg-gray-200/[50%] dark:bg-black/20">
+                <div className="w-full max-w-[1550px] min-h-20 dark:text-white flex justify-center items-center rounded-3xl bg-gray-200/[50%] dark:bg-black/20">
                   <h3 className="text-lg font-medium text-center py-6 px-3">
                     Esta postagem não possui texto
                   </h3>

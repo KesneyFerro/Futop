@@ -10,7 +10,8 @@
     "contact": "Fale Conosco",
     "singup1": "Você não está",
     "singup2": "conectado",
-    "language": "Idioma"
+    "language": "Idioma",
+    "welcomelogin": "Olá,"
   },
   "shareAOpportunity": {
     "shareus": "Compartilhe Conosco",
@@ -30,7 +31,7 @@
     "Tipo de Oportunidade": "Tipo de Oportunidade",
     "Olimpíadas": "Olimpíadas",
     "Bolsa": "Bolsa",
-    "Curso": "Cursos"
+    "Curso": "Curso"
   },
   "footer": {
     "readMore": "Leia Mais",

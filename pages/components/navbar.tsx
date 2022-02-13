@@ -70,9 +70,7 @@ const Navbar = () => {
         .post("http://localhost:3000/api/userinfo", {
           session: session,
         })
-        .then((res) => {
-          console.log(res.data);
-        })
+        .then((res) => {})
         .catch((err) => {
           console.log(err);
         });
@@ -228,11 +226,11 @@ const Navbar = () => {
               <MyDropdown isIcon={false} />
               <div className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-between px-4 items-center transition-all hover:bg-slate-500/10">
                 <div className="flex items-center h-auto ">
-                  <button className=" w-10 h-10 bg-gray-100 dark:bg-[#161819] rounded-full drop-shadow-sm"></button>
+                  <UserProfile mobile={true} />
                   <div>
                     <h4 className="text-xs ml-3 dark:text-gray-300">
-                      {t("singup1")} <br />
-                      {t("singup2")}
+                      {session ? t("welcomelogin") : t("singup1")} <br />
+                      {session ? session?.user?.name : t("singup2")}
                     </h4>
                   </div>
                 </div>
