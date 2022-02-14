@@ -20,6 +20,7 @@
   },
   "posts": {
     "seeMore": "Veja mais",
+    "noMore": "Você está atualizado",
     "notfound": "Não há resultados para sua pesquisa",
     "error": "Erro ao carregar posts",
     "code": "Código",

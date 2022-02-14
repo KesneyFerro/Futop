@@ -6,7 +6,7 @@
   },
   "navbar": {
     "home": "Home",
-    "opportunity": "Opportunity",
+    "opportunity": "Opportunities",
     "contact": "Contact us",
     "singup1": "You are not",
     "singup2": "connected",
@@ -20,6 +20,7 @@
   },
   "posts": {
     "seeMore": "See more",
+    "noMore": "You are updated",
     "notfound": "There are no results for your search.",
     "error": "Error loading posts",
     "code": "Code",

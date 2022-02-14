@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc */
 /* eslint-disable prefer-rest-params */
 /* eslint-disable prefer-const */
 /* eslint-disable camelcase */
@@ -7,8 +8,24 @@ import { motion } from "framer-motion";
 import { prominent } from "color.js";
 import { useTranslations } from "next-intl";
 import { useRouter } from "next/router";
+import axios from "axios";
+import { useSession } from "next-auth/react";
+// import { mutate } from "swr";
+
+const CardTypeLogo = styled.i`
+  color: rgba(${(props) => props.theme.main}, 1);
+  color: ${(props) =>
+    props.theme.color == "toowhite" && "rgba(100, 100, 100, 1)"};
+  /* color: ${(props) => props.theme.color == "tooblack" && "#bbbbbb"}; */
+  /* filter: ${(props) => props.theme.color == "black" && "brightness(1.8)"};
+  filter: ${(props) =>
+    props.theme.color == "mediumblack" && "brightness(2.3)"};*/
+  filter: ${(props) => props.theme.color == "white" && "brightness(1)"};
+  background-color: #f5f5f5;
+`;
 
 const OpportunityCard = (props: any) => {
+  const { data: session } = useSession();
   const [colorr, setColor] = useState("");
 
   if (typeof window === "object") {
@@ -20,19 +37,56 @@ const OpportunityCard = (props: any) => {
     });
   }
 
+  function checkColor(color: string) {
+    const brightness = Math.round(
+      (parseInt(color.split(",")[0]) * 299 +
+        parseInt(color.split(",")[1]) * 587 +
+        parseInt(color.split(",")[2]) * 114) /
+        1000
+    );
+    if (brightness > 235) {
+      return "toowhite";
+    } else if (brightness < 20) {
+      return "tooblack";
+    } else if (brightness < 50) {
+      return "mediumblack";
+    } else if (brightness > 100) {
+      return "white";
+    } else {
+      return "black";
+    }
+  }
   const theme = {
     main: colorr,
     image: props.image,
+    color: checkColor(colorr),
   };
   const t = useTranslations("posts");
+  const removeitem = (e: any) => {
+    e.stopPropagation();
+    axios
+      .post("https://futop.vercel.app/api/savepost", {
+        session: session,
+        postid: props.id,
+      })
+      .then((res) => {
+        props.mutate(props.id);
+      });
+    // refetch data of swr parent component (user page)5
+    // props.mutate(`${Math.random()}`);
+    // mutate("/api/getposts");
+  };
   // props.finalcolor = colorr;
   const router = useRouter();
   return (
     <motion.div
       onClick={() => router.push(`/opportunity/${props.id}`)}
       // style={{ originY: 0, originX: 0.5 }}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.9 }}
+      style={{ zIndex: props.first ? "3" : "1" }}
+      whileHover={{
+        scale: props.isfavorite ? 1.01 : props.first ? 1.04 : 1.05,
+      }}
+      whileTap={{ scale: props.isfavorite ? 0.95 : 0.9 }}
       transition={{ duration: 0.25 }}
       initial={{ opacity: 0.8 }}
       animate={{ opacity: 1 }}
@@ -47,10 +101,39 @@ const OpportunityCard = (props: any) => {
         >
           <div
             id="CardButtons"
-            className="w-full h-auto flex flex-col items-end mb-12"
+            className="w-full h-auto flex flex-row items-start justify-between mb-12"
           >
-            <div className="w-8 h-8 bg-[#F5F5F5] rounded-full mb-2"></div>
-            <div className="w-8 h-8 bg-[#F5F5F5] rounded-full"></div>
+            {props.isfavorite ? (
+              <div
+                onClick={(e) => removeitem(e)}
+                className="z-[30] w-8 h-8 min-h-[2rem] border-[3px] rounded-full border-white hover:border-red-500 text-white hover:text-red-500 bg-transparent flex justify-center items-center"
+              >
+                <i className="bx bx-x text-2xl"></i>
+              </div>
+            ) : (
+              <div></div>
+            )}
+            <div className="flex flex-col items-end h-auto w-auto">
+              <CardTypeLogo
+                id="Cardtime"
+                onClick={(e) => e.stopPropagation()}
+                className=" min-h-[2rem] h-8 bg-[#F5F5F5] rounded-full mb-2 flex justify-end items-center"
+              >
+                <i className="bx bx-time text-[25px] mt-[1px] mr-[3px]"></i>
+              </CardTypeLogo>
+              <CardTypeLogo
+                id="Cardtype"
+                className="w-8 min-h-[2rem] h-8 bg-[#F5F5F5] rounded-full flex justify-center items-center"
+              >
+                {props.tags[0].trim().toLowerCase() === "bolsa" ? (
+                  <i className="bx text-[22px] bxs-backpack"></i>
+                ) : props.tags[0].trim().toLowerCase() === "olimpíadas" ? (
+                  <i className="bx text-[22px] bx-medal"></i>
+                ) : (
+                  <i className="bx text-[22px] bx-id-card"></i>
+                )}
+              </CardTypeLogo>
+            </div>
           </div>
           <div className="flex justify-between items-center mb-[10px]">
             <div>
@@ -88,6 +171,7 @@ interface CardInterface {
 const OpportunityCardStyle = styled.div<CardInterface>`
   /* width: 450px;
   height: 300px; */
+  /* z-index: ${(props) => (props.first ? "3" : "1")}; */
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
     linear-gradient(
       rgba(${(props) => props.theme.main}, 0.5),
@@ -97,7 +181,7 @@ const OpportunityCardStyle = styled.div<CardInterface>`
   background-size: cover;
   background-position: center;
 
-  #CardButtons {
+  #Cardtype {
     opacity: 0;
     transition: all 0.25s;
   }
@@ -115,13 +199,22 @@ const OpportunityCardStyle = styled.div<CardInterface>`
       height: ${(props) => (props.first ? "2.5rem" : "")};
     }
   }
+  #Cardtime {
+    width: 2rem;
+    transition: all 0.25s;
+  }
 
   box-shadow: 0;
   transition: all 0.25s;
   &:hover {
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.4);
-    #CardButtons {
+    #Cardtype {
       opacity: 1;
+    }
+    #CardButtons {
+    }
+    #Cardtime {
+      width: 8rem;
     }
   }
 `;

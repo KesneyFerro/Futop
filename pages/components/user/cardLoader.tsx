@@ -1,8 +1,9 @@
 /* eslint-disable require-jsdoc */
 import axios from "axios";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import useSWR from "swr";
 import OpportunityCard from "../opportunityCard";
@@ -13,7 +14,6 @@ const SliderMenuStyle = styled.div`
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   grid-auto-rows: minmax(250px, auto);
-
   @media (max-width: 410px) {
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
@@ -22,29 +22,29 @@ const fetcher = async (url: any) =>
   await axios.get(url).then(async (res) => {
     return res.data;
   });
-const SliderMenu = ({ idpost, educationLevelSelected }: any) => {
-  function filterOpportunities(opportunities: any, type2: string, id: string) {
-    if (type2 === "Níveis de Escolaridade") {
-      type2 = "";
+const FavoritePosts = ({ posts }: any) => {
+  // create a function that filter a array of posts by the favorites posts id array of the user
+  const filterPosts = (posts: any, favorites: any) => {
+    return posts.filter((post: any) => {
+      return favorites.includes(post.id);
+    });
+  };
+  const [isDeleted, setIsDeleted] = React.useState("");
+  const { data: session } = useSession();
+  const [userData, setUserData] = useState([]);
+  const { data, error } = useSWR("/api/getposts", fetcher);
+  useEffect(() => {
+    if (session) {
+      axios
+        .post("https://futop.vercel.app/api/userinfo", {
+          session: session,
+        })
+        .then((res) => {
+          setUserData(res.data.user.favorites);
+        });
     } else {
-      return opportunities.filter((opportunity: any) => {
-        if (
-          opportunity.tags.some(
-            (tag: any) => tag.trim().toLowerCase() == type2.trim().toLowerCase()
-          )
-        ) {
-          return !opportunity.id.includes(id);
-        } else {
-          return null;
-        }
-      });
     }
-  }
-
-  const { data, error } = useSWR(
-    "https://futop.vercel.app/api/getposts",
-    fetcher
-  );
+  }, [isDeleted, session, data]);
   if (error) {
     return (
       <div className="flex flex-col justify-center items-center w-full min-h-28">
@@ -67,17 +67,12 @@ const SliderMenu = ({ idpost, educationLevelSelected }: any) => {
       </SliderMenuStyle>
     );
   }
-
-  const filteredOpportunities = filterOpportunities(
-    data.posts,
-    educationLevelSelected[1],
-    idpost
-  ).reverse();
+  const filteredOpportunities = filterPosts(data.posts, userData).reverse();
   if (filteredOpportunities.length === 0) {
     return (
-      <div className="flex flex-col justify-center items-center w-full min-h-28">
+      <div className="flex flex-col justify-center items-center w-full min-h-28 bg-gray-100 dark:bg-[#1e2022] py-10 rounded-3xl">
         <h2 className="text-center text-black/90 dark:text-white font-medium text-lg">
-          Não há sugestões para este nível de escolaridade
+          Você não tem nenhuma postagem favoritada
         </h2>
         <Link href="/#searchbar">
           <button className="dark:bg-white bg-black/90 dark:text-black text-white min-w-[200px] px-10 py-4 mt-4 rounded-full text-base font-medium">
@@ -89,7 +84,7 @@ const SliderMenu = ({ idpost, educationLevelSelected }: any) => {
   }
 
   return (
-    <SliderMenuStyle className="gridSlider">
+    <SliderMenuStyle className={`gridSlider`}>
       {filteredOpportunities.map((posts: any) => (
         <OpportunityCard
           first={false}
@@ -98,18 +93,12 @@ const SliderMenu = ({ idpost, educationLevelSelected }: any) => {
           title={posts.title}
           tags={posts.tags}
           image={posts.image}
+          isfavorite={true}
+          mutate={setIsDeleted}
         />
       ))}
-      <Link href={"/opportunities"}>
-        <div className="dark:hover:bg-[#1b1c1f] hover:bg-[#f1f1f1] cursor-pointer bg-transparent border-4 border-[#cfcfcf]/60 dark:border-[#292b2e] rounded-3xl max-h-[150px] flex justify-center items-center flex-col">
-          <div className="w-8 h-8 rounded-full bg-transparent border-2 mb-2 border-black/70 dark:border-white/80 flex justify-center items-center">
-            <i className="bx bx-dots-horizontal-rounded dark:text-white text-xl"></i>
-          </div>
-          <h4 className="dark:text-white font-medium text-base">Ver mais</h4>
-        </div>
-      </Link>
     </SliderMenuStyle>
   );
 };
 
-export default SliderMenu;
+export default FavoritePosts;
