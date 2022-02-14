@@ -29,20 +29,30 @@ const FavoritePosts = ({ posts }: any) => {
       return favorites.includes(post.id);
     });
   };
-  const [isDeleted, setIsDeleted] = React.useState("");
+  const [isDeleted, setIsDeleted] = React.useState("true");
   const { data: session } = useSession();
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState(posts);
   const { data, error } = useSWR("/api/getposts", fetcher);
   useEffect(() => {
-    if (session) {
-      axios
-        .post("https://futop.vercel.app/api/userinfo", {
-          session: session,
-        })
-        .then((res) => {
-          setUserData(res.data.user.favorites);
-        });
+    if (isDeleted == "true") {
+      if (session) {
+        axios
+          .post("https://futop.vercel.app/api/userinfo", {
+            session: session,
+          })
+          .then((res) => {
+            setUserData(res.data.user.favorites);
+          });
+        // setIsDeleted("false");
+      } else {
+      }
+    } else if (isDeleted == "false") {
     } else {
+      // remove the isDeleted id from the userData array
+      const newUserData = userData.filter((id: any) => {
+        return id != isDeleted;
+      });
+      setUserData(newUserData);
     }
   }, [isDeleted, session, data]);
   if (error) {

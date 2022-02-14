@@ -61,7 +61,7 @@ const LandingPage: NextPage = () => {
                   (colocar o que ofertamos aqui)
                 </h3>
               </div>
-              <Link href={"/"}>
+              <Link href={"/opportunities"}>
                 <button className="getToKnowOurOpportunitiesLeftButton bg-[#25092D] dark:bg-[#fece31]  dark:text-black dark:font-semibold text-white text-[14px] rounded-full px-7 py-4 mt-10 flex justify-center w-auto items-center drop-shadow-lg">
                   {t("mainbutton")}
                 </button>

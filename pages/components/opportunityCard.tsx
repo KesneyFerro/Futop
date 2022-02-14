@@ -64,13 +64,14 @@ const OpportunityCard = (props: any) => {
   const t = useTranslations("posts");
   const removeitem = (e: any) => {
     e.stopPropagation();
+    props.mutate(props.id);
     axios
       .post("https://futop.vercel.app/api/savepost", {
         session: session,
         postid: props.id,
       })
       .then((res) => {
-        props.mutate(props.id);
+        props.mutate("true");
       });
   };
   // props.finalcolor = colorr;
