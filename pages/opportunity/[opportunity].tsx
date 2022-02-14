@@ -11,9 +11,6 @@ import { HomeCointainer } from "../../styles/components/home";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import SliderMenu from "../components/slider/slider";
-import replaceAllInserter from "string.prototype.replaceall";
-
-replaceAllInserter.shim();
 
 const OpportunityCardStyle = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),
@@ -159,6 +156,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
     color: checkColor(colorr),
     image: post.posts.image,
   };
+  const regex = /-/g;
   return (
     <HomeCointainer>
       <Head>
@@ -208,7 +206,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
                       : "restantes"}{" "}
                     <span>
                       {post.posts.date != undefined
-                        ? `(${post.posts.date[0].replaceAll("-", "/")} ás ${
+                        ? `(${post.posts.date[0].replace(regex, "/")} ás ${
                             post.posts.date[1].split(":")[0]
                           }:${post.posts.date[1].split(":")[1]})`
                         : ""}
