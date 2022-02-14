@@ -18,6 +18,7 @@ const SliderMenuStyle = styled.div`
     grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
   }
 `;
+
 const fetcher = async (url: any) =>
   await axios.get(url).then(async (res) => {
     return res.data;
@@ -90,7 +91,7 @@ const SliderMenu = ({ idpost, educationLevelSelected }: any) => {
 
   return (
     <SliderMenuStyle className="gridSlider">
-      {filteredOpportunities.map((posts: any) => (
+      {filteredOpportunities.slice(0, 3).map((posts: any) => (
         <OpportunityCard
           first={false}
           key={posts.id}
