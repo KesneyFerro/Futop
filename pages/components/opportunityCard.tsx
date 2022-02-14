@@ -72,9 +72,6 @@ const OpportunityCard = (props: any) => {
       .then((res) => {
         props.mutate(props.id);
       });
-    // refetch data of swr parent component (user page)5
-    // props.mutate(`${Math.random()}`);
-    // mutate("/api/getposts");
   };
   // props.finalcolor = colorr;
   const router = useRouter();
@@ -125,12 +122,16 @@ const OpportunityCard = (props: any) => {
                 id="Cardtype"
                 className="w-8 min-h-[2rem] h-8 bg-[#F5F5F5] rounded-full flex justify-center items-center"
               >
-                {props.tags[0].trim().toLowerCase() === "bolsa" ? (
-                  <i className="bx text-[22px] bxs-backpack"></i>
-                ) : props.tags[0].trim().toLowerCase() === "olimpíadas" ? (
-                  <i className="bx text-[22px] bx-medal"></i>
+                {props.tags ? (
+                  props.tags[0].trim().toLowerCase() === "bolsa" ? (
+                    <i className="bx text-[22px] bxs-backpack"></i>
+                  ) : props.tags[0].trim().toLowerCase() === "olimpíadas" ? (
+                    <i className="bx text-[22px] bx-medal"></i>
+                  ) : (
+                    <i className="bx text-[22px] bx-id-card"></i>
+                  )
                 ) : (
-                  <i className="bx text-[22px] bx-id-card"></i>
+                  <></>
                 )}
               </CardTypeLogo>
             </div>

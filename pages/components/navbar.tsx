@@ -240,8 +240,11 @@ const Navbar = () => {
                   <UserProfile mobile={true} />
                   <div>
                     <h4 className="text-xs ml-3 dark:text-gray-300">
-                      {session ? t("welcomelogin") : t("singup1")} <br />
-                      {session ? session?.user?.name : t("singup2")}
+                      {session
+                        ? t("welcomelogin") || "Error"
+                        : t("singup1") || "Error"}{" "}
+                      <br />
+                      {session ? session?.user?.name : t("singup2") || "Error"}
                     </h4>
                   </div>
                 </div>

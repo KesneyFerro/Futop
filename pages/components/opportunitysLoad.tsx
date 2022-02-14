@@ -120,10 +120,10 @@ function Posts({
           <div className="flex flex-col w-full h-full justify-center items-center">
             <i className="bx bx-error text-[70px] text-red-500"></i>
             <h4 className="text-2xl mt-5 font-semibold dark:text-white/90">
-              {t("error")}
+              {t("error") || "Error"}
             </h4>
             <h1 className="text-base mt-1 font-medium dark:text-white/90">
-              {t("code")}: {error.message}
+              {t("code") || "Error"}: {error.message}
             </h1>
           </div>
         </div>
@@ -132,7 +132,7 @@ function Posts({
             disabled={true}
             className="SeeMoreBtn  bg-[#25092D] disabled:cursor-not-allowed disabled:bg-[#979797] dark:disabled:bg-[#3c3c3c] disabled:dark:text-[#161819] disabled:dark:font-medium text-white text-base rounded-full px-5 py-4 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg"
           >
-            {t("seeMore")}
+            {t("seeMore") || "Error"}
           </button>
         </div>
       </>
@@ -153,7 +153,7 @@ function Posts({
             disabled={true}
             className="SeeMoreBtn bg-[#25092D] disabled:cursor-not-allowed disabled:bg-[#979797] dark:disabled:bg-[#3c3c3c] disabled:dark:text-[#161819] disabled:dark:font-medium text-white text-base rounded-full px-5 py-4 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg"
           >
-            {t("seeMore")}
+            {t("seeMore") || "Error"}
           </button>
         </div>
       </>
@@ -174,7 +174,7 @@ function Posts({
         <div className="w-full h-auto flex flex-col justify-center items-center mb-[25px]">
           <i className="bx bx-error-circle text-center text-[70px] text-red-500 mb-3"></i>
           <h1 className="text-2xl font-semibold text-center dark:text-white">
-            {t("notfound")}
+            {t("notfound") || "Error"}
           </h1>
         </div>
         <div className="seeMoreButtonDisplay w-full flex justify-center mb-6">
@@ -182,7 +182,7 @@ function Posts({
             disabled={true}
             className="SeeMoreBtn bg-[#25092D] disabled:cursor-not-allowed disabled:bg-[#979797] dark:disabled:bg-[#3c3c3c] disabled:dark:text-[#161819] disabled:dark:font-medium text-white text-base rounded-full px-5 py-4 mt-5 flex justify-center w-[310px] items-center drop-shadow-lg"
           >
-            {t("seeMore")}
+            {t("seeMore") || "Error"}
           </button>
         </div>
       </>
@@ -222,9 +222,9 @@ function Posts({
           {disable ? (
             <i className="bx bx-loader-alt dark:text-white color-white animate-spin text-lg"></i>
           ) : isMore ? (
-            t("seeMore")
+            t("seeMore") || "Error"
           ) : (
-            t("noMore")
+            t("noMore") || "Error"
           )}
         </button>
       </div>
