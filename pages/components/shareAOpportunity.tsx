@@ -10,7 +10,7 @@ const ShareAOpportunity = () => {
         <div className="shareAOpportunityLeft mt-10 ">
           <div className="shareAOpportunityTitle font-semibold text-[27px] flex flex-col items-center lg:flex-col lg:items-start">
             <h3 className="text-center lg:text-left text-black dark:text-white">
-              {t("doyouknow")}{" "}
+              {t("doyouknow") || "Error"}{" "}
               <span className=" inline-block">
                 <span className=" underline-rounded ">{t("opportunity")}?</span>
               </span>
@@ -23,7 +23,8 @@ const ShareAOpportunity = () => {
               amet.
             </h4>
             <button className="bg-[#25092D] dark:bg-[#ffc700] dark:text-black  dark:font-medium text-white text-base rounded-full px-5 py-3 mt-5 flex justify-center lg:justify-between w-[80vw] max-w-[310px] items-center drop-shadow-lg">
-              {t("shareus")} <i className="bx bx-right-arrow-alt text-2xl"></i>
+              {t("shareus") || "Error"}{" "}
+              <i className="bx bx-right-arrow-alt text-2xl"></i>
             </button>
           </div>
           <div className="shareAOpportunityDescription"></div>
