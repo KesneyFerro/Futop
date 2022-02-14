@@ -98,8 +98,8 @@ const myProfile: NextPage = ({ posts, user }: any) => {
               </div>
             </ProfileSection>
           </ThemeProvider>
-          <section className="w-full flex justify-center dark:bg-[#161819] h-auto min-h-[600px]">
-            <div className="w-full px-16 flex flex-col items-center md:items-start md:pt-[80px] pt-[70px] min-h-full h-auto">
+          <section className="w-full flex justify-center dark:bg-[#161819] h-auto min-h-[200px]">
+            <div className="w-full px-5 lg:px-16 flex flex-col items-center md:items-start md:pt-[80px] pt-[70px] min-h-full h-auto">
               <h2 className="mb-[40px] text-black dark:text-white text-3xl font-bold text-center md:text-left">
                 Meus Favoritos
               </h2>
