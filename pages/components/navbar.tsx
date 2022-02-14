@@ -96,7 +96,9 @@ const Navbar = () => {
       <div className="bg-white dark:bg-[#1e2022] transition duration-300 drop-shadow-md dark:border-b-2 dark:border-gray-200/[5%] w-full min-h-[5rem] h-20 fixed z-30 flex justify-center ">
         <div className="flex justify-between h-full items-center w-[90%] lg:px-0 lg:w-[80%]">
           <div className="text-black dark:text-white font-bold text-2xl w-[128px] min-w-[128px]">
-            <a href="../home">futop</a>
+            <Link href={"/"}>
+              <a>futop</a>
+            </Link>
           </div>
           <div className=" mx-24 w-full max-w-[600px] hidden lg:flex">
             <ul className="flex justify-between w-full dark:text-white">
@@ -108,7 +110,7 @@ const Navbar = () => {
                       "font-bold dark:text-[#ffc700] rounded-full"
                     }`}
                   >
-                    {t("home")}
+                    {t("home") || "Home"}
                   </a>
                 </Link>
               </li>
@@ -119,7 +121,7 @@ const Navbar = () => {
                       url() && "font-bold dark:text-[#ffc700] rounded-full"
                     }`}
                   >
-                    {t("opportunity")}
+                    {t("opportunity") || "Opportunities"}
                   </a>
                 </Link>
               </li>
@@ -131,7 +133,7 @@ const Navbar = () => {
                       "font-bold dark:text-[#ffc700] rounded-full"
                     }`}
                   >
-                    {t("contact")}
+                    {t("contact") || "Contact"}
                   </a>
                 </Link>
               </li>
@@ -197,7 +199,7 @@ const Navbar = () => {
                     className={`${router.pathname == "/" && "font-bold"}
                        text-[15px] text-slate-600 dark:text-gray-300`}
                   >
-                    {t("home")}
+                    {t("home") || "Home"}
                   </h4>
                 </div>
               </Link>
@@ -210,7 +212,7 @@ const Navbar = () => {
                     className={`${url() && "font-bold"}
                       text-[15px] text-slate-600 dark:text-gray-300`}
                   >
-                    {t("opportunity")}
+                    {t("opportunity") || "Opportunities"}
                   </h4>
                 </div>
               </Link>
@@ -225,7 +227,7 @@ const Navbar = () => {
                     }
                        text-[15px] text-slate-600 dark:text-gray-300`}
                   >
-                    {t("contact")}
+                    {t("contact") || "Contact"}
                   </h4>
                 </div>
               </Link>
