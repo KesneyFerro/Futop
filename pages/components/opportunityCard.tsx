@@ -50,8 +50,8 @@ const OpportunityCard = (props: any) => {
     return daysDifference;
   };
   const timeLeft = daysBetween(
-    props.time && props.time[0],
-    props.time && props.time[1]
+    props.time ? props.time[0] : "00-00-00",
+    props.time ? props.time[1] : "00:00:00"
   );
   // console.log(isNaN(timeLeft))
 
