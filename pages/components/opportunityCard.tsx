@@ -25,6 +25,33 @@ const CardTypeLogo = styled.i`
 `;
 
 const OpportunityCard = (props: any) => {
+  // Create a function that will recive a array where the first element is a string date in format YYYY-MM-DD and the second element is a string time in format HH:MM:SS and return how many days has passed or remaing until the event
+  const daysBetween = (date: string, time: string) => {
+    const dateArray = date.split("-");
+    const timeArray = time.split(":");
+
+    // date1 with dateArray and timeArray
+    const date1 = new Date(
+      parseInt(dateArray[0]),
+      parseInt(dateArray[1]) - 1,
+      parseInt(dateArray[2]),
+      parseInt(timeArray[0]),
+      parseInt(timeArray[1]),
+      parseInt(timeArray[2])
+    );
+
+    // get the current date
+    const date2 = new Date();
+
+    // get the difference in days between the two dates, if d2 > d1 then it will return a negative number and if d1 > d2 then it will return a positive number
+    const daysDifference = Math.ceil(
+      ((date2.getTime() - date1.getTime()) / (1000 * 3600 * 24)) * -1
+    );
+    return daysDifference;
+  };
+  const timeLeft = daysBetween(props.time[0], props.time[1]);
+  // console.log(isNaN(timeLeft))
+
   const { data: session } = useSession();
   const [colorr, setColor] = useState("");
 
@@ -88,7 +115,7 @@ const OpportunityCard = (props: any) => {
       transition={{ duration: 0.25 }}
       initial={{ opacity: 0.8 }}
       animate={{ opacity: 1 }}
-      className="w-auto h-auto cursor-pointer"
+      className="w-auto h-auto cursor-pointer "
     >
       <ThemeProvider theme={theme}>
         <OpportunityCardStyle
@@ -111,14 +138,23 @@ const OpportunityCard = (props: any) => {
             ) : (
               <div></div>
             )}
-            <div className="flex flex-col items-end h-auto w-auto">
-              <CardTypeLogo
-                id="Cardtime"
-                onClick={(e) => e.stopPropagation()}
-                className=" min-h-[2rem] h-8 bg-[#F5F5F5] rounded-full mb-2 flex justify-end items-center"
-              >
-                <i className="bx bx-time text-[25px] mt-[1px] mr-[3px]"></i>
-              </CardTypeLogo>
+            <div
+              className={`flex flex-col ${
+                isNaN(timeLeft) && "min-h-[4rem]"
+              } items-end h-auto w-auto`}
+            >
+              {!isNaN(timeLeft) && (
+                <CardTypeLogo
+                  id="Cardtime"
+                  onClick={(e) => e.stopPropagation()}
+                  className="overflow-hidden min-h-[2rem] relative h-8 bg-[#F5F5F5] rounded-full mb-2 flex items-center"
+                >
+                  <span id="Timeleft" className="ml-3 mr-5 whitespace-nowrap">
+                    {timeLeft < 0 ? `Encerrado` : `${timeLeft} dias`}
+                  </span>
+                  <i className="bx bg-[#F5F5F5] rounded-full 76y z-[3] bx-time text-[25px] mt-[1px] mr-[3px]"></i>
+                </CardTypeLogo>
+              )}
               <CardTypeLogo
                 id="Cardtype"
                 className="w-8 min-h-[2rem] h-8 bg-[#F5F5F5] rounded-full flex justify-center items-center"
@@ -202,10 +238,20 @@ const OpportunityCardStyle = styled.div<CardInterface>`
     }
   }
   #Cardtime {
+    justify-content: flex-end;
     width: 2rem;
-    transition: all 0.25s;
+    transition: all 0.15s;
   }
+  #Timeleft {
+    /* transform: scale(0); */
+    visibility: hidden;
+    /* transition: all 0.05s;
+    transition-delay: 0.1s; */
 
+    /* opacity: 0; */
+    position: absolute;
+    left: 0;
+  }
   box-shadow: 0;
   transition: all 0.25s;
   &:hover {
@@ -215,7 +261,17 @@ const OpportunityCardStyle = styled.div<CardInterface>`
     }
     #CardButtons {
     }
+    #Timeleft {
+      /* transform: scale(1); */
+      visibility: visible;
+      /* opacity: 1; */
+      /* display: block; */
+      /* transition: 0s;
+      transition-delay: 0s; */
+    }
     #Cardtime {
+      /* justify-content: space-between; */
+      /* width: auto; */
       width: 8rem;
     }
   }

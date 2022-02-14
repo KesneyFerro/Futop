@@ -105,6 +105,7 @@ const FavoritePosts = ({ posts }: any) => {
           image={posts.image}
           isfavorite={true}
           mutate={setIsDeleted}
+          time={posts.date || ["0", "0"]}
         />
       ))}
     </SliderMenuStyle>

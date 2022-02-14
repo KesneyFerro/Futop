@@ -6,10 +6,10 @@ import { HomeCointainer } from "../styles/components/home";
 import Footer from "./components/footer";
 import Navbar from "./components/navbar";
 import Image from "next/image";
-// import { useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 
 const Suggestions: NextPage = () => {
-  // const t = useTranslations("suggestions");
+  const t = useTranslations("suggestions");
   return (
     <HomeCointainer>
       <Head>
@@ -44,9 +44,11 @@ const Suggestions: NextPage = () => {
             <div className="xl:mr-[10vw] flex flex-col items-center xl:items-end">
               <div className="helpUsToImproveTitle ">
                 <h2 className="text-[#25092D] text-center xl:text-right leading-[1.25] font-extrabold text-[11.1vw] sm:text-5xl max-w-auto dark:text-[#F3F0EA]">
-                  Alguma{" "}
+                  {t("suggestiontitle1")}{" "}
                   <span className="inline-block">
-                    <span className="underline-rounded">sugestão?</span>
+                    <span className="underline-rounded">
+                      {t("suggestiontitle2")}
+                    </span>
                   </span>
                 </h2>
               </div>
@@ -61,7 +63,7 @@ const Suggestions: NextPage = () => {
                 </h5>
               </div>
               <button className="helpUsToImproveButton xl:bg-[#25092D] bg-[#ffc700] xl:text-white font-medium xl:font-normal text-base rounded-full px-5 py-3 mt-10 flex justify-center w-[260px] items-center drop-shadow-lg">
-                Contribua conosco
+                {t("suggestionbutton")}
               </button>
             </div>
           </div>
@@ -70,9 +72,11 @@ const Suggestions: NextPage = () => {
           <div className="introductionAboutUs w-full flex flex-col xl:flex-row items-center justify-between mt-20">
             <div className="introductionAboutUsTitle text-justify max-w-auto">
               <p className="text-[#25092D] font-extrabold text-4xl text-center mb-7 xl:mb-0 xl:text-left dark:text-[#F3F0EA]">
-                Sobre nós
+                {t("aboutustitle1")}
                 <br />
-                <span className="text-[#AF5BC6] text-5xl">Nome</span>
+                <span className="text-[#AF5BC6] text-5xl">
+                  {t("aboutustitle2")}
+                </span>
               </p>
             </div>
             <div className="introductionAboutUsDescription w-auto max-w-[545px] h-auto bg-[#F8F8F8] px-6 py-5 rounded-xl drop-shadow-xl xl:mr-3 dark:bg-[#1e2022] transition duration-300 ">
@@ -96,7 +100,7 @@ const Suggestions: NextPage = () => {
           <div className="firstIdea w-full flex flex-col xl:flex-row items-center justify-between mt-20">
             <div className="firstIdeaTitle text-justify max-w-auto">
               <p className="text-[#25092D] font-extrabold text-center mb-7 xl:mb-0 xl:text-left text-4xl p-5 dark:text-[#F3F0EA]">
-                A ideia inicial
+                {t("ideatitle")}
               </p>
             </div>
             <div className="firstIdeaDescription w-auto max-w-[545px] h-auto bg-[#F8F8F8] px-6 py-5 rounded-xl drop-shadow-xl xl:mr-3 dark:bg-[#1e2022] transition duration-300">
@@ -124,7 +128,7 @@ const Suggestions: NextPage = () => {
               <div className="projectMotivationsText">
                 <div className="projectMotivationsTitle mb-2">
                   <h4 className="text-[#25092D] xl:text-left xl:text-normal text-lg text-center font-semibold dark:text-[#F3F0EA]">
-                    Para tornar o mundo mais igualitário
+                    {t("idea1title")}
                   </h4>
                 </div>
                 <div className="projectMotivationsDescription">
@@ -147,7 +151,7 @@ const Suggestions: NextPage = () => {
               <div className="projectMotivationsText">
                 <div className="projectMotivationsTitle mb-2">
                   <h4 className="text-[#25092D] xl:text-normal text-lg xl:text-left text-center font-semibold dark:text-[#F3F0EA]">
-                    Para melhorar a educação
+                    {t("idea2title")}
                   </h4>
                 </div>
                 <div className="projectMotivationsDescription">
@@ -170,7 +174,7 @@ const Suggestions: NextPage = () => {
               <div className="projectMotivationsText">
                 <div className="projectMotivationsTitle mb-2">
                   <h4 className="text-[#25092D] xl:text-left xl:text-normal text-lg text-center font-semibold dark:text-[#F3F0EA]">
-                    Para dar chance a todos
+                    {t("idea3title")}
                   </h4>
                 </div>
                 <div className="projectMotivationsDescription">

@@ -4,6 +4,7 @@ import { prominent } from "color.js";
 import type { NextPage } from "next";
 import { signIn, useSession } from "next-auth/react";
 import Head from "next/head";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 import { HomeCointainer } from "../../styles/components/home";
@@ -35,6 +36,41 @@ const OpportunityPage: NextPage = ({ post }: any) => {
   const { data: session } = useSession();
   const [isSaved, setIsSaved] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  const daysBetween = (date: string, time: string) => {
+    const dateArray = date.split("-");
+    const timeArray = time.split(":");
+    if (date === "00-00-00") {
+      return NaN;
+    }
+
+    // date1 with dateArray and timeArray
+    const date1 = new Date(
+      parseInt(dateArray[0]),
+      parseInt(dateArray[1]) - 1,
+      parseInt(dateArray[2]),
+      parseInt(timeArray[0]),
+      parseInt(timeArray[1]),
+      parseInt(timeArray[2])
+    );
+
+    // get the current date
+    const date2 = new Date();
+
+    // get the difference in days between the two dates, if d2 > d1 then it will return a negative number and if d1 > d2 then it will return a positive number
+    const daysDifference = Math.ceil(
+      ((date2.getTime() - date1.getTime()) / (1000 * 3600 * 24)) * -1
+    );
+
+    return daysDifference;
+  };
+
+  const timeLeft = daysBetween(
+    post.posts.date ? post.posts.date[0] : "00-00-00",
+    post.posts.date ? post.posts.date[1] : "00:00:00"
+  );
+  // console.log(timeLeft);
+
   useEffect(() => {
     setIsLoading(true);
     axios
@@ -155,8 +191,25 @@ const OpportunityPage: NextPage = ({ post }: any) => {
                     {post.posts.title}
                   </h1>
                   <h3 className="text-white/50 text-sm text-center">
-                    Postada por <span className=" font-bold">Kesney Lucas</span>{" "}
-                    às 20:43
+                    <span className={`${!isNaN(timeLeft) ? "font-bold" : ""}`}>
+                      {!isNaN(timeLeft)
+                        ? timeLeft < 0
+                          ? `${timeLeft * -1} dias`
+                          : `${timeLeft} dias`
+                        : "Não há dias"}
+                    </span>{" "}
+                    {!isNaN(timeLeft)
+                      ? timeLeft < 0
+                        ? "atrás"
+                        : "restantes"
+                      : "restantes"}{" "}
+                    <span>
+                      {post.posts.date
+                        ? `(${post.posts.date[0].replaceAll("-", "/")} ás ${
+                            post.posts.date[1].split(":")[0]
+                          }:${post.posts.date[1].split(":")[1]})`
+                        : ""}
+                    </span>
                   </h3>
                 </div>
                 <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-3">
@@ -190,9 +243,61 @@ const OpportunityPage: NextPage = ({ post }: any) => {
                   />
                 )}
               </div>
-              <div className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300">
+              {/* <div className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300">
                 <SocialMediaLogo className="bx bx-link text-[35px] brightness-75 dark:brightness-130" />
-              </div>
+              </div> */}
+              {post.posts.socialmedia && post.posts.socialmedia.link && (
+                <Link href={post.posts.socialmedia.link} passHref>
+                  <a
+                    target="_blank"
+                    className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300"
+                  >
+                    <SocialMediaLogo className="bx bx-link text-[35px] brightness-75 dark:brightness-130" />
+                  </a>
+                </Link>
+              )}
+              {post.posts.socialmedia && post.posts.socialmedia.google && (
+                <Link href={post.posts.socialmedia.google} passHref>
+                  <a
+                    target="_blank"
+                    className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300"
+                  >
+                    <img
+                      src="https://logopng.com.br/logos/google-37.png"
+                      alt="Google"
+                      className="w-[35px]"
+                    />
+                  </a>
+                </Link>
+              )}
+              {post.posts.socialmedia && post.posts.socialmedia.facebook && (
+                <Link href={post.posts.socialmedia.facebook} passHref>
+                  <a
+                    target="_blank"
+                    className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300"
+                  >
+                    <img
+                      src="https://logodownload.org/wp-content/uploads/2014/09/facebook-logo-3-1.png"
+                      alt="Facebook"
+                      className="w-[37px]"
+                    />
+                  </a>
+                </Link>
+              )}
+              {post.posts.socialmedia && post.posts.socialmedia.instagram && (
+                <Link href={post.posts.socialmedia.instagram} passHref>
+                  <a
+                    target="_blank"
+                    className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300"
+                  >
+                    <img
+                      src="/socialmedias/instagram.svg"
+                      alt="Instgram"
+                      className="w-[35px]"
+                    />
+                  </a>
+                </Link>
+              )}
             </div>
           </ThemeProvider>
           <div className="flex flex-col items-start w-full">

@@ -16,7 +16,9 @@
   "shareAOpportunity": {
     "shareus": "Share with us",
     "opportunity": "Opportunity",
-    "doyouknow": "Know an"
+    "doyouknow": "Know an",
+    "shareaopportunitydescription1": "Would like to contribute to our cause and help us to change the lives of several youths? ",
+    "shareaopportunitydescription2": "Fill in a forms with an opportunity you know so we can have more and more opportunities to share"
   },
   "posts": {
     "seeMore": "See more",
@@ -51,6 +53,35 @@
     "contactUs": "Contact us at:"
   },
   "home": {
-    "mainbutton": "Conheça um Janio perto de você"
+    "mainbutton": "Get to know our opportunities",
+    "maintitle1": "The right",
+    "maintitle2": "opportunities",
+    "maintitle3": "for",
+    "maintitle4": "everyone",
+    "motivationsTitle": "Our Motivations",
+    "motivationsDescription": "“Opportunities multiply as they are seized” - Sun Tzu",
+    "motivationsbox1title": "To informate about opportunities",
+    "motivationsbox2title": "To help brilliant young people",
+    "motivationsbox3title": "To promote social equality",
+    "requirementstitle": "What do you need to participate",
+    "requirementsboxtitle": "Requirements",
+    "requirementsitem1": "Will to learn",
+    "requirementsitem2": "Dedication",
+    "requirementsitem3": "Take the initiative",
+    "joinustitle": "Want to know more about it?",
+    "joinusdescription1": "“It is education that makes the future look like a place of hope and transformation”",
+    "joinusdescription2": "- Marianna Moreno -",
+    "joinusbutton": "Register now"
+  },
+  "suggestions": {
+    "suggestiontitle1": "Any",
+    "suggestiontitle2": "suggestion?",
+    "suggestionbutton": "Contribute with us",
+    "aboutustitle1": "About us",
+    "aboutustitle2": "futop",
+    "ideatitle": "The initial idea",
+    "idea1title": "To make the world more equal",
+    "idea2title": "To improve education",
+    "idea3title": "To give everyone a chance"
   }
 }

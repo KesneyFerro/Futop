@@ -98,6 +98,7 @@ const SliderMenu = ({ idpost, educationLevelSelected }: any) => {
           title={posts.title}
           tags={posts.tags}
           image={posts.image}
+          time={posts.date || ["0", "0"]}
         />
       ))}
       <Link href={"/opportunities"}>

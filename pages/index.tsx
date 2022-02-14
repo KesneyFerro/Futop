@@ -43,9 +43,10 @@ const LandingPage: NextPage = () => {
             <div className="getToKnowOurOpportunitiesLeft mt-16 md:mt-0 flex flex-col items-center justify-center relative h-full mx-[5vw] sm:ml-[5vw] sm:mr-0 xl:ml-[10vw] md:items-start">
               <div className="getToKnowOurOpportunitiesLeftTitle">
                 <h2 className="text-[#25092D] dark:text-white text-center titletext md:text-left font-extrabold text-5xl max-w-[500px]">
-                  As <span className="text-[#FECE31]">oportunidades</span>{" "}
-                  certas
-                  <span className="text-[#AF5BC6]"> para todos</span>
+                  {t("maintitle1")}{" "}
+                  <span className="text-[#FECE31]">{t("maintitle2")}</span>{" "}
+                  {t("maintitle3")}
+                  <span className="text-[#AF5BC6]"> {t("maintitle4")}</span>
                 </h2>
               </div>
               <div className="getToKnowOurOpportunitiesLeftDescription">
@@ -108,13 +109,12 @@ const LandingPage: NextPage = () => {
           <div className="mainHomeMotivations w-[85vw] sm:w-[90vw] flex items-center flex-col mt-24 lg:mt-40">
             <div className="mainHomeMotivationsTitle">
               <h2 className="font-extrabold z-[5] text-[#303031] text-4xl text-center dark:text-white/95">
-                Nossas Motivações
+                {t("motivationsTitle")}
               </h2>
             </div>
             <div className="mainHomeMotivationsQuote">
               <h3 className="text-[#000000]/50 text-center mt-2 dark:text-white/60">
-                “As oportunidades multiplicam-se à medida que são agarradas” -
-                Sun Tzu
+                {t("motivationsDescription")}
               </h3>
             </div>
             <div className="mainHomeMotivationsBoxes flex flex-col lg:flex-row justify-between w-full mt-16 lg:mt-10">
@@ -124,7 +124,7 @@ const LandingPage: NextPage = () => {
                 </div>
                 <div className="motivationBox1Title my-5">
                   <h3 className="font-semibold text-lg text-center dark:text-white">
-                    Informar sobre oportunidades
+                    {t("motivationsbox1title")}
                   </h3>
                 </div>
                 <div className="motivationBox1description mb-5">
@@ -140,7 +140,7 @@ const LandingPage: NextPage = () => {
                 </div>
                 <div className="motivationBox2Title my-5">
                   <h3 className="font-semibold text-lg text-center dark:text-white">
-                    Ajudar jovens brilhantes
+                    {t("motivationsbox2title")}
                   </h3>
                 </div>
                 <div className="motivationBox2description mb-5">
@@ -156,7 +156,7 @@ const LandingPage: NextPage = () => {
                 </div>
                 <div className="motivationBox3Title my-5">
                   <h3 className="font-semibold text-lg text-center dark:text-white">
-                    Promover igualdade social
+                    {t("motivationsbox3title")}
                   </h3>
                 </div>
                 <div className="motivationBox3description mb-5">
@@ -180,7 +180,7 @@ const LandingPage: NextPage = () => {
                 </div>
                 <div className="mainHomeRequirementsLeftTitle">
                   <h3 className="font-extrabold text-[#303031] text-4xl text-center lg:text-left dark:text-white/95 mb-5">
-                    O que é necessário para participar
+                    {t("requirementsboxtitle")}
                   </h3>
                 </div>
                 <div className="mainHomeRequirementsLeftDescription">
@@ -197,7 +197,7 @@ const LandingPage: NextPage = () => {
               <div className="mainHomeRequirementsRightBox w-full h-full bg-[#FFFFFF] px-7 py-7 rounded-xl drop-shadow-xl flex items-left flex-col dark:bg-[#1e2022]">
                 <div className="reiquirementBoxTitle mb-5 lg:block flex justify-center">
                   <h3 className=" text-xl font-semibold text-[#303031] dark:text-white/95">
-                    Requisitos
+                    {t("requirementsboxtitle")}
                   </h3>
                 </div>
                 <div className="requirement1 mt-3 mb-2 flex items-center">
@@ -206,7 +206,7 @@ const LandingPage: NextPage = () => {
                   </div>
                   <div className="requirementName1">
                     <h4 className="text-normal text-[#303031] dark:text-[#FFFFFF]">
-                      Vontade de Aprender
+                      {t("requirementsitem1")}
                     </h4>
                   </div>
                 </div>
@@ -216,7 +216,7 @@ const LandingPage: NextPage = () => {
                   </div>
                   <div className="requirementName2">
                     <h4 className="text-normal text-[#303031] dark:text-[#FFFFFF]">
-                      Dedicação
+                      {t("requirementsitem2")}
                     </h4>
                   </div>
                 </div>
@@ -226,7 +226,7 @@ const LandingPage: NextPage = () => {
                   </div>
                   <div className="requirementName3">
                     <h4 className="text-normal text-[#303031] dark:text-[#FFFFFF]">
-                      Iniciativa
+                      {t("requirementsitem3")}
                     </h4>
                   </div>
                 </div>
@@ -237,20 +237,19 @@ const LandingPage: NextPage = () => {
             <InviteToRegister className="px-10 items-center  inviteToRegister w-full rounded-3xl h-auto lg:h-[300px] flex justify-start lg:justify-between flex-col mt-16 lg:flex-row lg:mt-10 ]">
               <div className="inviteToRegisterLeft mb-16 lg:mb-0 flex flex-col items-start  mt-10 w-auto max-w-[100vw] lg:mt-0 lg:max-w-[380px]">
                 <div className="inviteToRegisterLeftTitle flex w-full justify-center">
-                  <h2 className="font-extrabold text-3xl text-white/95 lg:text-5xl">
-                    Interessado???
+                  <h2 className="font-extrabold text-3xl text-white/95 lg:text-5xl text-center lg:text-left">
+                    {t("joinustitle")}
                   </h2>
                 </div>
                 <div className="inviteToRegisterLeftDescription mt-5 text-white/50">
                   <h3 className="text-sm lg:text-base text-center lg:text-justify">
-                    Lorem ipsum dolor sit amet, cons ect etur adipi <br /> “A
-                    educação não tem preço. Sua falta gera custo”.
+                    {t("joinusdescription1")} <br /> {t("joinusdescription2")}
                   </h3>
                 </div>
               </div>
               <div className="inviteToRegisterRight mb-10 lg:mb-0">
                 <button className="inviteToRegisterRightButton flex flex-col items-center bg-[#fece31] font-bold lg:font-extrabold text-[#090D2D] text-lg rounded-full px-10 py-4 justify-center w-auto">
-                  Registre-se agora
+                  {t("joinusbutton")}
                 </button>
               </div>
             </InviteToRegister>
