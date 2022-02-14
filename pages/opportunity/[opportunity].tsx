@@ -2,7 +2,7 @@
 import axios from "axios";
 import { prominent } from "color.js";
 import type { NextPage } from "next";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
@@ -36,24 +36,55 @@ const OpportunityPage: NextPage = ({ post }: any) => {
   const [isSaved, setIsSaved] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
+    setIsLoading(true);
     axios
-      .post("http://localhost:3000/api/savepost", {
+      .post("https://futop.vercel.app/api/savepost", {
         session: session,
         postid: post.posts.id,
         check: true,
       })
       .then((res) => {
         setIsLoading(false);
-        console.log(res.data);
         if (res.data.code == "300") {
           setIsSaved(true);
         } else {
           setIsSaved(false);
         }
       });
-  });
+  }, [session, post.posts.id]);
+
+  function handleSave() {
+    setIsSaved(!isSaved);
+    if (session) {
+      axios
+        .post("https://futop.vercel.app/api/savepost", {
+          session: session,
+          postid: post.posts.id,
+          check: false,
+        })
+        .then((res) => {
+          if (res.data.code == "200") {
+            setIsSaved(true);
+          } else {
+            setIsSaved(false);
+          }
+        });
+    } else {
+      setIsSaved(false);
+      signIn();
+    }
+  }
 
   const [colorr, setColor] = useState("");
+
+  useEffect(() => {
+    if (session) {
+      axios
+        .post("https://futop.vercel.app/api/userinfo", { session: session })
+        .then((res) => {});
+    } else {
+    }
+  }, [session]);
 
   if (typeof window === "object") {
     prominent(
@@ -145,9 +176,12 @@ const OpportunityPage: NextPage = ({ post }: any) => {
         <div className="flex flex-col mt-10 lg:mt-16 lg:flex-row-reverse items-start w-full px-[7%] lg:px-16 mb-16">
           <ThemeProvider theme={theme}>
             <div className="flex lg:flex-col gap-6 mb-10 items-center lg:mb-0 lg:ml-24 flex-wrap justify-center w-full lg:w-auto ">
-              <div className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300">
+              <div
+                onClick={() => handleSave()}
+                className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300"
+              >
                 {isLoading ? (
-                  <i className="animate-spin text-2xl bx bx-loader-alt text-black dark:text-white/80"></i>
+                  <i className="animate-spin text-2xl bx bx-loader-alt text-black/50 dark:text-white/30"></i>
                 ) : (
                   <SocialMediaLogo
                     className={`bx ${
@@ -168,20 +202,20 @@ const OpportunityPage: NextPage = ({ post }: any) => {
                   <h2 className="font-extrabold text-3xl min-w-max mr-6 dark:text-white">
                     O que fazemos?
                   </h2>
-                  <hr className="w-full border-1 dark:border-white/30 border-black/20 max-w-[1260px]" />
+                  <hr className="w-full border-1 dark:border-white/30 border-black/20" />
                 </div>
               )}
               {post.posts.texts != undefined ? (
                 post.posts.texts.map((description: any, index: number) => (
                   <p
                     key={index}
-                    className="text-justify mb-5 text-black/50 dark:text-white/60 lg:leading-7 max-w-[1500px]"
+                    className="text-justify mb-5 text-black/50 dark:text-white/60 lg:leading-7"
                   >
                     {description}
                   </p>
                 ))
               ) : (
-                <div className="w-full max-w-[1550px] min-h-20 dark:text-white flex justify-center items-center rounded-3xl bg-gray-200/[50%] dark:bg-black/20">
+                <div className="w-full min-h-20 dark:text-white flex justify-center items-center rounded-3xl bg-gray-200/[50%] dark:bg-black/20">
                   <h3 className="text-lg font-medium text-center py-6 px-3">
                     Esta postagem não possui texto
                   </h3>
@@ -189,13 +223,13 @@ const OpportunityPage: NextPage = ({ post }: any) => {
               )}
             </div>
             <div className="flex flex-col items-start w-full mt-10 mb-10">
-              <div className="mb-10 flex w-full max-w-[1550px] items-center">
+              <div className="mb-10 flex w-full items-center">
                 <h2 className="font-extrabold text-3xl min-w-max mr-6 dark:text-white">
                   Veja também
                 </h2>
-                <hr className="w-full border-1 dark:border-white/30 border-black/20 max-w-[1300px]" />
+                <hr className="w-full border-1 dark:border-white/30 border-black/20" />
               </div>
-              <div className=" flex justify-start w-full max-w-[1520px]">
+              <div className=" flex justify-start w-full">
                 <SliderMenu
                   educationLevelSelected={post.posts.tags}
                   idpost={post.posts.id}
@@ -211,12 +245,9 @@ const OpportunityPage: NextPage = ({ post }: any) => {
 };
 export const getServerSideProps = async (context: any) => {
   const { opportunity } = context.params;
-  const post = await axios.post(
-    `https://frames-two.vercel.app/api/getpostbyid`,
-    {
-      opportunity: opportunity,
-    }
-  );
+  const post = await axios.post(`https://futop.vercel.app/api/getpostbyid`, {
+    opportunity: opportunity,
+  });
   if (post.data.posts === null) {
     return {
       notFound: true,

@@ -9,7 +9,6 @@ import { useTranslations } from "next-intl";
 import styled from "styled-components";
 import UserProfile from "./user/userdropdown";
 import { useSession } from "next-auth/react";
-import axios from "axios";
 
 const NavbarContainerStyle = styled.div`
   .containernavbar {
@@ -64,18 +63,31 @@ const Navbar = () => {
   };
 
   const { data: session } = useSession();
-  useEffect(() => {
-    if (session) {
-      axios
-        .post("http://localhost:3000/api/userinfo", {
-          session: session,
-        })
-        .then((res) => {})
-        .catch((err) => {
-          console.log(err);
-        });
+  // useEffect(() => {
+  //   if (session) {
+  //     axios
+  //       .post("http://localhost:3000/api/userinfo", {
+  //         session: session,
+  //       })
+  //       .then((res) => {
+  //         console.log("From Navbar: ", res.data);
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   }
+  // }, [session]);
+
+  const url = () => {
+    if (
+      router.pathname.includes("/opportunity") ||
+      router.pathname == "/opportunities"
+    ) {
+      return true;
+    } else {
+      return false;
     }
-  }, [session]);
+  };
 
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -84,15 +96,15 @@ const Navbar = () => {
       <div className="bg-white dark:bg-[#1e2022] transition duration-300 drop-shadow-md dark:border-b-2 dark:border-gray-200/[5%] w-full min-h-[5rem] h-20 fixed z-30 flex justify-center ">
         <div className="flex justify-between h-full items-center w-[90%] lg:px-0 lg:w-[80%]">
           <div className="text-black dark:text-white font-bold text-2xl w-[128px] min-w-[128px]">
-            <a href="../home">Futop</a>
+            <a href="../home">futop</a>
           </div>
           <div className=" mx-24 w-full max-w-[600px] hidden lg:flex">
             <ul className="flex justify-between w-full dark:text-white">
               <li className="text-sm">
-                <Link href="/home">
+                <Link href="/">
                   <a
                     className={`${
-                      router.pathname == "/home" &&
+                      router.pathname == "/" &&
                       "font-bold dark:text-[#ffc700] rounded-full"
                     }`}
                   >
@@ -101,11 +113,10 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="text-sm">
-                <Link href="/">
+                <Link href="/opportunities">
                   <a
                     className={`${
-                      router.pathname == "/" &&
-                      "font-bold dark:text-[#ffc700] rounded-full"
+                      url() && "font-bold dark:text-[#ffc700] rounded-full"
                     }`}
                   >
                     {t("opportunity")}
@@ -177,19 +188,6 @@ const Navbar = () => {
         >
           <div className="flex w-full h-full flex-col justify-between items-center">
             <div className="flex w-full flex-col justify-start items-center divide-y mb-[80px] dark:divide-white/10">
-              <Link href="/home">
-                <div
-                  onClick={() => setIsOpen(false)}
-                  className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-center items-center transition-all duration-300 hover:bg-slate-500/10"
-                >
-                  <h4
-                    className={`${router.pathname == "/home" && "font-bold"}
-                       text-[15px] text-slate-600 dark:text-gray-300`}
-                  >
-                    {t("home")}
-                  </h4>
-                </div>
-              </Link>
               <Link href="/">
                 <div
                   onClick={() => setIsOpen(false)}
@@ -197,6 +195,19 @@ const Navbar = () => {
                 >
                   <h4
                     className={`${router.pathname == "/" && "font-bold"}
+                       text-[15px] text-slate-600 dark:text-gray-300`}
+                  >
+                    {t("home")}
+                  </h4>
+                </div>
+              </Link>
+              <Link href="/opportunities">
+                <div
+                  onClick={() => setIsOpen(false)}
+                  className="cursor-pointer bg-white dark:bg-[#1e2022] w-full h-20 flex justify-center items-center transition-all duration-300 hover:bg-slate-500/10"
+                >
+                  <h4
+                    className={`${url() && "font-bold"}
                       text-[15px] text-slate-600 dark:text-gray-300`}
                   >
                     {t("opportunity")}

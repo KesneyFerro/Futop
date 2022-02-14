@@ -70,15 +70,13 @@ export default function UserProfile({ mobile }: any) {
                 <div className="px-1 py-1 ">
                   <Menu.Item>
                     {({ active }) => (
-                      <button
-                        className={`${
-                          active
-                            ? "bg-[#ffc700] text-black font-semibold"
-                            : "text-gray-900 dark:text-white"
-                        } group flex rounded-md items-center justify-center w-full px-2 py-2 text-sm`}
-                      >
-                        Meu perfil
-                      </button>
+                      <Link href={"/user/me"} passHref>
+                        <button
+                          className={`hover:bg-[#ffc700] hover:text-black hover:dark:text-black hover:font-semibold text-gray-900 dark:text-white group flex rounded-md items-center justify-center w-full px-2 py-2 text-sm`}
+                        >
+                          Meu perfil
+                        </button>
+                      </Link>
                     )}
                   </Menu.Item>
                 </div>

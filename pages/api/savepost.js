@@ -52,8 +52,17 @@ export default async function handler(req, res) {
             postid: postid,
           });
         } else {
+          //  Remove the post id from user favorites array
+          user.favorites.splice(user.favorites.indexOf(postid), 1);
+          await db
+            .collection("users")
+            .updateOne(
+              { email: session.user.email },
+              { $pull: { favorites: postid } }
+            );
+
           return res.status(200).send({
-            status: "Already in favorites",
+            status: "Removed from favorites",
             code: "300",
             postid: postid,
           });

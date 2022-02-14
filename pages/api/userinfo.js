@@ -38,6 +38,7 @@ export default async function handler(req, res) {
       email: session.user.email,
       image: session.user.image,
       favorites: [],
+      role: "user",
       createdAt: new Date(),
     };
     if (!user) {

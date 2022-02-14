@@ -24,30 +24,27 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     };
   }
   return (
-    <>
+    <SessionProvider session={session}>
       <div style={{ display: isRetainableRoute ? "block" : "none" }}>
         {Object.entries(retainedComponents.current).map(([path, c]: any) => (
           <div
             key={path}
             style={{ display: router.asPath === path ? "block" : "none" }}
           >
-            <SessionProvider session={session}>
-              <NextNProgress color="#ffc700" options={{ showSpinner: false }} />
+            <NextNProgress color="#ffc700" options={{ showSpinner: false }} />
 
-              <NextIntlProvider messages={pageProps.messages}>
-                {c.component}
-              </NextIntlProvider>
-            </SessionProvider>
+            <NextIntlProvider messages={pageProps.messages}>
+              {c.component}
+            </NextIntlProvider>
           </div>
         ))}
       </div>
-      <SessionProvider session={session}>
-        <NextNProgress color="#ffc700" options={{ showSpinner: false }} />
-        <NextIntlProvider messages={pageProps.messages}>
-          {!isRetainableRoute && <Component {...pageProps} />}
-        </NextIntlProvider>
-      </SessionProvider>
-    </>
+
+      <NextNProgress color="#ffc700" options={{ showSpinner: false }} />
+      <NextIntlProvider messages={pageProps.messages}>
+        {!isRetainableRoute && <Component {...pageProps} />}
+      </NextIntlProvider>
+    </SessionProvider>
   );
 }
 

@@ -1,7 +1,7 @@
 /* eslint-disable require-jsdoc */
 /* eslint-disable react/jsx-no-undef */
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
 import useSWR from "swr";
 import OpportunityCard from "../components/opportunityCard";
 import { useTranslations } from "next-intl";
@@ -82,18 +82,34 @@ function Posts({
   educationLevelSelected,
 }: any) {
   const t = useTranslations("posts");
-  const doLoadMore = async (evt: any) => {
+
+  const [isMore, setIsMore] = React.useState(true);
+  useEffect(() => {
+    setIsMore(true);
+  }, [oportunitySelected, educationLevelSelected]);
+
+  const loadNumber = 2;
+  const doLoadMore = async (evt: any, posts: any) => {
     evt.preventDefault();
     setDisable(true);
     await timeout(600);
     setDisable(false);
-    setCounter(counter + 3);
+    if (counter < posts.length) {
+      setCounter(counter + loadNumber);
+      if (counter + loadNumber >= posts.length) {
+        setIsMore(false);
+      } else {
+        setIsMore(true);
+      }
+    } else {
+      setIsMore(false);
+    }
   };
 
   const [disable, setDisable] = React.useState(false);
 
   const { data, error } = useSWR(
-    "https://frames-two.vercel.app/api/getposts",
+    "https://futop.vercel.app/api/getposts",
     fetcher
   );
 
@@ -149,6 +165,7 @@ function Posts({
     oportunitySelected,
     educationLevelSelected
   );
+
   const postsdata = chunkArray(searchedOpportunities, 5);
 
   if (postsdata.length === 0) {
@@ -197,15 +214,17 @@ function Posts({
       <div className="seeMoreButtonDisplay w-full flex justify-center mb-6">
         <button
           disabled={disable}
-          onClick={(e) => doLoadMore(e)}
+          onClick={(e) => doLoadMore(e, postsdata)}
           className={`SeeMoreBtn bg-[#25092D] dark:bg-[#d8d8d8] dark:font-medium dark:text-black disabled:cursor-not-allowed disabled:bg-[#979797] dark:disabled:bg-[#3c3c3c] disabled:dark:text-[#161819] disabled:dark:font-medium text-white text-base rounded-full px-5 ${
             disable ? "py-[14px]" : "py-4"
           } mt-5 flex justify-center w-[310px] items-center drop-shadow-lg`}
         >
           {disable ? (
             <i className="bx bx-loader-alt dark:text-white color-white animate-spin text-lg"></i>
-          ) : (
+          ) : isMore ? (
             t("seeMore")
+          ) : (
+            t("noMore")
           )}
         </button>
       </div>
