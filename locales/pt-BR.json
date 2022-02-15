@@ -120,5 +120,14 @@
     "noresults": "Não há sugestões para este nível de escolaridade",
     "gohome": "Voltar para o início",
     "nopost": "Esta postagem não possui texto"
+  },
+  "login": {
+    "crieumaconta": "Crie uma conta",
+    "logind": "Venha encontrar as suas próximas oportunidades",
+    "continuecom": "Continue com...",
+    "register1": "Se registrando você concorda com nossos",
+    "register2": "termos e condições",
+    "register3": "e",
+    "register4": "política de privacidade"
   }
 }

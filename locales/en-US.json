@@ -119,5 +119,14 @@
     "noresults": "There are no suggestions for this level of education",
     "gohome": "Back to home",
     "nopost": "This post has no text"
+  },
+  "login": {
+    "crieumaconta": "Create your account",
+    "logind": "Come find your next opportunities",
+    "continuecom": "Continue with...",
+    "register1": "By register you agree with our",
+    "register2": "terms and conditions",
+    "register3": "and",
+    "register4": "privacy policy"
   }
 }

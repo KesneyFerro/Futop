@@ -5,10 +5,11 @@
 import { getProviders, signIn } from "next-auth/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { useTranslations } from "next-intl";
 import { HomeCointainer } from "../styles/components/home";
 export default function SignIn({ providers }) {
   const router = useRouter();
-
+  const t = useTranslations("login");
   return (
     <>
       <HomeCointainer>
@@ -32,13 +33,13 @@ export default function SignIn({ providers }) {
             />
             <div className="flex flex-col items-center mt-[140px] px-5 lg:px-0 lg:items-start lg:mt-0 lg:justify-center lg:h-[95%] lg:ml-24">
               <h1 className="text-3xl lg:text-[35px] font-black">
-                Crie uma conta
+                {t("crieumaconta")}
               </h1>
               <h3 className="text-center mt-4 lg:text-[18px] text-black/[45%]">
-                Venha encontrar as suas próximas oportunidades
+                {t("logind")}
               </h3>
               <div className="mt-8 lg:mt-20 flex text-black/80 text-sm justify-center lg:justify-start lg:items-start items-center flex-col">
-                <h4 className="mb-5 text-black/70">Continue com...</h4>
+                <h4 className="mb-5 text-black/70">{t("continuecom")}</h4>
                 <div className="flex flex-wrap justify-center items-center mb-[100px] lg:mb-0">
                   {Object.values(providers).map((provider) => (
                     <button
@@ -63,12 +64,14 @@ export default function SignIn({ providers }) {
             </div>
             <div>
               <h4 className="text-center text-sm px-6 mb-[70px] lg:mb-0 text-black/[55%]">
-                By register you agree with our{" "}
+                {t("register1")}{" "}
                 <span className="font-bold text-[#25092D]">
-                  terms and conditions
+                  {t("register2")}
                 </span>{" "}
-                and{" "}
-                <span className="font-bold text-[#25092D]">privacy policy</span>
+                {t("register3")}{" "}
+                <span className="font-bold text-[#25092D]">
+                  {t("register4")}
+                </span>
               </h4>
             </div>
           </div>
@@ -93,9 +96,9 @@ export default function SignIn({ providers }) {
 }
 
 // This is the recommended way for Next.js 9.3 or newer
-export async function getServerSideProps(context) {
+export async function getServerSideProps({ locale }) {
   const providers = await getProviders();
   return {
-    props: { providers },
+    props: { providers, messages: require(`../locales/${locale}.json`) },
   };
 }
