@@ -51,15 +51,13 @@ const LandingPage: NextPage = () => {
               </div>
               <div className="getToKnowOurOpportunitiesLeftDescription">
                 <h3 className="mt-12 font-medium text-base md:text-justify text-[#a7a7a7] max-w-[525px] text-center">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Scelerisque nulla pretium vel rutrum lacinia. Tellus est
-                  ultricies purus dignissim. Nec, odio blandit at sed. Mauris
-                  ornare quis ac elit quam mollis vel enim. Purus euismod quam
-                  mauris nunc integer neque. Nunc morbi bibendum laoreet mattis
-                  nisl, sed elit. Duis maecenas viverra ut nisi. Amet neque
-                  malesuada elit vitae orci et nibh. Lectus eget duis
-                  pellentesque etiam pellentesque porta lectus volutpat sed.
-                  (colocar o que ofertamos aqui)
+                  {t("mainp1")}
+                  <Link href={"https://www.risefortheworld.org"}>
+                    <a target="_blank" className="font-bold text-[#FECE31]">
+                      RISE Global Challenge
+                    </a>
+                  </Link>
+                  {t("mainp2")}
                 </h3>
               </div>
               <Link href={"/opportunities"}>
