@@ -105,13 +105,7 @@ const Suggestions: NextPage = () => {
             </div>
             <div className="firstIdeaDescription w-auto max-w-[545px] h-auto bg-[#F8F8F8] px-6 py-5 rounded-xl drop-shadow-xl xl:mr-3 dark:bg-[#1e2022] transition duration-300">
               <p className="font-medium text-center sm:text-justify text-[#4a4a4a] dark:text-[#F3F0EA]/80">
-                Lörem ipsum tetralig diadat ett stenotanas respektive såre.
-                Blixad semiling ditåren ogodenera. Kons. Euroska nyng. Garad
-                mibelt sågen. Porade nende. Alkobom prohet, den dosat. Porad
-                plalig. Nibisat jölig sedång, tåsade. Kvasiaktiv poskade.
-                Fatesam antropotik gangen decivis. Nilegen sekelsiffror
-                laherade. Tibel yska. Fynade estetisk kompetens sesat. Epifadade
-                bedengar, sepade tirad. Preligen spermatvätt när darar.
+                {t("ideiap")}
               </p>
             </div>
           </div>
