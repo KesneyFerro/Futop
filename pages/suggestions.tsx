@@ -54,12 +54,7 @@ const Suggestions: NextPage = () => {
               </div>
               <div className="helpUsToImproveDescription z-[5]">
                 <h5 className="helpUsToImproveDescriptionAlt mt-12 font-medium text-base text-center xl:text-justify dark:text-white/70 text-[#a7a7a7] max-w-[445px] xl:px-0 px-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Scelerisque nulla pretium vel rutrum lacinia. Tellus est
-                  ultricies purus dignissim. Nec, odio blandit at sed. Mauris
-                  ornare quis ac elit quam mollis vel enim. Purus euismod quam
-                  mauris nunc integer neque. Nunc morbi bibendum laoreet mattis
-                  nisl, sed elit.
+                  {t("suggestionp1")} {t("suggestionp2")}
                 </h5>
               </div>
               <button className="helpUsToImproveButton xl:bg-[#25092D] bg-[#ffc700] xl:text-white font-medium xl:font-normal text-base rounded-full px-5 py-3 mt-10 flex justify-center w-[260px] items-center drop-shadow-lg">
