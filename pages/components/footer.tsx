@@ -113,7 +113,7 @@ const Footer = () => {
               </div>
             </div>
             <h5 className="text-[#9A9EA6] text-sm text-center dark:text-white">
-              &copy; 2021, {t("copyright")}
+              &copy; 2022, {t("copyright")}
             </h5>
           </div>
         </div>

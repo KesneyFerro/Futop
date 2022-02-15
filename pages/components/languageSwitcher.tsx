@@ -49,7 +49,7 @@ export default function MyDropdown({ isIcon, setIsOpen }: any) {
                   <Menu.Item key={locale}>
                     {({ active }) => (
                       <button
-                        className={`hover:bg-[#ffc700] hover:font-semibold text-gray-900 group flex rounded-md items-center w-full text-sm ${
+                        className={`hover:bg-[#ffc700] hover:font-semibold hover:text-black text-gray-900 group flex rounded-md items-center w-full text-sm ${
                           !isIcon && "justify-center"
                         }`}
                       >
@@ -62,7 +62,7 @@ export default function MyDropdown({ isIcon, setIsOpen }: any) {
 
                           //
                         >
-                          <a className="w-full h-full py-2 dark:text-white">
+                          <a className="w-full h-full py-2 dark:text-white hover:dark:text-black">
                             {locale}
                           </a>
                         </Link>

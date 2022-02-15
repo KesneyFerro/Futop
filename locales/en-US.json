@@ -83,5 +83,26 @@
     "idea1title": "To make the world more equal",
     "idea2title": "To improve education",
     "idea3title": "To give everyone a chance"
+  },
+  "myprofile": {
+    "myprofile": "My account",
+    "myfavorites": "My favorites",
+    "gohome": "Back to home",
+    "nofavorites": "You don't have any favorite posts",
+    "error": "Error loading suggestions"
+  },
+  "opportunity": {
+    "whatwedo": "What we do?",
+    "maybeyoualsolike": "Maybe you also like",
+    "seeMore": "See more",
+    "days": "days",
+    "remaining": "remaining",
+    "ago": "ago",
+    "nodays": "No days",
+    "at": "at",
+    "error": "Error loading suggestions",
+    "noresults": "There are no suggestions for this level of education",
+    "gohome": "Back to home",
+    "nopost": "This post has no text"
   }
 }

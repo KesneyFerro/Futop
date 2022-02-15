@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-
+import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import useSWR from "swr";
@@ -23,6 +23,7 @@ const fetcher = async (url: any) =>
     return res.data;
   });
 const FavoritePosts = ({ posts }: any) => {
+  const t = useTranslations("myprofile");
   // create a function that filter a array of posts by the favorites posts id array of the user
   const filterPosts = (posts: any, favorites: any) => {
     return posts.filter((post: any) => {
@@ -60,7 +61,7 @@ const FavoritePosts = ({ posts }: any) => {
       <div className="flex flex-col justify-center items-center w-full min-h-28">
         <i className="bx bx-error text-[70px] dark:text-white mb-2"></i>
         <h2 className="text-center text-black/90 dark:text-white font-semibold text-xl">
-          Error ao carregar sugestões
+          {t("error")}
         </h2>
         <h3 className="mt-1 dark:text-white/50 text-black/40 ">
           Error: {error.message}
@@ -82,11 +83,11 @@ const FavoritePosts = ({ posts }: any) => {
     return (
       <div className="flex flex-col justify-center items-center w-full min-h-28 bg-gray-100 dark:bg-[#1e2022] py-10 rounded-3xl">
         <h2 className="text-center text-black/90 dark:text-white font-medium text-lg">
-          Você não tem nenhuma postagem favoritada
+          {t("nofavorites")}
         </h2>
         <Link href="/#searchbar">
           <button className="dark:bg-white bg-black/90 dark:text-black text-white min-w-[200px] px-10 py-4 mt-4 rounded-full text-base font-medium">
-            Voltar para o início
+            {t("gohome")}
           </button>
         </Link>
       </div>

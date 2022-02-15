@@ -61,13 +61,17 @@
     "motivationsTitle": "Nossas Motivações",
     "motivationsDescription": "“As oportunidades multiplicam-se à medida que são agarradas” - Sun Tzu",
     "motivationsbox1title": "Informar sobre oportunidades",
+    "motivationsbox1description": "Buscamos utilizar os meios tecnológicos para promover o acesso à informações confiáveis e de qualidade",
     "motivationsbox2title": "Ajudar jovens brilhantes",
+    "motivationsbox2description": "Anciamos por ajudar jovens a alcançarem os seus sonhos acadêmicos",
     "motivationsbox3title": "Promover igualdade social",
+    "motivationsbox3description": "Acreditamos que as diversas formas de inteligência se dividem igualmente em todas as camadas sociais",
     "requirementstitle": "O que é necessário para participar",
+    "requirementsdescription": "Ser parte do nosso é sonhar com um futuro melhor e trilhar o próprio caminho para alcança-lo. Se você preenche esse requisito, trabalharemos incansávelmente para guia-lo até o seu objetivo, por meio das melhores oportunidades",
     "requirementsboxtitle": "Requisitos",
-    "requirementsitem1": "Vontade de Aprender",
+    "requirementsitem3": "Vontade de Aprender",
     "requirementsitem2": "Dedicação",
-    "requirementsitem3": "Iniciativa",
+    "requirementsitem1": "Iniciativa",
     "joinustitle": "Interessado???",
     "joinusdescription1": "“É a educação que faz o futuro parecer um lugar de esperança e transformação”",
     "joinusdescription2": "- Marianna Moreno -",
@@ -83,5 +87,27 @@
     "idea1title": "Para tornar o mundo mais igualitário",
     "idea2title": "Para melhorar a educação",
     "idea3title": "Para dar chance a todos"
+  },
+
+  "myprofile": {
+    "myprofile": "Minha conta",
+    "myfavorites": "Meus Favoritos",
+    "gohome": "Voltar para o início",
+    "nofavorites": "Você não tem nenhuma postagem favoritada",
+    "error": "Error ao carregar sugestões"
+  },
+  "opportunity": {
+    "whatwedo": "O que fazemos?",
+    "maybeyoualsolike": "Veja também",
+    "seeMore": "Veja mais",
+    "days": "dias",
+    "remaining": "restante",
+    "ago": "atrás",
+    "nodays": "Não há dias",
+    "at": "ás",
+    "error": "Error ao carregar sugestões",
+    "noresults": "Não há sugestões para este nível de escolaridade",
+    "gohome": "Voltar para o início",
+    "nopost": "Esta postagem não possui texto"
   }
 }
