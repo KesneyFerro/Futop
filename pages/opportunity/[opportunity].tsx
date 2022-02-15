@@ -12,6 +12,7 @@ import Footer from "../components/footer";
 import Navbar from "../components/navbar";
 import { useTranslations } from "next-intl";
 import SliderMenu from "../components/slider/slider";
+import { useRouter } from "next/router";
 
 const OpportunityCardStyle = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8)),
@@ -34,6 +35,7 @@ const SocialMediaLogo = styled.i`
 `;
 
 const OpportunityPage: NextPage = ({ post }: any) => {
+  const router = useRouter();
   const t = useTranslations("opportunity");
   const p = useTranslations("posts");
   const { data: session } = useSession();
@@ -76,6 +78,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
 
   useEffect(() => {
     setIsLoading(true);
+    setClipborard(false);
     axios
       .post("https://futop.vercel.app/api/savepost", {
         session: session,
@@ -115,6 +118,16 @@ const OpportunityPage: NextPage = ({ post }: any) => {
   }
 
   const [colorr, setColor] = useState("");
+  const [isClipboard, setClipborard] = useState(false);
+  function timeout(delay: number) {
+    return new Promise((res) => setTimeout(res, delay));
+  }
+  const clipboard = () => {
+    setClipborard(false);
+    timeout(1000);
+    navigator.clipboard.writeText(`https://futop.ga${router.asPath}`);
+    setClipborard(true);
+  };
 
   useEffect(() => {
     if (session) {
@@ -254,16 +267,17 @@ const OpportunityPage: NextPage = ({ post }: any) => {
               {/* <div className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300">
                 <SocialMediaLogo className="bx bx-link text-[35px] brightness-75 dark:brightness-130" />
               </div> */}
-              {post.posts.socialmedia && post.posts.socialmedia.link && (
-                <Link href={post.posts.socialmedia.link} passHref>
-                  <a
-                    target="_blank"
-                    className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300"
-                  >
-                    <SocialMediaLogo className="bx bx-link text-[35px] brightness-75 dark:brightness-130" />
-                  </a>
-                </Link>
-              )}
+
+              <div
+                onClick={() => clipboard()}
+                className="cursor-pointer w-16 h-16 drop-shadow-md flex justify-center items-center bg-[#f9f9f9] rounded-xl dark:bg-[#1e2022] transition-colors duration-300"
+              >
+                <SocialMediaLogo
+                  className={`bx bx-${
+                    isClipboard ? "check-circle" : "link"
+                  } text-[35px] brightness-75 dark:brightness-130`}
+                />
+              </div>
               {post.posts.socialmedia && post.posts.socialmedia.google && (
                 <Link href={post.posts.socialmedia.google} passHref>
                   <a
