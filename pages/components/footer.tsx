@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 const Footer = () => {
   const t = useTranslations("footer");
@@ -20,17 +21,19 @@ const Footer = () => {
     <ShareAOpportunity className="bg-white dark:bg-[#1e2022] transition duration-300 w-full flex justify-center items-center ">
       <div className="w-[80%] flex-col justify-center items-center">
         <div className="mt-32 flex flex-col items-center">
-          <h2 className="text-3xl font-extrabold dark:text-white">Logo</h2>
+          <div className=" bg-transparent dark:bg-[#1b1c1e] w-[90px] h-[90px] rounded-full flex justify-center items-center">
+            <img src="/futop.png" alt="logo" className="w-[70px]" />
+          </div>
+          {/* <h2 className="text-3xl font-extrabold dark:text-white">Logo</h2> */}
           <h3 className="mt-7 text-center text-black/40 dark:text-white/60 w-full max-w-[900px]">
-            We ara a lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud equip ex ea commodo
-            consequat...{" "}
-            <span className="text-black dark:text-white font-semibold cursor-pointer">
-              {t("readMore")}
-            </span>
+            {t("aboutus")}...{""}
+            <Link href="/suggestions">
+              <span className="text-black dark:text-white font-semibold cursor-pointer">
+                {t("readMore")}
+              </span>
+            </Link>
           </h3>
-          <div
+          {/* <div
             id="SocialMedias"
             className="mt-5 flex justify-center items-center flex-wrap gap-[0.75rem]"
           >
@@ -46,9 +49,9 @@ const Footer = () => {
             <div className="rounded-full w-12 h-12 cursor-pointer flex justify-center items-center bg-[#FAEEC5] dark:bg-[#fadb78]">
               <i className="bx bxl-whatsapp text-2xl text-[#50545E] dark:text-[#b4b4b45]"></i>
             </div>
-          </div>
+          </div> */}
         </div>
-        <div className="w-full flex-col mt-16">
+        <div className="w-full flex-col mt-10">
           <div className="justify-between hidden sm:flex">
             <h4 className="hidden sm:block text-[#9A9EA6] cursor-pointer">
               {t("aboutUs")}
@@ -84,7 +87,7 @@ const Footer = () => {
           <div className="flex flex-col justify-center xl:flex-row xl:justify-between mt-10 items-center mb-10">
             <div className="xl:mb-0 mb-12">
               <div className="flex flex-col sm:flex-row">
-                <div className="flex items-center justify-center">
+                {/* <div className="flex items-center justify-center">
                   <div className="rounded-full w-12 h-12 mr-3 cursor-pointer flex justify-center items-center bg-[#FAEEC5] dark:bg-[#fadb78]">
                     <i className="bx bx-phone-call text-2xl text-[#50545E]"></i>
                   </div>
@@ -96,8 +99,8 @@ const Footer = () => {
                       301-437-2766
                     </h5>
                   </div>
-                </div>
-                <div className="flex items-center justify-center ml-0 sm:ml-16 mt-5 sm:mt-0">
+                </div> */}
+                <div className="flex items-center justify-center ml-0 sm:ml-0 mt-5 sm:mt-0">
                   <div className="rounded-full w-12 h-12 mr-3 flex justify-center items-center cursor-pointer bg-[#FAEEC5] dark:bg-[#fadb78]">
                     <i className="bx bx-mail-send text-2xl text-[#50545E] "></i>
                   </div>

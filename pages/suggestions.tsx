@@ -54,7 +54,7 @@ const Suggestions: NextPage = () => {
               </div>
               <div className="helpUsToImproveDescription z-[5]">
                 <h5 className="helpUsToImproveDescriptionAlt mt-12 font-medium text-base text-center xl:text-justify dark:text-white/70 text-[#a7a7a7] max-w-[445px] xl:px-0 px-4">
-                  {t("suggestionp1")} {t("suggestionp2")}
+                  {t("suggestionp1")} <br /> {t("suggestionp2")}
                 </h5>
               </div>
               <button className="helpUsToImproveButton xl:bg-[#25092D] bg-[#ffc700] xl:text-white font-medium xl:font-normal text-base rounded-full px-5 py-3 mt-10 flex justify-center w-[260px] items-center drop-shadow-lg">
@@ -76,12 +76,7 @@ const Suggestions: NextPage = () => {
             </div>
             <div className="introductionAboutUsDescription w-auto max-w-[545px] h-auto bg-[#F8F8F8] px-6 py-5 rounded-xl drop-shadow-xl xl:mr-3 dark:bg-[#1e2022] transition duration-300 ">
               <p className="font-medium text-center sm:text-justify text-[#4a4a4a] dark:text-[#F3F0EA]/80">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Scelerisque nulla pretium vel rutrum lacinia. Tellus est
-                ultricies purus dignissim. Nec, odio blandit at sed. Mauris
-                ornare quis ac elit quam mollis vel enim. Purus euismod quam
-                mauris nunc integer neque. Nunc morbi bibendum laoreet mattis
-                nisl, sed elit.
+                {t("sugestionaboutus")}
               </p>
             </div>
           </div>
@@ -122,9 +117,7 @@ const Suggestions: NextPage = () => {
                 </div>
                 <div className="projectMotivationsDescription">
                   <h5 className="font-normal opacity-80  max-w-[750px] xl:text-justify text-center text-[#4a4a4a]  dark:text-[#d4d2cd]">
-                    Lörem ipsum tetralig diadat ett stenotanas respektive såre.
-                    Blixad semiling ditåren ogodenera. Kons. Euroska nyng. Garad
-                    mibelt sågen.
+                    {t("suggestiondescription1")}
                   </h5>
                 </div>
               </div>
@@ -145,9 +138,7 @@ const Suggestions: NextPage = () => {
                 </div>
                 <div className="projectMotivationsDescription">
                   <h5 className="font-normal xl:text-justify text-center   max-w-[750px] text-[#4a4a4a]  opacity-80  dark:text-[#d4d2cd]">
-                    Lörem ipsum tetralig diadat ett stenotanas respektive såre.
-                    Blixad semiling ditåren ogodenera. Kons. Euroska nyng. Garad
-                    mibelt sågen.
+                    {t("suggestiondescription2")}
                   </h5>
                 </div>
               </div>
@@ -168,9 +159,7 @@ const Suggestions: NextPage = () => {
                 </div>
                 <div className="projectMotivationsDescription">
                   <h5 className="font-normal xl:text-justify text-center max-w-[750px]  text-[#4a4a4a]  opacity-80  dark:text-[#d4d2cd]">
-                    Lörem ipsum tetralig diadat ett stenotanas respektive såre.
-                    Blixad semiling ditåren ogodenera. Kons. Euroska nyng. Garad
-                    mibelt sågen.
+                    {t("suggestiondescription3")}
                   </h5>
                 </div>
               </div>

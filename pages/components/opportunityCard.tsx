@@ -152,8 +152,11 @@ const OpportunityCard = (props: any) => {
                   onClick={(e) => e.stopPropagation()}
                   className="overflow-hidden min-h-[2rem] relative h-8 bg-[#F5F5F5] rounded-full mb-2 flex items-center"
                 >
-                  <span id="Timeleft" className="ml-3 mr-5 whitespace-nowrap">
-                    {timeLeft < 0 ? `Encerrado` : `${timeLeft} dias`}
+                  <span
+                    id="Timeleft"
+                    className="ml-3 mr-5 whitespace-nowrap  font-medium not-italic "
+                  >
+                    {timeLeft < 0 ? `Encerrado` : `${timeLeft} ${t("days")}`}
                   </span>
                   <i className="bx bg-[#F5F5F5] rounded-full 76y z-[3] bx-time text-[25px] mt-[1px] mr-[3px]"></i>
                 </CardTypeLogo>
@@ -184,7 +187,10 @@ const OpportunityCard = (props: any) => {
               >
                 {props.title}
               </h3>
-              <div id="CardTags" className="flex items-center mt-2 font-medium">
+              <div
+                id="CardTags"
+                className="flex items-center mt-2 font-medium flex-wrap gap-y-[8px]"
+              >
                 {props.tags
                   ? props.tags.map((tag: any) => (
                       <div

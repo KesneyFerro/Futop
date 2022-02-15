@@ -2,7 +2,8 @@
   "index": {
     "welcome": "Find your",
     "opportunity": "opportunity",
-    "search": "Search here..."
+    "search": "Search here...",
+    "indexp": "Swipe or search with filters and find the opportunity that best fits what you want."
   },
   "navbar": {
     "home": "Home",
@@ -26,6 +27,7 @@
     "notfound": "There are no results for your search.",
     "error": "Error loading posts",
     "code": "Code",
+    "days": "days",
     "Níveis de Escolaridade": "Education Levels",
     "Ensino Fundamental I": "Elementary School",
     "Ensino Fundamental II": "Middle School",
@@ -37,7 +39,7 @@
     "Curso": "Courses"
   },
   "footer": {
-    "readMore": "Read more",
+    "readMore": " Read more",
     "aboutUs": "About us",
     "otherProjects": "Other projects",
     "contacts": "Contacts",
@@ -50,7 +52,8 @@
     "press": "Press",
     "copyright": "All rights reserved",
     "havequestions": "Have questions?",
-    "contactUs": "Contact us at:"
+    "contactUs": "Contact us at:",
+    "aboutus": "We seek to open doors for your future and show that, with the right information, everyone can go much further than they think. Even because the world will always need authentic people motivated by their own dreams"
   },
   "home": {
     "mainp1": "futop is a project developed for the ",
@@ -63,8 +66,11 @@
     "motivationsTitle": "Our Motivations",
     "motivationsDescription": "“Opportunities multiply as they are seized” - Sun Tzu",
     "motivationsbox1title": "To informate about opportunities",
+    "motivationsbox1description": "We seek to use technological means to promote access to reliable and high-quality information",
     "motivationsbox2title": "To help brilliant young people",
+    "motivationsbox2description": "We look forward to help young people achieve their academic dreams",
     "motivationsbox3title": "To promote social equality",
+    "motivationsbox3description": "We believe that the different forms of intelligence are equally divided in all social strata",
     "requirementstitle": "What do you need to participate",
     "requirementsboxtitle": "Requirements",
     "requirementsitem1": "Will to learn",
@@ -87,14 +93,18 @@
     "idea1title": "To make the world more equal",
     "idea2title": "To improve education",
     "idea3title": "To give everyone a chance",
-    "ideiap": "Ever since the beginning, we had a well-defined goal: to remedy social inequality using technological means. The main motivation for choosing this focus area was noticing the difference between the academic knowledge of students who never had access to academic opportunities and those who did. While those who didn't have access to information only dreamed about the possibility of entering a university, those who had couldn't even imagine not being at a university after high school."
+    "ideiap": "Ever since the beginning, we had a well-defined goal: to remedy social inequality using technological means. The main motivation for choosing this focus area was noticing the difference between the academic knowledge of students who never had access to academic opportunities and those who did. While those who didn't have access to information only dreamed about the possibility of entering a university, those who had couldn't even imagine not being at a university after high school.",
+    "sugestionaboutus": "We seek to open doors for your future and show that, with the right information, everyone can go much further than they think. Even because the world will always need authentic people motivated by their own dreams.",
+    "suggestiondescription1": "We know that inequality is a problem directly related to social inequality. Therefore, we will try our best to overcome this problem through academic opportunities",
+    "suggestiondescription2": "We aim to instigate the constant search for knowledge and develop the student's vision in relation to the academic environment.",
+    "suggestiondescription3": "We believe that the different forms of intelligence are equally divided in all social strata"
   },
   "myprofile": {
     "myprofile": "My account",
     "myfavorites": "My favorites",
-    "gohome": "Back to home",
+    "gohome": "Back to opportunities",
     "nofavorites": "You don't have any favorite posts",
-    "error": "Error loading suggestions"
+    "error": "Error loading favorites"
   },
   "opportunity": {
     "whatwedo": "What we do?",

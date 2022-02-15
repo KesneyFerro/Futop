@@ -16,7 +16,7 @@ const ShareAOpportunity = () => {
               </span>
             </h3>
             <h4 className=" font-medium text-base max-w-[600px] text-black dark:text-white/60 text-center lg:text-justify mt-10 mb-5 lg:mb-0 lg:mt-5 text-black/50">
-              {t("shareaopportunitydescription1")} <br />
+              {t("shareaopportunitydescription1")}{" "}
               {t("shareaopportunitydescription2")}
             </h4>
             <button className="bg-[#25092D] dark:bg-[#ffc700] dark:text-black  dark:font-medium text-white text-base rounded-full px-5 py-3 mt-5 flex justify-center lg:justify-between w-[80vw] max-w-[310px] items-center drop-shadow-lg">

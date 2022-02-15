@@ -124,9 +124,7 @@ const Home: NextPage = ({ posts }: any) => {
             </div>
             <div className="descriptionOpportunities mt-2">
               <p className="text-[#9F9F9E] font-medium text-[15px]">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Pellentesque sed sodales nibh leo. Cursus odio ullamcorper elit
-                odio augue.
+                {t("indexp")}
               </p>
             </div>
           </div>

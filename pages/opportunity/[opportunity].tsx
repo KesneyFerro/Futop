@@ -349,7 +349,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
                 </div>
               )}
             </div>
-            <div className="flex flex-col items-start w-full mt-10 mb-10">
+            <div className="flex flex-col items-start w-full mt-10 sm:mb-10">
               <div className="mb-10 flex w-full items-center">
                 <h2 className="font-extrabold text-3xl sm:whitespace-nowrap mr-6 dark:text-white">
                   {t("maybeyoualsolike")}

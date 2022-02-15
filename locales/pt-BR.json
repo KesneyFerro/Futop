@@ -1,6 +1,7 @@
 {
   "index": {
     "welcome": "Encontre a sua",
+    "indexp": "Deslize ou pesquise com filtros e encontre a oportunidade que melhor se encaixa no que quer.",
     "opportunity": "oportunidade",
     "search": "Pesquise Aqui..."
   },
@@ -17,7 +18,7 @@
     "shareus": "Compartilhe Conosco",
     "opportunity": "Oportunidade",
     "doyouknow": "Conhece uma",
-    "shareaopportunitydescription1": "Gostaria de contribuir com a nossa causa e nos ajudar a mudar a vida de diversos jovens?",
+    "shareaopportunitydescription1": "Gostaria de contribuir com a nossa causa e nos ajudar a mudar a vida de diversos jovens? ",
     "shareaopportunitydescription2": "Preencha um simples formulário com a oportunidade que conhece para que possamos ter cada vez mais oportunidades para divulgar"
   },
   "posts": {
@@ -30,14 +31,14 @@
     "Ensino Fundamental I": "Ensino Fundamental I",
     "Ensino Fundamental II": "Ensino Fundamental II",
     "Ensino médio": "Ensino Médio",
-
+    "days": "dias",
     "Tipo de Oportunidade": "Tipo de Oportunidade",
     "Olimpíadas": "Olimpíadas",
     "Bolsa": "Bolsa",
     "Curso": "Curso"
   },
   "footer": {
-    "readMore": "Leia Mais",
+    "readMore": " Leia Mais",
     "aboutUs": "Sobre nós",
     "otherProjects": "Outros trabalhos",
     "press": "Conferências",
@@ -50,7 +51,8 @@
     "useterms": "Termos de serviço",
     "copyright": "Todos os direitos reservados",
     "havequestions": "Tem uma pergunta?",
-    "contactUs": "Entre em contato em:"
+    "contactUs": "Entre em contato em:",
+    "aboutus": "Procuramos abrir portas para o futuro e mostrar que com a informação certas todos podem ir bem mais longe do que imaginam. Já que o mundo sempre precisará de pessoas autenticas e motivadas pelos seus próprios sonhos"
   },
   "home": {
     "mainp1": "A futop é um projeto desenvolvido para a ",
@@ -91,15 +93,19 @@
     "idea1title": "Para tornar o mundo mais igualitário",
     "idea2title": "Para melhorar a educação",
     "idea3title": "Para dar chance a todos",
-    "ideiap": "Desde o início tínhamos a nossa meta bem demarcada: remediar a desigualdade social utilizando os meios tecnológicos. A principal motivação para escolhermos esse tema foi notar a diferença entre o grau de conhecimento acadêmico entre alunos que nunca tiveram acesso a oportunidades acadêmicas e os que tiveram. Enquanto os que não tiveram acesso a informação apenas sonhavam com a possibilidade de entrar em uma universidade, os que receberam as oportunidades não se imaginavam sem estar em uma universidade após o ensino médio."
+    "ideiap": "Desde o início tínhamos a nossa meta bem demarcada: remediar a desigualdade social utilizando os meios tecnológicos. A principal motivação para escolhermos esse tema foi notar a diferença entre o grau de conhecimento acadêmico entre alunos que nunca tiveram acesso a oportunidades acadêmicas e os que tiveram. Enquanto os que não tiveram acesso a informação apenas sonhavam com a possibilidade de entrar em uma universidade, os que receberam as oportunidades não se imaginavam sem estar em uma universidade após o ensino médio.",
+    "sugestionaboutus": "Procuramos abrir portas para o futuro e mostrar que com a informação certas todos podem ir bem mais longe do que imaginam. Já que o mundo sempre precisará de pessoas autenticas e motivadas pelos seus próprios sonhos.",
+    "suggestiondescription1": "Sabemos que a desigualdade é um problema diretamente relacionado com a desigualdade social. Por isso, tentaremos ao máximo vencer esse problema usando o acesso por meio de oportunidades acadêmicas",
+    "suggestiondescription2": "Procuramos instigar a busca constante por conhecimento e desenvolver a visão do aluno em relação ao meio acadêmico",
+    "suggestiondescription3": "Acreditamos que as diversas formas de inteligência se dividem igualmente em todas as camadas sociais"
   },
 
   "myprofile": {
     "myprofile": "Minha conta",
     "myfavorites": "Meus Favoritos",
-    "gohome": "Voltar para o início",
+    "gohome": "Voltar para as oportunidades",
     "nofavorites": "Você não tem nenhuma postagem favoritada",
-    "error": "Error ao carregar sugestões"
+    "error": "Error ao carregar favoritos"
   },
   "opportunity": {
     "whatwedo": "O que fazemos?",

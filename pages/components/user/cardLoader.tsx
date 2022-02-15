@@ -85,7 +85,7 @@ const FavoritePosts = ({ posts }: any) => {
         <h2 className="text-center text-black/90 dark:text-white font-medium text-lg">
           {t("nofavorites")}
         </h2>
-        <Link href="/#searchbar">
+        <Link href="/opportunities#searchbar">
           <button className="dark:bg-white bg-black/90 dark:text-black text-white min-w-[200px] px-10 py-4 mt-4 rounded-full text-base font-medium">
             {t("gohome")}
           </button>
