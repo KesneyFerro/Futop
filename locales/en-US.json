@@ -3,6 +3,7 @@
     "welcome": "Find your",
     "opportunity": "opportunity",
     "search": "Search here...",
+    "pagetitle": "Opportunities",
     "indexp": "Swipe or search with filters and find the opportunity that best fits what you want."
   },
   "navbar": {
@@ -56,6 +57,7 @@
     "aboutus": "We seek to open doors for your future and show that, with the right information, everyone can go much further than they think. Even because the world will always need authentic people motivated by their own dreams"
   },
   "home": {
+    "pagetitle": "Home",
     "mainp1": "futop is a project developed for the ",
     "mainp2": " with the aim of promoting accessibility to high-quality information for young people. We want to raise the level of education and promote social equality through opportunities that interest you, focusing on the ideal of aptitude in your own area of ​​knowledge and studying by will instead of obligation.",
     "mainbutton": "Get to know our opportunities",
@@ -65,7 +67,7 @@
     "maintitle4": "everyone",
     "motivationsTitle": "Our Motivations",
     "motivationsDescription": "“Opportunities multiply as they are seized” - Sun Tzu",
-    "motivationsbox1title": "To informate about opportunities",
+    "motivationsbox1title": "To informante about opportunities",
     "motivationsbox1description": "We seek to use technological means to promote access to reliable and high-quality information",
     "motivationsbox2title": "To help brilliant young people",
     "motivationsbox2description": "We look forward to help young people achieve their academic dreams",
@@ -79,9 +81,11 @@
     "joinustitle": "Want to know more about it?",
     "joinusdescription1": "“It is education that makes the future look like a place of hope and transformation”",
     "joinusdescription2": "- Marianna Moreno -",
-    "joinusbutton": "Register now"
+    "joinusbutton": "Register now",
+    "requirementsdescription": "To be part of ours is to dream of a better future and to walk your own path to achieve it. If you meet this requirement, we will work tirelessly to guide you to your goal, through the best opportunities."
   },
   "suggestions": {
+    "pagetitle": "Contact us",
     "suggestiontitle1": "Any",
     "suggestiontitle2": "suggestion?",
     "suggestionp1": "Would you like to help us build an increasingly dynamic space adapted to your needs to build a better future?",
@@ -117,10 +121,11 @@
     "at": "at",
     "error": "Error loading suggestions",
     "noresults": "There are no suggestions for this level of education",
-    "gohome": "Back to home",
+    "gohome": "Back to opportunities",
     "nopost": "This post has no text"
   },
   "login": {
+    "pagetitle": "Login",
     "crieumaconta": "Create your account",
     "logind": "Come find your next opportunities",
     "continuecom": "Continue with...",
@@ -128,5 +133,10 @@
     "register2": "terms and conditions",
     "register3": "and",
     "register4": "privacy policy"
+  },
+  "mydropdown": {
+    "myprofile": "My Profile",
+    "login": "Login",
+    "logout": "Logout"
   }
 }

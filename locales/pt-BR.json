@@ -3,7 +3,8 @@
     "welcome": "Encontre a sua",
     "indexp": "Deslize ou pesquise com filtros e encontre a oportunidade que melhor se encaixa no que quer.",
     "opportunity": "oportunidade",
-    "search": "Pesquise Aqui..."
+    "search": "Pesquise Aqui...",
+    "pagetitle": "Oportunidades"
   },
   "navbar": {
     "home": "Início",
@@ -55,6 +56,7 @@
     "aboutus": "Procuramos abrir portas para o futuro e mostrar que com a informação certas todos podem ir bem mais longe do que imaginam. Já que o mundo sempre precisará de pessoas autenticas e motivadas pelos seus próprios sonhos"
   },
   "home": {
+    "pagetitle": "Início",
     "mainp1": "A futop é um projeto desenvolvido para a ",
     "mainp2": " com o objetivo de promover acessibilidade a informação de qualidade para jovens. Queremos elevar o nível de educação e promover a igualdade social por meio de oportunidades do seu interesse, focando no ideal de aptidão na sua própria área de conhecimento e estudar por vontade e não obrigação.",
     "mainbutton": "Conheça nossas oportunidades",
@@ -67,11 +69,11 @@
     "motivationsbox1title": "Informar sobre oportunidades",
     "motivationsbox1description": "Buscamos utilizar os meios tecnológicos para promover o acesso à informações confiáveis e de qualidade",
     "motivationsbox2title": "Ajudar jovens brilhantes",
-    "motivationsbox2description": "Anciamos por ajudar jovens a alcançarem os seus sonhos acadêmicos",
+    "motivationsbox2description": "Ansiamos por ajudar jovens a alcançarem os seus sonhos acadêmicos",
     "motivationsbox3title": "Promover igualdade social",
     "motivationsbox3description": "Acreditamos que as diversas formas de inteligência se dividem igualmente em todas as camadas sociais",
     "requirementstitle": "O que é necessário para participar",
-    "requirementsdescription": "Ser parte do nosso é sonhar com um futuro melhor e trilhar o próprio caminho para alcança-lo. Se você preenche esse requisito, trabalharemos incansávelmente para guia-lo até o seu objetivo, por meio das melhores oportunidades",
+    "requirementsdescription": "Ser parte do nosso é sonhar com um futuro melhor e trilhar o próprio caminho para alcança-lo. Se você preenche esse requisito, trabalharemos incansavelmente para guia-lo até o seu objetivo, por meio das melhores oportunidades.",
     "requirementsboxtitle": "Requisitos",
     "requirementsitem3": "Vontade de Aprender",
     "requirementsitem2": "Dedicação",
@@ -82,9 +84,10 @@
     "joinusbutton": "Registre-se agora"
   },
   "suggestions": {
+    "pagetitle": "Fale Conosco",
     "suggestiontitle1": "Alguma",
     "suggestiontitle2": "sugestão?",
-    "suggestionp1": "Gostaria de nos ajudar a contruir um espaço cada vez mais dinâmico e adaptado às suas necessidades para construir um futuro melhor?",
+    "suggestionp1": "Gostaria de nos ajudar a construir um espaço cada vez mais dinâmico e adaptado às suas necessidades para construir um futuro melhor?",
     "suggestionp2": "Nos envie um formulário com a sua sugestão e nos ajude a melhorar.",
     "suggestionbutton": "Contribua conosco",
     "aboutustitle1": "Sobre nós",
@@ -118,10 +121,11 @@
     "at": "ás",
     "error": "Error ao carregar sugestões",
     "noresults": "Não há sugestões para este nível de escolaridade",
-    "gohome": "Voltar para o início",
+    "gohome": "Voltar para as oportunidades",
     "nopost": "Esta postagem não possui texto"
   },
   "login": {
+    "pagetitle": "Login",
     "crieumaconta": "Crie uma conta",
     "logind": "Venha encontrar as suas próximas oportunidades",
     "continuecom": "Continue com...",
@@ -129,5 +133,10 @@
     "register2": "termos e condições",
     "register3": "e",
     "register4": "política de privacidade"
+  },
+  "mydropdown": {
+    "myprofile": "Meu Perfil",
+    "login": "Faça Login",
+    "logout": "Sair"
   }
 }

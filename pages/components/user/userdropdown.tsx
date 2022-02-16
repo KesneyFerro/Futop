@@ -6,12 +6,25 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { signIn, signOut, useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 export default function UserProfile({ mobile }: any) {
-  const t = useTranslations("navbar");
+  const t = useTranslations("mydropdown");
   const { locales, locale, pathname, query, asPath } = useRouter();
   const otherLocales = locales;
+  const router = useRouter();
+  const signIn = () => {
+    // Hack until Next Auth JS Fixes locale forwarding
+    if (locale == "en-US") {
+      router.push(
+        `/signin?callbackUrl=${process.env.NEXTAUTH_URL}/en-US${router.asPath}`
+      );
+    } else {
+      router.push(
+        `/signin?callbackUrl=${process.env.NEXTAUTH_URL}${router.asPath}`
+      );
+    }
+  };
   const { data: session } = useSession();
   return (
     <div className="">
@@ -59,7 +72,7 @@ export default function UserProfile({ mobile }: any) {
                         } group flex rounded-md items-center justify-center w-full px-2 py-2 text-sm`}
                         onClick={() => signIn()}
                       >
-                        Faça Login
+                        {t("login")}
                       </button>
                     )}
                   </Menu.Item>
@@ -74,7 +87,7 @@ export default function UserProfile({ mobile }: any) {
                         <button
                           className={`hover:bg-[#ffc700] hover:text-black hover:dark:text-black hover:font-semibold text-gray-900 dark:text-white group flex rounded-md items-center justify-center w-full px-2 py-2 text-sm`}
                         >
-                          Meu perfil
+                          {t("myprofile")}
                         </button>
                       </Link>
                     )}
@@ -89,9 +102,11 @@ export default function UserProfile({ mobile }: any) {
                             ? "bg-[#ffc700] text-black font-semibold"
                             : "text-gray-900 dark:text-white"
                         } group flex rounded-md items-center justify-center w-full px-2 py-2 text-sm`}
-                        onClick={() => signOut()}
+                        onClick={() => {
+                          signOut();
+                        }}
                       >
-                        Sair
+                        {t("logout")}
                       </button>
                     )}
                   </Menu.Item>
