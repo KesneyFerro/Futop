@@ -9,9 +9,11 @@ import { useTranslations } from "next-intl";
 //
 
 const fetcher = async (url: any) =>
-  await axios.get(url).then(async (res) => {
-    return res.data;
-  });
+  await axios
+    .post(url, { token: process.env.NEXT_PUBLIC_DBTOKEN })
+    .then(async (res) => {
+      return res.data;
+    });
 const chunkArray = (myArray: any, chunkSize: number) => {
   let index = 0;
   const reversedArray = myArray.reverse();
@@ -110,6 +112,7 @@ function Posts({
 
   const { data, error } = useSWR(
     "https://futop.vercel.app/api/getposts",
+
     fetcher
   );
 

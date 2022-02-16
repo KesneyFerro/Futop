@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable require-jsdoc */
 /* eslint-disable react/jsx-no-undef */
-// import { AnimatePresence, motion } from "framer-motion";
-// import axios from "axios";
 import type { NextPage } from "next";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
@@ -88,7 +86,10 @@ const Home: NextPage = ({ posts }: any) => {
   useEffect(() => {
     if (session) {
       axios
-        .post("https://futop.vercel.app/api/userinfo", { session: session })
+        .post("https://futop.vercel.app/api/userinfo", {
+          session: session,
+          token: process.env.NEXT_PUBLIC_DBTOKEN,
+        })
         .then((res) => {});
     } else {
     }

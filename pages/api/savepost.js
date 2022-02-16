@@ -4,6 +4,15 @@ import { connectToDatabase } from "../../lib/dbConnect";
 import nextCors from "nextjs-cors";
 export default async function handler(req, res) {
   const { db } = await connectToDatabase();
+  const token = req.body.token;
+  const rt = process.env.NEXT_PUBLIC_DBTOKEN;
+  if (token != rt) {
+    return res.status(200).send({
+      status: "Unauthorized",
+      user: null,
+      code: 401,
+    });
+  }
   await nextCors(req, res, {
     // Options
     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
