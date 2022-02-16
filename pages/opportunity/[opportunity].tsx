@@ -442,7 +442,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
 };
 export const getServerSideProps = async (context: any) => {
   const { opportunity } = context.params;
-  const post = await axios.post(`https://futop.vercel.app/api/getpostbyid`, {
+  const post = await axios.post(`https://futop.ga/api/getpostbyid`, {
     token: process.env.NEXT_PUBLIC_DBTOKEN,
     opportunity: opportunity,
   });
