@@ -6,18 +6,18 @@ export default async function handler(req, res) {
   const { db } = await connectToDatabase();
   const token = req.body.token;
   const rt = process.env.NEXT_PUBLIC_DBTOKEN;
-  if (token != rt) {
-    return res.status(200).send({
-      status: "Unauthorized",
-      user: null,
-    });
-  }
   await nextCors(req, res, {
     // Options
     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
     origin: "*",
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   });
+  if (token != rt) {
+    return res.status(200).send({
+      status: "Unauthorized",
+      user: null,
+    });
+  }
   const session = req.body.session;
   //   const token = req.body.token;
   // console.log(token);
