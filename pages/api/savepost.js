@@ -23,15 +23,15 @@ export default async function handler(req, res) {
       code: 401,
     });
   }
+  if (token != rt) {
+    return res.status(200).send({
+      status: "Unauthorized",
+      user: null,
+      code: 401,
+    });
+  }
 
   if (req.method === "POST") {
-    if (token != rt) {
-      return res.status(200).send({
-        status: "Unauthorized",
-        user: null,
-        code: 401,
-      });
-    }
     const user = await db
       .collection("users")
       .findOne({ email: session.user.email });
