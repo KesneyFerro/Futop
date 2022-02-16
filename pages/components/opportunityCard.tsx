@@ -189,7 +189,7 @@ const OpportunityCard = (props: any) => {
               </h3>
               <div
                 id="CardTags"
-                className="flex items-center mt-2 font-medium flex-wrap"
+                className="flex items-center mt-2 font-medium flex-wrap gap-[8px]"
               >
                 {props.tags
                   ? props.tags.map((tag: any) => (
@@ -220,7 +220,7 @@ const OpportunityCardStyle = styled.div<CardInterface>`
   height: 300px; */
   /* z-index: ${(props) => (props.first ? "3" : "1")}; */
   #CardTags > * + * {
-    margin-left: 8px;
+    /* margin-left: 8px; */
   }
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3)),
     linear-gradient(
