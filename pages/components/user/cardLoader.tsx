@@ -19,9 +19,11 @@ const SliderMenuStyle = styled.div`
   }
 `;
 const fetcher = async (url: any) =>
-  await axios.get(url).then(async (res) => {
-    return res.data;
-  });
+  await axios
+    .post(url, { token: process.env.NEXT_PUBLIC_DBTOKEN })
+    .then(async (res) => {
+      return res.data;
+    });
 const FavoritePosts = ({ posts }: any) => {
   const t = useTranslations("myprofile");
   // create a function that filter a array of posts by the favorites posts id array of the user
@@ -39,6 +41,7 @@ const FavoritePosts = ({ posts }: any) => {
       if (session) {
         axios
           .post("https://futop.vercel.app/api/userinfo", {
+            token: process.env.NEXT_PUBLIC_DBTOKEN,
             session: session,
           })
           .then((res) => {

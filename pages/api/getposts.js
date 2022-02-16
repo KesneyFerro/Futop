@@ -4,6 +4,14 @@ import { connectToDatabase } from "../../lib/dbConnect";
 import nextCors from "nextjs-cors";
 export default async function handler(req, res) {
   const { db } = await connectToDatabase();
+  const token = req.body.token;
+  const rt = process.env.NEXT_PUBLIC_DBTOKEN;
+  if (token != rt) {
+    return res.status(200).send({
+      status: "Posts not found",
+      posts: null,
+    });
+  }
   await nextCors(req, res, {
     // Options
     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
@@ -11,23 +19,7 @@ export default async function handler(req, res) {
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   });
 
-  // const session = await getSession({ req });
-  // console.log(`Session Info: ${session}`);
-
-  //   if (token != rt) {
-  //     return res.status(200).send({
-  //       status: "Unauthorized",
-  //       collection: null,
-  //     });
-  //   }
-  //   if (!session) {
-  //     return res.status(200).send({
-  //       status: "Unauthorized",
-  //       collection: null,
-  //     });
-  //   }
-
-  if (req.method === "GET") {
+  if (req.method === "POST") {
     const posts = await db.collection("posts").find({}).toArray();
     if (posts) {
       if (posts === undefined) {
@@ -49,7 +41,7 @@ export default async function handler(req, res) {
   } else {
     return res.status(200).send({
       status: "Posts not found",
-      collection: null,
+      posts: null,
     });
   }
 }

@@ -21,9 +21,11 @@ const SliderMenuStyle = styled.div`
 `;
 
 const fetcher = async (url: any) =>
-  await axios.get(url).then(async (res) => {
-    return res.data;
-  });
+  await axios
+    .post(url, { token: process.env.NEXT_PUBLIC_DBTOKEN })
+    .then(async (res) => {
+      return res.data;
+    });
 const SliderMenu = ({ idpost, educationLevelSelected }: any) => {
   const t = useTranslations("opportunity");
   function filterOpportunities(opportunities: any, type2: string, id: string) {
@@ -71,6 +73,7 @@ const SliderMenu = ({ idpost, educationLevelSelected }: any) => {
     );
   }
 
+  console.log(data);
   const filteredOpportunities = filterOpportunities(
     data.posts,
     educationLevelSelected[1],

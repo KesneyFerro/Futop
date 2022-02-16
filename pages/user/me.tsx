@@ -50,6 +50,7 @@ const myProfile: NextPage = ({ posts, user }: any) => {
       if (session) {
         axios
           .post("https://futop.vercel.app/api/userinfo", {
+            token: process.env.NEXT_PUBLIC_DBTOKEN,
             session: session,
           })
           .then((res) => {

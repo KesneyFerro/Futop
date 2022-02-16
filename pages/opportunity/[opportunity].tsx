@@ -123,6 +123,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
     axios
       .post("https://futop.vercel.app/api/savepost", {
         session: session,
+        token: process.env.NEXT_PUBLIC_DBTOKEN,
         postid: post.posts.id,
         check: true,
       })
@@ -142,6 +143,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
       axios
         .post("https://futop.vercel.app/api/savepost", {
           session: session,
+          token: process.env.NEXT_PUBLIC_DBTOKEN,
           postid: post.posts.id,
           check: false,
         })
@@ -174,7 +176,10 @@ const OpportunityPage: NextPage = ({ post }: any) => {
     if (session) {
       console.log("session");
       axios
-        .post("https://futop.vercel.app/api/userinfo", { session: session })
+        .post("https://futop.vercel.app/api/userinfo", {
+          session: session,
+          token: process.env.NEXT_PUBLIC_DBTOKEN,
+        })
         .then((res) => {
           console.log("result");
         });
@@ -438,6 +443,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
 export const getServerSideProps = async (context: any) => {
   const { opportunity } = context.params;
   const post = await axios.post(`https://futop.vercel.app/api/getpostbyid`, {
+    token: process.env.NEXT_PUBLIC_DBTOKEN,
     opportunity: opportunity,
   });
   if (post.data.posts === null) {
