@@ -27,6 +27,9 @@ const CardTypeLogo = styled.i`
 const OpportunityCard = (props: any) => {
   // Create a function that will recive a array where the first element is a string date in format YYYY-MM-DD and the second element is a string time in format HH:MM:SS and return how many days has passed or remaing until the event
   const daysBetween = (date: string, time: string) => {
+    if (date === "00-00-00") {
+      return NaN;
+    }
     const dateArray = date.split("-");
     const timeArray = time.split(":");
 

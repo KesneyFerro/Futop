@@ -114,7 +114,6 @@ const OpportunityPage: NextPage = ({ post }: any) => {
     post.posts.date ? post.posts.date[1] : "00:00:00"
   );
 
-  console.log(dateTime);
   // console.log(timeLeft);
 
   useEffect(() => {
@@ -174,15 +173,12 @@ const OpportunityPage: NextPage = ({ post }: any) => {
 
   useEffect(() => {
     if (session) {
-      console.log("session");
       axios
         .post("https://futop.vercel.app/api/userinfo", {
           session: session,
           token: process.env.NEXT_PUBLIC_DBTOKEN,
         })
-        .then((res) => {
-          console.log("result");
-        });
+        .then((res) => {});
     } else {
     }
   }, [session]);
@@ -291,7 +287,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
                         : t("remaining")
                       : t("remaining")}{" "}
                     <span>
-                      {post.posts.date != undefined
+                      {post.posts.date[0] !== "00-00-00"
                         ? `(${post.posts.date[0].replace(regex, "/")} ${t(
                             "at"
                           )} ${post.posts.date[1].split(":")[0]}:${
