@@ -31,14 +31,14 @@ export default async function handler(req, res) {
       user: null,
     });
   }
+  if (token != rt) {
+    return res.status(200).send({
+      status: "Unauthorized",
+      user: null,
+    });
+  }
 
   if (req.method === "POST") {
-    if (token != rt) {
-      return res.status(200).send({
-        status: "Unauthorized",
-        user: null,
-      });
-    }
     const user = await db
       .collection("users")
       .findOne({ email: session.user.email });

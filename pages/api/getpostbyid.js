@@ -15,13 +15,13 @@ export default async function handler(req, res) {
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   });
 
+  if (token != rt) {
+    return res.status(200).send({
+      status: "Posts not found",
+      posts: null,
+    });
+  }
   if (req.method === "POST") {
-    if (token != rt) {
-      return res.status(200).send({
-        status: "Posts not found",
-        posts: null,
-      });
-    }
     const posts = await db.collection("posts").findOne({ id: opportunity });
     if (posts) {
       if (posts === undefined) {
