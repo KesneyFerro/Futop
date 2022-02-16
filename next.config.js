@@ -14,4 +14,7 @@ module.exports = {
   experimental: {
     scrollRestoration: true,
   },
+  env: {
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+  },
 };

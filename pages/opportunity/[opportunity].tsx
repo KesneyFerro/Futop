@@ -2,7 +2,7 @@
 import axios from "axios";
 import { prominent } from "color.js";
 import type { NextPage } from "next";
-import { signIn, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -36,6 +36,19 @@ const SocialMediaLogo = styled.i`
 
 const OpportunityPage: NextPage = ({ post }: any) => {
   const router = useRouter();
+  const { locale } = useRouter();
+  const signIn = () => {
+    // Hack until Next Auth JS Fixes locale forwarding
+    if (locale == "en-US") {
+      router.push(
+        `/signin?callbackUrl=${process.env.NEXTAUTH_URL}/en-US${router.asPath}`
+      );
+    } else {
+      router.push(
+        `/signin?callbackUrl=${process.env.NEXTAUTH_URL}${router.asPath}`
+      );
+    }
+  };
   const t = useTranslations("opportunity");
   const p = useTranslations("posts");
   const { data: session } = useSession();
@@ -131,9 +144,12 @@ const OpportunityPage: NextPage = ({ post }: any) => {
 
   useEffect(() => {
     if (session) {
+      console.log("session");
       axios
         .post("https://futop.vercel.app/api/userinfo", { session: session })
-        .then((res) => {});
+        .then((res) => {
+          console.log("result");
+        });
     } else {
     }
   }, [session]);
@@ -167,6 +183,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
       return "black";
     }
   }
+
   const theme = {
     main: colorr,
     color: checkColor(colorr),
@@ -231,7 +248,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
                     </span>
                   </h3>
                 </div>
-                <div className="flex flex-wrap justify-center items-center gap-x-2 gap-y-3">
+                <div className="flex flex-wrap justify-center items-center gap-3">
                   {post.posts.tags.map((tag: any, index: number) => (
                     <div
                       key={index}

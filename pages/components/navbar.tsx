@@ -13,19 +13,20 @@ import { useSession } from "next-auth/react";
 const NavbarContainerStyle = styled.div`
   .containernavbar {
     overflow: hidden;
-    width: 0px;
+    width: 280px;
     will-change: transform;
-    /* visibility: hidden; */
-    transition: width 0.3s ease-in-out,
-      background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-out;
   }
 
   .active {
     width: 280px;
+    transform: scaleX(1);
+    transform-origin: right;
     will-change: transform;
-    /* visibility: visible; */
-    transition: width 0.3s ease-in-out;
-    transition: width 0.3s ease-in-out,
+    visibility: visible;
+    transition: transform 0.3s ease-out,
       background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
@@ -63,21 +64,6 @@ const Navbar = () => {
   };
 
   const { data: session } = useSession();
-  // useEffect(() => {
-  //   if (session) {
-  //     axios
-  //       .post("http://localhost:3000/api/userinfo", {
-  //         session: session,
-  //       })
-  //       .then((res) => {
-  //         console.log("From Navbar: ", res.data);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }
-  // }, [session]);
-
   const url = () => {
     if (
       router.pathname.includes("/opportunity") ||
@@ -148,15 +134,6 @@ const Navbar = () => {
               } cursor-pointer text-2xl text-[#cccccc] mr-5 `}
             ></i>
             <UserProfile />
-            {/* <img
-              src={`${
-                session?.user?.image !== undefined
-                  ? session?.user?.image
-                  : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/HD_transparent_picture.png/1200px-HD_transparent_picture.png"
-              }`}
-              className="cursor-pointer w-10 h-10 bg-[#f5f6f5] dark:bg-[#161819] rounded-full"
-              onClick={() => signIn()}
-            ></img> */}
           </div>
           <div
             className="flex justify-center items-center lg:hidden cursor-pointer"
@@ -170,14 +147,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      {/* <AnimatePresence> */}
-      {/* {isOpen && ( */}
       <NavbarContainerStyle className={``}>
         <motion.div
-          // initial={{ opacity: 0 }}
-          // animate={{ opacity: 1 }}
-          // exit={{ opacity: 0 }}
-          // transition={{ duration: 0.2 }}
           onClick={() => setIsOpen(false)}
           className={`${
             isOpen ? "flex" : "hidden"
@@ -263,8 +234,6 @@ const Navbar = () => {
           </div>
         </div>
       </NavbarContainerStyle>
-      {/* )} */}
-      {/* </AnimatePresence> */}
     </>
   );
 };
