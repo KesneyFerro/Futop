@@ -12,12 +12,6 @@ export default async function handler(req, res) {
     origin: "*",
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   });
-  if (token != rt) {
-    return res.status(200).send({
-      status: "Unauthorized",
-      user: null,
-    });
-  }
   const session = req.body.session;
   //   const token = req.body.token;
   // console.log(token);
@@ -39,6 +33,12 @@ export default async function handler(req, res) {
   }
 
   if (req.method === "POST") {
+    if (token != rt) {
+      return res.status(200).send({
+        status: "Unauthorized",
+        user: null,
+      });
+    }
     const user = await db
       .collection("users")
       .findOne({ email: session.user.email });
