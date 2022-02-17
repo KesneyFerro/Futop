@@ -73,7 +73,6 @@ const SliderMenu = ({ idpost, educationLevelSelected }: any) => {
     );
   }
 
-  console.log(data);
   const filteredOpportunities = filterOpportunities(
     data.posts,
     educationLevelSelected[1],
