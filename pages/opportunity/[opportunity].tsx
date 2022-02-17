@@ -114,8 +114,6 @@ const OpportunityPage: NextPage = ({ post }: any) => {
     post.posts.date ? post.posts.date[1] : "00:00:00"
   );
 
-  // console.log(timeLeft);
-
   useEffect(() => {
     setIsLoading(true);
     setClipborard(false);

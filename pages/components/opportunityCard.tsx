@@ -56,7 +56,6 @@ const OpportunityCard = (props: any) => {
     props.time ? props.time[0] : "00-00-00",
     props.time ? props.time[1] : "00:00:00"
   );
-  // console.log(isNaN(timeLeft))
 
   const { data: session } = useSession();
   const [colorr, setColor] = useState("");
@@ -66,7 +65,6 @@ const OpportunityCard = (props: any) => {
       amount: 7,
     }).then((color: any) => {
       setColor(color[3].toString());
-      // console.log(color[3].toString());
     });
   }
 
