@@ -26,7 +26,26 @@ const fetcher = async (url: any) =>
     });
 const FavoritePosts = ({ posts }: any) => {
   const t = useTranslations("myprofile");
-  // create a function that filter a array of posts by the favorites posts id array of the user
+
+  // Return the ids of user favorite array that are not in the current posts array
+  const getRemovedIds = (userFavorites: any, currentPosts: any) => {
+    const removedIds: any = [];
+    userFavorites.forEach((favorite: any) => {
+      if (!currentPosts.some((post: any) => post.id === favorite)) {
+        removedIds.push(favorite);
+      }
+    });
+    removedIds.map((item: string) => {
+      axios.post("/api/savepost", {
+        token: process.env.NEXT_PUBLIC_DBTOKEN,
+        postid: item,
+        session: session,
+        check: false,
+        remove: true,
+      });
+    });
+  };
+
   const filterPosts = (posts: any, favorites: any) => {
     return posts.filter((post: any) => {
       return favorites.includes(post.id);
@@ -36,6 +55,7 @@ const FavoritePosts = ({ posts }: any) => {
   const { data: session } = useSession();
   const [userData, setUserData] = useState(posts);
   const { data, error } = useSWR("/api/getposts", fetcher);
+
   useEffect(() => {
     if (isDeleted == "true") {
       if (session) {
@@ -46,6 +66,9 @@ const FavoritePosts = ({ posts }: any) => {
           })
           .then((res) => {
             setUserData(res.data.user.favorites);
+            if (data) {
+              getRemovedIds(res.data.user.favorites, data.posts);
+            }
           });
         // setIsDeleted("false");
       } else {

@@ -6,6 +6,7 @@ export default async function handler(req, res) {
   const { db } = await connectToDatabase();
   const token = req.body.token;
   const rt = process.env.NEXT_PUBLIC_DBTOKEN;
+
   await nextCors(req, res, {
     // Options
     methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
@@ -15,6 +16,7 @@ export default async function handler(req, res) {
   const session = req.body.session;
   const postid = req.body.postid;
   const check = req.body.check;
+  const remove = req.body.remove;
 
   if (!session) {
     return res.status(200).send({
@@ -83,7 +85,33 @@ export default async function handler(req, res) {
             postid: postid,
           });
         }
+      } else {
+        if (remove == true) {
+          if (user.favorites.includes(postid)) {
+            //  Remove the post id from user favorites array
+            user.favorites.splice(user.favorites.indexOf(postid), 1);
+            await db
+              .collection("users")
+              .updateOne(
+                { email: session.user.email },
+                { $pull: { favorites: postid } }
+              );
+
+            return res.status(200).send({
+              status: "Removed from favorites",
+              code: "300",
+              postid: postid,
+            });
+          }
+        } else {
+          return res.status(200).send({
+            status: "This post can't be removed",
+            code: "400",
+            postid: postid,
+          });
+        }
       }
+
       return res.status(200).send({
         status: "This post does not exist",
         code: "400",
