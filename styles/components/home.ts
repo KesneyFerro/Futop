@@ -74,20 +74,20 @@ export const HomeCointainer = styled.div`
         grid-area: auto;
       }
     }
-    @media (max-width: 768px) {
+    @media (max-width: 769px) {
       grid-template-columns: 1fr;
     }
   }
 
   .Grid5 {
-    @media (min-width: 768px) and (max-width: 1080px) {
+    @media (min-width: 769px) and (max-width: 1080px) {
       div:last-child {
         grid-column: span 2;
       }
     }
   }
   .rightGrid.Grid5 {
-    @media (min-width: 768px) and (max-width: 1080px) {
+    @media (min-width: 769px) and (max-width: 1080px) {
       div:last-child {
         grid-column: span 2;
       }
@@ -109,7 +109,7 @@ export const HomeCointainer = styled.div`
         grid-row-end: 2;
       }
     }
-    @media (min-width: 768px) and (max-width: 1080px) {
+    @media (min-width: 769px) and (max-width: 1080px) {
       div:last-child {
         grid-column: span 2;
       }
@@ -123,14 +123,14 @@ export const HomeCointainer = styled.div`
         grid-row-end: 2;
       }
     }
-    @media (min-width: 768px) and (max-width: 1080px) {
+    @media (min-width: 769px) and (max-width: 1080px) {
       div:last-child {
         grid-column: span 2;
       }
     }
   }
   .Grid2 {
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
       div:first-child {
         grid-area: auto;
       }
@@ -139,14 +139,14 @@ export const HomeCointainer = styled.div`
     }
   }
   .Grid1 {
-    @media (min-width: 768px) {
+    @media (min-width: 769px) {
       div:first-child {
         grid-area: auto;
       }
       grid-template-rows: 1fr;
       grid-template-columns: 1fr;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 769px) {
       min-height: 226px;
     }
   }
