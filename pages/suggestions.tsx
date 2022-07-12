@@ -75,7 +75,7 @@ const Suggestions: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="aboutUsmain w-[80%]">
+        <div id="aboutUsmain" className="aboutUsmain w-[80%]">
           <div className="introductionAboutUs w-full flex flex-col xl:flex-row items-center justify-between mt-20">
             <div className="introductionAboutUsTitle text-justify max-w-auto">
               <p className="text-[#25092D] font-extrabold text-4xl text-center mb-7 xl:mb-0 xl:text-left dark:text-[#F3F0EA]">
