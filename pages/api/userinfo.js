@@ -1,6 +1,7 @@
 /* eslint-disable require-jsdoc */
 import { connectToDatabase } from "../../lib/dbConnect";
 // import { getSession } from "next-auth/react";
+import { getToken } from "next-auth/jwt";
 import nextCors from "nextjs-cors";
 export default async function handler(req, res) {
   const { db } = await connectToDatabase();
@@ -13,6 +14,10 @@ export default async function handler(req, res) {
     optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
   });
   const session = req.body.session;
+  const secret = process.env.JWT_SECRET;
+
+  const token2 = await getToken({ req, secret });
+
   //   const token = req.body.token;
   // console.log(token);
   //   const rt = process.env.NEXT_PUBLIC_DBTOKEN;
@@ -32,6 +37,19 @@ export default async function handler(req, res) {
     });
   }
   if (token != rt) {
+    return res.status(200).send({
+      status: "Unauthorized",
+      user: null,
+    });
+  }
+
+  if (token2 == null) {
+    return res.status(200).send({
+      status: "Unauthorized",
+      user: null,
+    });
+  }
+  if (token2.email != session.user.email) {
     return res.status(200).send({
       status: "Unauthorized",
       user: null,
