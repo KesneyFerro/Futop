@@ -118,7 +118,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
     setIsLoading(true);
     setClipborard(false);
     axios
-      .post("https://futop.vercel.app/api/savepost", {
+      .post("/api/savepost", {
         session: session,
         token: process.env.NEXT_PUBLIC_DBTOKEN,
         postid: post.posts.id,
@@ -138,7 +138,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
     setIsSaved(!isSaved);
     if (session) {
       axios
-        .post("https://futop.vercel.app/api/savepost", {
+        .post("/api/savepost", {
           session: session,
           token: process.env.NEXT_PUBLIC_DBTOKEN,
           postid: post.posts.id,
@@ -172,7 +172,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
   useEffect(() => {
     if (session) {
       axios
-        .post("https://futop.vercel.app/api/userinfo", {
+        .post("/api/userinfo", {
           session: session,
           token: process.env.NEXT_PUBLIC_DBTOKEN,
         })
