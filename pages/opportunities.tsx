@@ -86,7 +86,7 @@ const Home: NextPage = ({ posts }: any) => {
   useEffect(() => {
     if (session) {
       axios
-        .post("https://futop.vercel.app/api/userinfo", {
+        .post("/api/userinfo", {
           session: session,
           token: process.env.NEXT_PUBLIC_DBTOKEN,
         })

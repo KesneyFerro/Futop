@@ -50,7 +50,6 @@ export default async function handler(req, res) {
       user: null,
     });
   }
-  console.log("Salvo");
 
   if (req.method === "POST") {
     const user = await db

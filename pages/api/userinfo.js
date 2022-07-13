@@ -16,8 +16,6 @@ export default async function handler(req, res) {
   const session = req.body.session;
   const secret = process.env.JWT_SECRET;
 
-  const token2 = await getToken({ req, secret });
-
   //   const token = req.body.token;
   // console.log(token);
   //   const rt = process.env.NEXT_PUBLIC_DBTOKEN;
@@ -43,6 +41,7 @@ export default async function handler(req, res) {
     });
   }
 
+  const token2 = await getToken({ req, secret });
   if (token2 == null) {
     return res.status(200).send({
       status: "Unauthorized",

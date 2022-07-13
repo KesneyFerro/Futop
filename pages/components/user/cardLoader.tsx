@@ -60,11 +60,12 @@ const FavoritePosts = ({ posts }: any) => {
     if (isDeleted == "true") {
       if (session) {
         axios
-          .post("https://futop.vercel.app/api/userinfo", {
+          .post("/api/userinfo", {
             token: process.env.NEXT_PUBLIC_DBTOKEN,
             session: session,
           })
           .then((res) => {
+            console.log(res.data.user.favorites);
             setUserData(res.data.user.favorites);
             if (data) {
               getRemovedIds(res.data.user.favorites, data.posts);

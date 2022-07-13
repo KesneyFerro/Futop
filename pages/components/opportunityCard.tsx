@@ -97,7 +97,7 @@ const OpportunityCard = (props: any) => {
     e.stopPropagation();
     props.mutate(props.id);
     axios
-      .post("https://futop.vercel.app/api/savepost", {
+      .post("/api/savepost", {
         token: process.env.NEXT_PUBLIC_DBTOKEN,
         session: session,
         postid: props.id,
