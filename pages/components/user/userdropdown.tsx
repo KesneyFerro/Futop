@@ -17,11 +17,11 @@ export default function UserProfile({ mobile }: any) {
     // Hack until Next Auth JS Fixes locale forwarding
     if (locale == "en-US") {
       router.push(
-        `/signin?callbackUrl=${process.env.NEXTAUTH_URL}/en-US${router.asPath}`
+        `/signin?callbackUrl=${process.env.NEXT_PUBLIC_URL}/en-US${router.asPath}`
       );
     } else {
       router.push(
-        `/signin?callbackUrl=${process.env.NEXTAUTH_URL}${router.asPath}`
+        `/signin?callbackUrl=${process.env.NEXT_PUBLIC_URL}${router.asPath}`
       );
     }
   };

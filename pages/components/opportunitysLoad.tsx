@@ -111,7 +111,7 @@ function Posts({
   const [disable, setDisable] = React.useState(false);
 
   const { data, error } = useSWR(
-    "https://futop.vercel.app/api/getposts",
+  `${process.env.NEXT_PUBLIC_URL}/api/getposts`,
 
     fetcher
   );

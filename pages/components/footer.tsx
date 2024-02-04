@@ -71,7 +71,7 @@ const Footer = () => {
               </div>
             </div>
             <h5 className="text-[#9A9EA6] text-sm text-center dark:text-white">
-              &copy; 2022 Futop. {t("copyright")}.
+              &copy; {new Date().getFullYear()} Futop. {t("copyright")}.
             </h5>
           </div>
         </div>

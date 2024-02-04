@@ -115,7 +115,7 @@ const Home: NextPage = ({ posts }: any) => {
         <meta property="og:title" content={`${t("pagetitle")} - Futop`} />
         <meta
           property="og:url"
-          content={`${process.env.NEXTAUTH_URL}/${locale}${router.asPath}`}
+          content={`${process.env.NEXT_PUBLIC_URL}/${locale}${router.asPath}`}
         />
         <meta property="og:description" content={`${t("indexp")}`} />
         <meta property="og:locale" content={locale} />

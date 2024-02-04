@@ -41,11 +41,11 @@ const OpportunityPage: NextPage = ({ post }: any) => {
     // Hack until Next Auth JS Fixes locale forwarding
     if (locale == "en-US") {
       router.push(
-        `/signin?callbackUrl=${process.env.NEXTAUTH_URL}/en-US${router.asPath}`
+        `/signin?callbackUrl=${process.env.NEXT_PUBLIC_URL}/en-US${router.asPath}`
       );
     } else {
       router.push(
-        `/signin?callbackUrl=${process.env.NEXTAUTH_URL}${router.asPath}`
+        `/signin?callbackUrl=${process.env.NEXT_PUBLIC_URL}${router.asPath}`
       );
     }
   };
@@ -165,7 +165,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
   const clipboard = () => {
     setClipborard(false);
     timeout(1000);
-    navigator.clipboard.writeText(`https://futop.ga${router.asPath}`);
+    navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_URL}${router.asPath}`);
     setClipborard(true);
   };
 
@@ -230,7 +230,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
         <meta property="og:title" content={`${post.posts.title} - Futop`} />
         <meta
           property="og:url"
-          content={`${process.env.NEXTAUTH_URL}/${locale}${router.asPath}`}
+          content={`${process.env.NEXT_PUBLIC_URL}/${locale}${router.asPath}`}
         />
         <meta
           property="og:description"
@@ -436,7 +436,7 @@ const OpportunityPage: NextPage = ({ post }: any) => {
 };
 export const getServerSideProps = async (context: any) => {
   const { opportunity } = context.params;
-  const post = await axios.post(`https://futop.ga/api/getpostbyid`, {
+  const post = await axios.post(`${process.env.NEXT_PUBLIC_URL}/api/getpostbyid`, {
     token: process.env.NEXT_PUBLIC_DBTOKEN,
     opportunity: opportunity,
   });

@@ -18,11 +18,11 @@ const LandingPage: NextPage = () => {
     // Hack until Next Auth JS Fixes locale forwarding
     if (locale == "en-US") {
       router.push(
-        `/signin?callbackUrl=${process.env.NEXTAUTH_URL}/en-US${router.asPath}`
+        `/signin?callbackUrl=${process.env.NEXT_PUBLIC_URL}/en-US${router.asPath}`
       );
     } else {
       router.push(
-        `/signin?callbackUrl=${process.env.NEXTAUTH_URL}${router.asPath}`
+        `/signin?callbackUrl=${process.env.NEXT_PUBLIC_URL}${router.asPath}`
       );
     }
   };
@@ -51,7 +51,7 @@ const LandingPage: NextPage = () => {
         <meta property="og:title" content={`${t("pagetitle")} - Futop`} />
         <meta
           property="og:url"
-          content={`${process.env.NEXTAUTH_URL}/${locale}${router.asPath}`}
+          content={`${process.env.NEXT_PUBLIC_URL}/${locale}${router.asPath}`}
         />
         <meta
           property="og:description"
